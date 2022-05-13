@@ -37,7 +37,7 @@ Match the provider with the type of service:
 
 TYPE                                                                  PROVIDER
 Platform-as-a-Service (PaaS)                                GoDaddy
-Infrastructure-as-a-Service (IaaS)                          Rackspace
+Infrastructure-as-a-Service (IaaS)                          Rackspace, Digital Ocean
 Software-as-a-Service (SaaS)                                Gmail
 
 
