@@ -141,5 +141,58 @@ Availability Zone                                 Data center
 Deploying applications across multiple regions can help build a robust architecture.
 
 
+-: Shared Responsibility Model
+AWS is responsible for security OF the cloud, we are responsible for security IN the cloud.
+
+Examples
+
+AWS is responsible for:
+Securing edge locations
+Monitoring physical device security
+Providing physical access control to hardware/software
+Database patching
+Discarding physical storage devices
+
+You are responsible for:
+Managing AWS Identity and Access Management (IAM)
+Encrypting data
+Preventing or detecting when an AWS account has been compromised
+Restricting access to AWS services to only those users who need it
+
+AWS provides many powerful security controls but when and how you 
+apply them is your responsibility.
+
+
+-: Course - AWS Sign In and Costs
+Note: You might not have necessary permissions to complete this course 
+if you select regions other than us-east-1 and us-west-2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://aws.amazon.com/what-is-cloud-computing/
+
+https://aws.amazon.com/types-of-cloud-computing/
+
+https://aws.amazon.com/products/?aws-products-all.sort-by=item.additionalFields.productCategory&aws-products-all.sort-order=asc&awsf.re%3AInvent=*all&awsf.Free%20Tier%20Type=*all&awsf.tech-category=*all&awsm.page-aws-products-all=3
+
+https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+
+https://aws.amazon.com/about-aws/global-infrastructure/
+
+https://aws.amazon.com/compliance/shared-responsibility-model/
+
+
+
+
 
 */
