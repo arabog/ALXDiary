@@ -60,6 +60,12 @@ Deliver faster.
 
 Latency is d time taken to receive response when a request is sent
 
+Options Of Providers:
+Amazon Web Services
+Azure
+Google Cloud
+
+
 
 
 
