@@ -31,14 +31,43 @@ Software-as-a-Service (SaaS): A software application that runs over the
 Internet and is managed by the service provider.
 
 
-
-
 Match the provider with the type of service:
 
 TYPE                                                                  PROVIDER
 Platform-as-a-Service (PaaS)                                GoDaddy
 Infrastructure-as-a-Service (IaaS)                          Rackspace, Digital Ocean
 Software-as-a-Service (SaaS)                                Gmail
+
+
+Cloud Computing Deployment Model
+Public Cloud
+A public cloud makes resources available over the Internet to the general public.
+
+Private Cloud / On premises
+A private cloud is a proprietary network that supplies services to a limited number of people.
+
+Hybrid Cloud
+A hybrid model contains a combination of both a public and a private cloud.
+
+
+Benefits
+There are several benefits to the cloud.
+Stop guessing about capacity.
+Avoid huge capital investments up front.
+Pay for only what you use.
+Scale globally in minutes.
+Deliver faster.
+
+Latency is d time taken to receive response when a request is sent
+
+
+
+
+
+
+
+
+
 
 
 */
