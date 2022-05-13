@@ -167,7 +167,20 @@ apply them is your responsibility.
 Note: You might not have necessary permissions to complete this course 
 if you select regions other than us-east-1 and us-west-2.
 
+Default AWS region
+The default AWS region for you will be US East (N. Virginia) (us-east-1). 
+However, you can switch and practice in us-west-2 region as well. 
+Note: You might not have necessary permissions to complete this course 
+if you select regions other than us-east-1 and us-west-2
 
+
+Any service available to you @$0.1/hour or higher should be monitored 
+closely and shut down immediately after use or if you are stepping away
+
+Students must log out of any existing instances of the AWS console 
+before accessing AWS for this program, especially when moving 
+between more than one Udacity program, to ensure the right set 
+of permissions to complete this w
 
 
 
@@ -191,7 +204,7 @@ https://aws.amazon.com/about-aws/global-infrastructure/
 
 https://aws.amazon.com/compliance/shared-responsibility-model/
 
-
+https://aws.amazon.com/pricing/
 
 
 
