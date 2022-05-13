@@ -118,10 +118,27 @@ Continuous Integration                                       Code Pipeline
 Data Encryption                                                  Key Mgt Service
 Development Tool                                               Cloud 9
 
+Global Infrastructure
+Region is considered a geographic location/area on a map.
 
+Availability Zone: is an isolated location in a region 
+and is a physical data center within a specific region.
 
+Edge Location: is a mini-data center used solely to cache 
+large data files closer to a user's location.
 
+Additional Information
+There are more Availability Zones (AZs) than there are Regions.
+There should be at least two AZs per Region.
+Each region is located in a separate geographic area.
+AZs are distinct locations that are engineered to be isolated from failures.
 
+TOPIC                                             DEFINITION/FEATURE
+Region                                            Geographical location
+Edge Location                                     Cache files
+Availability Zone                                 Data center
+
+Deploying applications across multiple regions can help build a robust architecture.
 
 
 
