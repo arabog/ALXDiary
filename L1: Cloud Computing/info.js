@@ -183,12 +183,8 @@ between more than one Udacity program, to ensure the right set
 of permissions to complete this w
 
 
-
-
-
-
-
-
+Static website project:
+https://sites.google.com/udacity.com/alx-transforms-tech-nanodegree/home?authuser=0&bsft_aaid=05789e3b-9a7b-4421-becb-22c268b7011f&bsft_eid=d9dd5ae8-92c9-5106-49ec-f6272cd1ba4b&utm_campaign=gov_700_alx_connect_student_enrolled&utm_source=blueshift&utm_medium=email&utm_content=gov_700_alx_connect_welcome_email&bsft_clkid=f9fcf3a3-7daa-4097-8c2d-3d7ed832e1a9&bsft_uid=0d06f5c2-3e31-4d02-a1f2-ad626c0ccd7f&bsft_mid=4e6afb4d-cac1-41f3-92c1-c6a1a29721e1&bsft_txnid=c4ad6974-f187-450b-aef6-2b2316eeebac&bsft_mime_type=html&bsft_ek=2022-05-11T21%3A46%3A49Z&bsft_lx=4&bsft_tv=52
 
 
 
@@ -205,6 +201,9 @@ https://aws.amazon.com/about-aws/global-infrastructure/
 https://aws.amazon.com/compliance/shared-responsibility-model/
 
 https://aws.amazon.com/pricing/
+
+https://aws.amazon.com/getting-started/
+
 
 
 
