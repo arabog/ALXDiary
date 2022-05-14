@@ -147,6 +147,14 @@ EBS is found on the EC2 Dashboard.
 There are several EBS volume types that fall under the categories of 
 Solid State Drives (SSD) and Hard Disk Drives (HDD).
 
+2 types of memory for an EC2 instance:
+in memory/instance store and 
+on EBS
+
+Provisioned IOPS SSD volumes can deliver up to 64000 IOPS, 
+and are best for EBS-optimized instances.
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html
 
 */
 
@@ -155,4 +163,11 @@ can i use free tier account for my project?
 what are the available options wn private key is lost?
 which text/books will u suggest for devops?
 can you walk me via  EC2 set up>
+EBS is referred to as phy HDD, for how long is it owned
+and how is it maintained in price wise(amoun payed)?
+
+whaat does EC2 is automatically replicated in its AZ means,
+does it means when it spoil it replace?
+
+who owns d EBS amazon or d client? 
 
