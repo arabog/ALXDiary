@@ -109,10 +109,6 @@ https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0355/modules/297
 https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0355/modules/29783684-5852-4b81-99f6-2de6ff37b6d6/lessons/cccb3643-2470-4b97-8261-b4a222d45d07/concepts/2fb659d3-6cb7-4214-8a19-c91155339f7b
 
 
-
-
-
-
 Best practices for Amazon EC2
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-best-practices.html
 
@@ -135,6 +131,99 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.htm
 https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html
 
 
+A flat network is a simple network design that reduces cost and overall adminstratn
+
+What can a VPC protect? Pick two.
+Data stored on AWS S3
+AWS EC2 Instances
+
+Definition - A network access control list (ACL) defines the set of firewall 
+rules for controlling traffic coming in and out of subnets in your VPC.
+
+Launch an EC2 Instance
+Access VPC service from AWS mgt console
+Launch an EC2 instance
+Attach an EBS volume
+Cleanup and Disable EC2 instance
+
+Compute Power In The Cloud
+Compute power in the cloud is a faster way to build applications, providing:
+
+no servers to manage (i.e. serverless)
+ability to continuously scale
+ability to run code on demand in response to events
+pay only when your code runs
+
+Lambda
+AWS Lambda provides you with computing power in the cloud by allowing you 
+to execute code without standing up or managing servers.
+
+Tips
+Lambda is found under the Compute section on the AWS Management Console.
+Lambdas have a time limit of 15 minutes.
+The code you run on AWS Lambda is called a “Lambda function.”
+Lambda code can be triggered by other AWS services.
+AWS Lambda supports Java, Go, PowerShell, Node.js, C#/.NET, Python, and 
+Ruby. There is a Runtime API that allows you to use other programming 
+languages to author your functions.
+Lambda code can be authored via the console
+
+Lambda is event-driven, so you can run your code based on certain 
+events happening, like a file upload, or a record being inserted in 
+a database, etc.
+
+https://aws.amazon.com/lambda/
+
+
+Create and execute a Lambda
+AWS S3 is a file storage service
+
+
+Exercise
+Launch an EC@ instance
+Connect to Linux instance
+Create n EBS
+EBS Dashbord
+
+VPC Dashboard
+Create a VPC
+Your VPCs
+
+Launch an EC2 instance
+
+Create a Lambda Function
+Create and Execute a Lambda
+
+Deploy Sample App to Elastic Beanstalk
+
+Amazon S3 
+https://youtu.be/_I14_sXHO8U
+
+
+Elastic Beanstalk
+Elastic Beanstalks is an orchestration service that allows you to deploy 
+a web application at the touch of a button by spinning up (or provisioning) 
+all of the services that you need to run your application.
+
+Tips
+Elastic Beanstalk is found under the Compute section of the 
+AWS Management Console.
+Elastic Beanstalk can be used to deployed web applications 
+developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, 
+and Docker.
+You can run your applications in a VPC.
+Elastic Beanstalk can spin up database instances for you, VPCs, 
+security groups, EC2 instances, etc
+
+What service can be launched using Elastic Beanstalk? Select three.
+. Remember Elastic Beanstalk can be used to launch an EC2 instance, set up 
+auto-scaling or an elastic load balancer, and it can spin up a database instance.
+
+What is an environment?
+An environment is the collection of AWS resources and permissions 
+to allow your web application to run smoothly. The Elastic Beanstalk 
+service manages the environment for us.
+
 Elastic Block Store
 Elastic Block Store persists data after an instance is terminated.
 
@@ -156,7 +245,25 @@ and are best for EBS-optimized instances.
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html
 
-*/
+
+Questions: 
+how to get Elastic IP Allocation ID in VPC?
+Customer Gateway  IP?
+Can a default value be deleted e.g VPC
+What does no server means in Compute Power In The Cloud?
+Why deleting my first lampda function and IAM role for d fxn
+i noticed other roles dt i didn't create, do i need to be concern
+abt them like deletng dm?
+
+Consequences of disabling: Block all public access in S3
+
+When deploying an applicatn in Elastic Beanstalk, do we 
+need to create all stuffs like VPC, Lmbda fxn, S3 bucket etc?
+On d classroom page, 4 projects were slated to be submitted on aug 11,
+r d projects d previous projects or new ones?
+
+How can i check my sub balance?
+
 
 what r considered as serveless in relation to EC2?
 can i use free tier account for my project?
@@ -170,4 +277,7 @@ whaat does EC2 is automatically replicated in its AZ means,
 does it means when it spoil it replace?
 
 who owns d EBS amazon or d client? 
+
+*/
+
 
