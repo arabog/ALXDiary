@@ -71,6 +71,83 @@ if (0) {
           console.log("This statement will NEVER execute because conditional is set to 0 i.e., false");
 }
 
+Null, Undefined, and NaN
+var x = null;
+
+var x;
+console.log(x);     undefined
+
+What is the Difference Between null and undefined?
+null refers to the "value of nothing", while undefined refers to the "absence of value".
+
+What is NaN?
+NaN stands for "Not-A-Number" and it's often returned indicating an error 
+with number operations. For instance, if you wrote some code that performed 
+a math calculation, and the calculation failed to produce a valid number, 
+NaN might be returned.
+
+// calculating the square root of a negative number will return NaN
+Math.sqrt(-10)
+
+// trying to divide a string by 5 will return NaN
+"hello"/5
+
+Equality
+So far, you’ve seen how you can use == and != to compare numbers 
+and strings for equality. However, if you use == and != in situations 
+where the values that you're comparing have different data-types, it 
+can lead to some interesting results. For example,
+
+"1" == 1            Returns: true
+
+and
+
+0 == false          Returns: true.
+
+The == operator is unable to differentiate 0 from false.
+
+' ' == false
+Returns: true. Both the operands on either side of the == operator are
+first converted to zero, before comparison.
+
+All of the above three evaluate to true. The reason for such interesting 
+outcomes is Type Conversion. In the case of regular comparison, the 
+operands on either side of the == operator are first converted to 
+numbers, before comparison. Therefore, a ' ', false, and 0 are all 
+considered equal. Similarly, a '1' and 1 are also considered equal. 
+If we don't want to convert the operands, before comparison, we 
+have to use a strict comparison ===
+
+Implicit Type Coercion
+JavaScript is known as a loosely typed language.
+
+Basically, this means that when you’re writing JavaScript code, you 
+do not need to specify data types. Instead, when your code is 
+interpreted by the JavaScript engine it will automatically be 
+converted into the "appropriate" data type. This is called implicit 
+type coercion and you’ve already seen examples like this before 
+when you tried to concatenate strings with numbers.
+
+"julia" + 1
+
+Strongly Typed vs Loosely Typed
+A strongly typed language is a programming language that is more 
+likely to generate errors if data does not closely match an expected type.
+
+Example of strongly typed programming language code
+
+int count = 1;
+string name = "Julia";
+double num = 1.2932;
+float price = 2.99;
+
+it’s actually considered bad practice to use the == and != 
+operators when comparing values for equality
+
+When testing for equality both Type Conversion and 
+Strict Equality can influence the result of the expression.
+
+
 
 
 
