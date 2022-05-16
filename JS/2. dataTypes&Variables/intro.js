@@ -46,7 +46,47 @@ const ASCII_value = my_string.charCodeAt(0);
 // Let us print
 console.log(ASCII_value);
 
+A flat network is a simple network design that reduces cost and overall adminstratn
+
+What can a VPC protect? Pick two.
+Data stored on AWS S3
+AWS EC2 Instances
+
+
+EX
+Launch an EC@ instance
+Connect to Linux instance
+Create n EBS
+EBS Dashbord
+
+VPC Dashboard
+Create a VPC
+
+Launch an EC@ instance
+
+Create a Lambda Function
+Create and Execute a Lambda
+
+Deploy Sample App to Elastic Beanstalk
+
+Definition - A network access control list (ACL) defines the set of firewall 
+rules for controlling traffic coming in and out of subnets in your VPC.
+
+Launch an EC2 Instance
+Access VPC service from AWS mgt console
+Launch an EC2 instance
+Attach an EBS volume
+Cleanup and Disable EC2 instance
+
+
+
+
+
+
 
 
 
 */
+how to get Elastic IP Allocation ID in VPC?
+Customer Gateway  IP?
+Can a default value be deleted e.g VPC
