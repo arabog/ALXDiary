@@ -129,6 +129,12 @@ According to AWS:
 Amazon RDS is a relational database service that manages common database 
 administration tasks, resizes automatically, and is cost-friendly.
 
+ According to AWS:
+
+Amazon Aurora supports up to 64TB of auto-scaling storage capacity, 
+6-way replication across three availability zones, and 15 low-latency 
+read replicas.
+
 
 
 
@@ -139,3 +145,5 @@ administration tasks, resizes automatically, and is cost-friendly.
 is Relatnl DB better than NoSql?
 How is RDS update and can a local DB be uploaded to AWS?
 
+Hackathon
+https://mlh.io/seasons/2022/events
