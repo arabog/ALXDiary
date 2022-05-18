@@ -219,6 +219,11 @@ What service can be launched using Elastic Beanstalk? Select three.
 . Remember Elastic Beanstalk can be used to launch an EC2 instance, set up 
 auto-scaling or an elastic load balancer, and it can spin up a database instance.
 
+AWS supports three types of load balancers: Application Load Balancers, 
+Network Load Balancers (new), and Classic Load Balancers (might become 
+deprecated soon).
+
+
 What is an environment?
 An environment is the collection of AWS resources and permissions 
 to allow your web application to run smoothly. The Elastic Beanstalk 
@@ -268,6 +273,8 @@ How can i check my sub balance?
 what r considered as serveless in relation to EC2?
 can i use free tier account for my project?
 what are the available options wn private key is lost?
+Whta is d diff btw these key pair types: RSA, ED25519? 
+Dedicated Hosts:  This is where you have your own dedicated hardware?
 which text/books will u suggest for devops?
 can you walk me via  EC2 set up>
 EBS is referred to as phy HDD, for how long is it owned
