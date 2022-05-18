@@ -88,10 +88,46 @@ Step 4: Delete an Existing Item
 Step 5: Delete a NoSQL Table
 
 Relational Database Service (RDS)
+RDS (or Relational Database Service) is a service that aids in the 
+administration and management of databases. RDS assists with 
+database administrative tasks that include upgrades, patching, 
+installs, backups, monitoring, performance checks, security, etc.
+
+Database Engine Support
+Oracle
+PostgreSQL
+MySQL
+MariaDB
+SQL Server
 
 
+Features
+failover
+backups
+restore
+encryption
+security
+monitoring
+data replication
+scalability
 
+RDS is able to manage popular database engines like Aurora(4rm AWS), 
+Oracle, PostgreSQL, MySQL, MariaDB, and SQL Server.
 
+What doesn't RDS help with?
+Accessing ur db via secure shell(SSH)
+To deliver a managed service experience, Amazon RDS doesn't provide 
+ shell access to DB instances.
+
+while it's involved in 
+upgrading ur db
+applying patches to ur db
+tking db backups
+
+According to AWS:
+
+Amazon RDS is a relational database service that manages common database 
+administration tasks, resizes automatically, and is cost-friendly.
 
 
 
@@ -99,3 +135,7 @@ Relational Database Service (RDS)
 
 
 */ 
+
+is Relatnl DB better than NoSql?
+How is RDS update and can a local DB be uploaded to AWS?
+
