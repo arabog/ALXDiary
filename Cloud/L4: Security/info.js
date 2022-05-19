@@ -60,8 +60,39 @@ AWS IAM service securely controls access to AWS resources by
 authenticating and authorizing (giving granular permissions) the 
 individual users, applications, or services.
 
+When you are just starting out, you might not know the specific 
+permissions you need, so you can start with broader permissions. 
+AWS managed policies provide permissions to help you get started 
+and are available in all AWS accounts. Then, reduce permissions 
+further by defining customer managed policies specific to your 
+use cases.
+
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html
+
+https://stackoverflow.com/questions/46199680/difference-between-iam-role-and-iam-user-in-aws
+
+https://aws.amazon.com/iam/faqs/?nc=sn&loc=5
 
 
+Match the security concept to its definition.
+User:     A person or service that interacts with services or 
+applicatns running in ur AWS account
+
+IAM Group       A collection of users
+
+IAM Role            Identity with permissions or a a set of privileges
+
+Policy              Defines granular level permissions
+
+What are IAM Policies written in?
+You can create policies in JSON using the visual editor or the 
+JSON editor in the IAM console.
+
+Creating and storing roles helps to delegate access with defined 
+permissions without sharing long-term access keys.
+
+An IAM Role and Policy are similar but a policy provides more 
+granular level control.
 
 
 
@@ -72,3 +103,5 @@ individual users, applications, or services.
 
 */ 
 WAF can protect websites not hosted in AWS through Cloud Front.?
+Identity and Access Management, IAM?
+Is IAM (policy) automatically generated?
