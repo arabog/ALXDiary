@@ -69,7 +69,7 @@ Noah Gift, Lecturer at UC Berkeley School of Information
 He is the author of Python DevOps and Pragmatic AI: An 
 Introduction to Cloud-Computing.
 
-
+*/
 Questions:
 You will find this article by Justin Arbuckle on ELSA 
 (Event, Language, Structure, Agency) change model 
@@ -97,4 +97,4 @@ https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/ad6c5933-2445-411c
 
 
 
-*/ 
+// */ 

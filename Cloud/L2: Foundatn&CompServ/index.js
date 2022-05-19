@@ -250,6 +250,7 @@ and are best for EBS-optimized instances.
 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html
 
+*/
 
 Questions: 
 how to get Elastic IP Allocation ID in VPC?
@@ -285,6 +286,6 @@ does it means when it spoil it replace?
 
 who owns d EBS amazon or d client? 
 
-*/
+// */
 
 
