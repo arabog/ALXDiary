@@ -94,7 +94,9 @@ permissions without sharing long-term access keys.
 An IAM Role and Policy are similar but a policy provides more 
 granular level control.
 
-
+What is the best way to protect your root account?
+Multi Factor Authentication(MFA) requires an additional form 
+of authentication along with your password.
 
 
 
