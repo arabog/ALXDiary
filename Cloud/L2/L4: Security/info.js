@@ -98,7 +98,8 @@ What is the best way to protect your root account?
 Multi Factor Authentication(MFA) requires an additional form 
 of authentication along with your password.
 
-
+The permissions to a user are granted in form of Policies, which 
+are JSON documents. 
 
 
 
