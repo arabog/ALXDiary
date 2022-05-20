@@ -126,8 +126,105 @@ You specify the configuration details in a Launch template.
 3. Scaling policy - The auto scaling policy that defines how 
 to scale your EC2 instances automatically, based on demand
 
+An Auto Scaling group is a collection of Amazon EC2 instances 
+that are treated as a logical unit. You configure settings for a 
+group and its instances as well as define the group’s minimum, 
+maximum, and desired capacity. Setting different minimum and 
+maximum capacity values forms the bounds of the group, which 
+allows the group to scale as the load on your application spikes 
+higher or lower, based on demand. To scale the Auto Scaling 
+group, you can either make manual adjustments to the desired 
+capacity or let Amazon EC2 Auto Scaling automatically add 
+and remove capacity to meet changes in demand.
+
+When launching fleets of instances, you can specify what 
+percentage of your capacity should be fulfilled by On-Demand 
+instances, and what percentage with Spot Instances, to save up 
+to 90% on EC2 costs. Amazon EC2 Auto Scaling lets you 
+provision and balance capacity across Availability Zones 
+to optimize availability. It also provides lifecycle hooks, 
+instance health checks, and scheduled scaling to automate 
+capacity management.
+
+https://aws.amazon.com/ec2/autoscaling/getting-started/
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html
+
+You use key pairs to connect to an Amazon EC2 instance with SSH
+and it helps to  log in to the EC2 instances.
+
+-: Elastic Load Balancing
+Elastic Load Balancing automatically distributes incoming 
+application traffic across multiple servers.
+
+Elastic Load Balancer is a service that:
+
+Balances load between two or more servers
+Stands in front of a web server
+Provides redundancy and performance
+
+Tips
+Elastic Load Balancing can be found on the EC2 Dashbaoard.
+Elastic Load Balancing works with EC2 Instances, containers, 
+IP addresses, and Lambda functions.
+You can configure Amazon EC2 instances to only accept traffic 
+from a load balancer.
+
+Match the concept to the definition.
+CONCEPT             DEFINITION
+
+Redundancy: If u lose a server, d load balancer will send requests
+to other working servers. ds features maintains continous operatns
+in an emergency
+
+Performance: if a server starts having issues or bottleneck, d load
+balancer will add more servers to d pool of available servers. Auto
+scaling automatically adjusts capacity to maintain a steady state.
+
+-: Elastic Load Balancing
+AWS offers three types of load balancers,
+
+1. Application Load Balancer (ALB)
+A simple use case: Assume you are running a microservices-architecture 
+based application. An Application Load Balancer allows you to host the 
+different API endpoints of your application on different servers. The 
+load balancer then redirects the incoming HTTP/HTTP traffic to the 
+suitable server based on the rules you specify in the configuration.
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+
+
+2. Network Load Balancer (NLB)
+A Network Load Balancer helps to balance the load on each 
+individual server. Having an NLB becomes essential when 
+your application requires handling millions of requests per 
+second securely while maintaining ultra-low latencies.
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
+
+3. Classic Load Balancer (CLB)
+It is a previous generation option. You can choose a Classic 
+Load Balancer when you have an existing application running 
+in the EC2-Classic network.
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html
+
+
+Gateway Load Balancer
+Choose a Gateway Load Balancer when you need to deploy and manage 
+a fleet of third-party virtual appliances that support GENEVE. These 
+appliances enable you to improve security, compliance, and policy controls.
+
+
+
+
+https://aws.amazon.com/elasticloadbalancing/
+
 
 
 */ 
 
 How is AWS auto-scaling service diff 4rm EC2 autoscaling?
+In Network setting in AWS autoscaling, wt is d diff btw 
+public/private subnet?
+
