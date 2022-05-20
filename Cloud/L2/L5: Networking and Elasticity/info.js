@@ -104,6 +104,27 @@ You can configure EC2 Auto Scaling to send an Simple
 Notification Service (SNS) notification whenever your 
 EC2 Auto Scaling group scales.
 
+-: Create Auto Scaling group
+EC2 Auto Scaling is a service that ensures you have the 
+desired number of EC2 instances always up and running 
+to handle the expected load for your application. To set-up 
+an Auto Scaling group, you require the following basic details:
+
+1. Count of instances - 
+The desired count of the EC2 instances you want to have available. 
+If any instance goes down/fails, a new instance automatically spins up.
+
+2. Launch template - 
+The auto scaling group contains a collection of EC2 instances 
+that are treated as a logical group. All EC2 instances within 
+a group share the same configuration. Therefore, You need to 
+specify the configuration details, such as, the ID of the Amazon 
+Machine Image (AMI), the instance type, a key pair, security groups, 
+and the other parameters that you use to launch EC2 instances. 
+You specify the configuration details in a Launch template.
+
+3. Scaling policy - The auto scaling policy that defines how 
+to scale your EC2 instances automatically, based on demand
 
 
 
