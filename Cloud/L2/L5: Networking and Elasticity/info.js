@@ -94,5 +94,19 @@ optimizing cost savings.
 EC2 predictive scaling removes the need for manual 
 adjustment of auto scaling parameters over time.
 
+AWS auto-scaling service is diff 4rm EC2 autoscaling
+bcos it allows u to setup oda services such as Dynamo DB
+to automatically scale
+
+How could you know when EC2 Auto Scaling is launching 
+or terminating an instance?
+You can configure EC2 Auto Scaling to send an Simple 
+Notification Service (SNS) notification whenever your 
+EC2 Auto Scaling group scales.
+
+
+
 
 */ 
+
+How is AWS auto-scaling service diff 4rm EC2 autoscaling?
