@@ -193,6 +193,9 @@ suitable server based on the rules you specify in the configuration.
 
 https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
 
+https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0355/modules/29783684-5852-4b81-99f6-2de6ff37b6d6/lessons/1fc3917d-88f9-4465-8958-d7b9879372ab/concepts/4a2582ac-02e8-4b52-8a37-a0da08fcf940
+
+
 
 2. Network Load Balancer (NLB)
 A Network Load Balancer helps to balance the load on each 
@@ -215,10 +218,63 @@ Choose a Gateway Load Balancer when you need to deploy and manage
 a fleet of third-party virtual appliances that support GENEVE. These 
 appliances enable you to improve security, compliance, and policy controls.
 
-
-
-
 https://aws.amazon.com/elasticloadbalancing/
+
+
+An NLB serves as the single point of contact for clients and 
+automatically distributes the incoming traffic uniformly 
+across multiple targets. The targets are the EC2 instances 
+within the same or different AZs.
+
+HOW TO CREATE DEFAULT VPC
+https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-vpc
+
+
+#!/bin/bash
+sudo yum update -y
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+sudo yum install -y httpd mariadb-server
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo chkconfig httpd on
+# Set file permissions for the Apache web server
+sudo groupadd www
+sudo usermod -a -G www ec2-user
+sudo chgrp -R www /var/www
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} +
+find /var/www -type f -exec sudo chmod 0664 {} +
+# Create a new PHP file at  /var/www/html/ path
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+The script above will install, configure, and launch the 
+Apache webserver on the EC2 instance. You can learn 
+more about the individual steps at 
+Create an EC2 instance and install a web server.
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html#CHAP_Tutorials.WebServerDB.CreateWebServer.Apache
+
+
+Configuring the secure HTTPS on EC2 will add overhead to 
+the current experiment, and you may deviate from the intent 
+of learning an NLB.
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
+
+
+An Autoscaling group contains a collection of EC2 instances that 
+share similar characteristics and are treated as a logical group.
+
+All EC2 instances that are provisioned as a part of auto-scaling 
+have the same configuration because they are instantiated from 
+a Launch template. 
+
+n this exercise, we will use the following two services 
+available in the EC2 dashboard:
+Instances → Launch templates
+Auto Scaling → Auto Scaling Groups
+
+
 
 
 
