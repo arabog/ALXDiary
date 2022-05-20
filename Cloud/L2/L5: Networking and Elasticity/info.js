@@ -49,6 +49,50 @@ health checking for resources
 Route 53 does not provide website hosting as it is only an 
 authoritative DNS service.
 
+-: Why do we need elasticity in the cloud?
+Elasticity in the Cloud
+One of the main benefits of the cloud is that it allows you 
+to stop guessing about capacity when you need to run your 
+applications. Sometimes you buy too much or you don't buy 
+enough to support the running of your applications.
+
+With elasticity, your servers, databases, and application 
+resources can automatically scale up or scale down 
+based on load.
+
+Match the concept to the definition.
+Scale up: Vertical scaling by resizing an instance to add more
+capacity
+Scale out: Horizontal scaling by increasing d number of 
+resources e.g servers
+
+
+Scaling up is also called vertical scaling, and scaling out is 
+also called horizontal scaling.
+
+Resources can scale up (or vertically). In Amazon EC2, this 
+can easily be achieved by stopping an instance and resizing 
+it to an instance type that has more RAM, CPU, IO, or you 
+can scale out (or horizontally), which increases the number 
+of resources. An example would be adding more servers.
+
+-: EC2 Auto Scaling
+EC2 Auto Scaling is a service that monitors your EC2 instances 
+and automatically adjusts by adding or removing EC2 instances 
+based on conditions you define in order to maintain application 
+availability and provide peak performance to your users.
+
+Features
+Automatically scale in and out based on needs.
+Included automatically with Amazon EC2.
+Automate how your Amazon EC2 instances are managed.
+
+Tips
+EC2 Auto Scaling is found on the EC2 Dashboard.
+EC2 Auto Scaling adds instances only when needed, 
+optimizing cost savings.
+EC2 predictive scaling removes the need for manual 
+adjustment of auto scaling parameters over time.
 
 
 */ 
