@@ -82,8 +82,13 @@ You should use FIFO ordering when message ordering is critical
 and standard queues when messages can arrive more than once 
 and be processed out of order.
 
+SQS - Create a Queue
+Amazon SQS is a service that hosts the queue of messages (requests 
+and responses) from the decoupled application components. 
 
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-architecture.html
 
+https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html
 
 
 */
