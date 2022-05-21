@@ -190,8 +190,39 @@ deploymt automatn
 automatic scaling
 application mgt
 
+Amazon ECS places containers across your cluster based on your 
+resource needs and is integrated with familiar features like Elastic 
+Load Balancing, EC2 security groups, EBS volumes and IAM roles.
+
+https://docs.docker.com/get-started/
+
+https://www.docker.com/resources/what-container/
 
 
+A cluster is a set of container instances running d container agt.
+
+Key terms related to Amazon ECS
+1. Task definition
+A task definition describes the application requirements concerning 
+containers, such as the max amount of total CPU and memory used 
+for the task (not for the individual container) and container definitions.
+
+ECS offers to create a task definition using either the AWS Fargate 
+or AWS EC2. AWS Fargate is priced based on the task size, whereas 
+the EC2 service is priced based on computing resource usage.
+
+2. ECS cluster
+A cluster is a set of containers running task requests within an AWS 
+region. A default cluster gets created when you create and run your 
+first task definition.
+
+3. Container agent
+It is a utility that connects container instances to one of your clusters. 
+Each container instance runs a container agent.
+
+4. Container instance
+A container instance is an EC2 instance that is registered into any of 
+your ECS clusters.
 
 
 
