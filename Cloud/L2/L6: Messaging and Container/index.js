@@ -101,11 +101,63 @@ A container consist of everyth an application nedds
 to run e. d applicatn itself, dependencies(libraries, 
 configuration files)
 
+What is a Container?
+A container is an isolated process that consists of the following 
+items, all bundled into one package:
 
+the application code,
+the required dependencies (e.g. libraries, utilities, configuration files), and
+the necessary runtime environment to run the application.
 
+Each container is an independent component that can run on its 
+own and be moved from environment to environment.
 
+Benefit of Containers
+Containers make it easier for developers to create, deploy, and run 
+applications on different hardware and platforms, quickly and easily.
+Containers share a single kernel and share application libraries.
+Containers cause a lower system overhead as compared to Virtual Machines.
 
+How to create containers?
+Several platforms (called Container runtime/engines) allow us to 
+create containers. A few such platforms are:
+Docker
+CRI-O
+OpenVZ
+Containerd
 
+In this ND, you will learn to create containers using the Docker engine.
+
+Docker Containers versus Virtual Machines
+There are several benefits of using Containers over VMs:
+
+Size: Containers are much smaller than Virtual Machines (VM) and 
+run as isolated processes versus virtualized hardware. VMs can be 
+in GBs while containers are in MBs.
+
+Speed: Virtual Machines can be slow to boot and take minutes to launch. 
+A container can spawn much more quickly typically in seconds.
+
+Composability: Containers are designed to be programmatically 
+built and are defined as source code. Virtual Machines are often 
+replicas of a conventional computer system.
+
+2. Docker
+Docker is a (container runtime) tool that helps to build, test, and 
+run containers. You can build containers locally using a command-line 
+utility, Docker Desktop. If there are multiple containers running 
+individual services of an application, you will need to use Docker 
+Compose utility to specify dependent relationships between containers.
+
+3. Docker Image
+An image (or Docker image) is a portable auto-generated template 
+that contains a set of instructions to create a container. An image 
+can be instantiated multiple numbers of times to create multiple 
+containers.
+
+4. Dockerfile
+A text file containing commands to create an image. In other words, 
+Docker generates images by reading the commands from a Dockerfile.
 
 
 
