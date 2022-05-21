@@ -159,6 +159,38 @@ containers.
 A text file containing commands to create an image. In other words, 
 Docker generates images by reading the commands from a Dockerfile.
 
+Q: Identify components contained in a container. Pick two.
+A container consists of everything an application needs to run: the 
+application itself and its dependencies (e.g. libraries, utilities, 
+configuration files), all bundled into one package.
+
+-: Elastic Container Service (ECS)
+What is Elastic Container Service (ECS)?
+ECS is an orchestration service used for automating deployment, 
+scaling, and managing of your containerized applications. ECS 
+works well with Docker containers by:
+
+launching and stopping Docker containers
+scaling your applications
+querying the state of your applications
+
+Tips
+ECS falls under the Container section on the AWS Management Console.
+You can schedule long-running applications, services, and batch 
+processeses using ECS.
+Docker is the only container-runtime platform supported by Amazon 
+ECS. Other container-runtime tools available in the insdustry are 
+Rocket, LXD, OpenVZ, any a few more.
+
+Q: Identify features of ECS. Pick three.
+ECS is used for automating deployment, scaling and managing your 
+containerized applications.
+
+deploymt automatn
+automatic scaling
+application mgt
+
+
 
 
 
