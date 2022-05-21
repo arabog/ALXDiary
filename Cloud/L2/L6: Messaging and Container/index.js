@@ -91,6 +91,19 @@ https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-b
 https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.html
 
 
+Send alerts via SNS
+Create a Topic
+Subscribe to a Topic
+Publish a Message to a Topic
+
+
+
+
+
+
+
+
+
 */
 
 https://stackoverflow.com/questions/28429493/how-to-connect-mysql-workbench-to-amazon-rds
