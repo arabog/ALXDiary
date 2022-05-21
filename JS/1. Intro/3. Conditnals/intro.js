@@ -20,4 +20,14 @@ To answer that question we need to know:
 
 How much money do I have?
 How much does the hammer cost?
+
+
+if (/* this expression is true ) {
+          // run this code
+} else {
+          // run this code
+}
+
+
+
 */ 
