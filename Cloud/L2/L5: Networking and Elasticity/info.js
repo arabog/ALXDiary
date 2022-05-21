@@ -245,7 +245,9 @@ sudo chmod 2775 /var/www
 find /var/www -type d -exec sudo chmod 2775 {} +
 find /var/www -type f -exec sudo chmod 0664 {} +
 # Create a new PHP file at  /var/www/html/ path
-echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+// echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+ echo "<?php echo \"<h1>Welcome to server 2</h1>\" ?>" > /var/www/html/phpinfo.php
+ 
 
 The script above will install, configure, and launch the 
 Apache webserver on the EC2 instance. You can learn 
