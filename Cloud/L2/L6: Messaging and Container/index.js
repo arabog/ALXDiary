@@ -96,6 +96,14 @@ Create a Topic
 Subscribe to a Topic
 Publish a Message to a Topic
 
+Why do we need containers?
+A container consist of everyth an application nedds
+to run e. d applicatn itself, dependencies(libraries, 
+configuration files)
+
+
+
+
 
 
 
