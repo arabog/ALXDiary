@@ -8,6 +8,10 @@ messages or emails can be sent through services in the cloud.
 The use of the cloud offers benefits like lowered costs, increased 
 storage, and flexibility.
 
+Q: Messages are typically sent between which two entities?
+Messaging typically occurs between Internet-based 
+applications and devices. One system can send a message 
+to another system.
 
 
 
