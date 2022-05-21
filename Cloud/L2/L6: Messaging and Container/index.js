@@ -224,7 +224,9 @@ Each container instance runs a container agent.
 A container instance is an EC2 instance that is registered into any of 
 your ECS clusters.
 
+https://www.simplilearn.com/terraform-interview-questions-and-answers-article#:~:text=Why%20is%20Terraform%20used%20for,and%20on%2Dpremises%20data%20centers.
 
+https://learn.hashicorp.com/terraform
 
 
 */
