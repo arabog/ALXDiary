@@ -37,6 +37,25 @@ Q: Which ways can notifications be sent to users via SNS? Pick three.
 Notifications can be sent to end users using mobile push, text 
 messages, and email.
 
+-: Why do we need queuing technology?
+Queues
+A queue is a data structure that holds requests called messages. 
+Messages in a queue are commonly processed in order, first in, 
+first out (or FIFO).
+
+Messaging queues improve:
+performance
+scalability
+user experience
+
+Q: What type of processing does queuing support?
+Asynchronous processing
+The use of asynchronous processing, where a user doesn't wait 
+for a response, improves the overall user experience.
+
+
+
+
 
 
 */
