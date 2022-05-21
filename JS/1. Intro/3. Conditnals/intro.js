@@ -15,4 +15,9 @@ The process you went through to solve that problem, and the steps
 you took in order to do so, is at the heart of writing code.
 
 
+Solving the Problem: Do I purchase the hammer?
+To answer that question we need to know:
+
+How much money do I have?
+How much does the hammer cost?
 */ 
