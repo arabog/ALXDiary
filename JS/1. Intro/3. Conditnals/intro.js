@@ -209,6 +209,69 @@ category = eatsPlants
           ? (eatsAnimals ? "omnivore" : "herbivore") 
           : (eatsAnimals ? "carnivore" : "undefined")
 
+          -: Switch Statement
+A switch statement is an another way to chain multiple else if 
+statements that are based on the same value without using 
+conditional statements. Instead, you just switch which piece 
+of code is executed based on a value.
+
+switch (option) {
+          case 1:
+                    console.log("You selected option 1.");
+          case 2:
+                    console.log("You selected option 2.");
+          case 3:
+                    console.log("You selected option 3.");
+          case 4:
+                    console.log("You selected option 4.");
+          case 5:
+                    console.log("You selected option 5.");
+          case 6:
+                    console.log("You selected option 6.");
+}
+
+Here, each else if statement (option === [value]) has been 
+replaced with a case clause (case [value]:) and those clauses 
+have been wrapped inside the switch statement.
+
+Use Break to Avoid Falling Through
+After the code in the matching case is run, the switch statement 
+continues to run all of the code below that statement too! This 
+is called falling through.
+
+We can prevent the code from falling through by adding a break 
+statement at the end of each case.
+
+Set a Default Case
+What happens if none of the cases match? Nothing -- because 
+there is no code to run. That works in some situations, but it 
+most cases you'll want to add a default case to catch situations 
+when none of the case statements match
+
+Q: Does it matter where the default statement is placed?
+It doesn't matter where the default statement is placed.
+
+const tier = "nsfw deck";
+let output = "You’ll receive "
+
+switch (tier) {
+          case "deck of legends":
+                    output += "a custom card, ";
+          case "collector's deck":
+                    output += "a signed version of the Exploding Kittens deck, ";
+          case "nsfw deck":
+                    output += "one copy of the NSFW (Not Safe for Work) Exploding Kittens card game and ";
+          default:
+                    output += "one copy of the Exploding Kittens card game.";
+}
+
+console.log(output);
+
+Without any break statements in the code, after the switch statement 
+jumps to the "nsfw deck", it continues to fall-through until reaching 
+the end of the switch statement.
+
+
 
 
 */ 
