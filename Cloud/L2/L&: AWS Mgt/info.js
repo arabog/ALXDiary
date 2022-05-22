@@ -99,6 +99,22 @@ Cloud Formation templates are written using JSON or YAML.
 You can still individually manage AWS resources that are part of 
 a CloudFormation stack.
 
+Q: What is the best way to manage your Cloud Formation script?
+Check into version control
+
+Since your infrastructure is now code, you can check your scripts 
+into version control.
+
+-: CloudFormation
+Create an S3 bucket with AWS CloudFormation
+Create CloudFormation
+Save CloudFormation Stack
+Deploy CloudFormation Stack
+View S3 Bucket created by CloudFormation Stack
+Delete CloudFormation Stack
+
+
+
 
 
 
