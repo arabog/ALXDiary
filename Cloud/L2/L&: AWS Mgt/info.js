@@ -263,4 +263,27 @@ Use the cat ~/.aws/credentials command to list all the credentials set locally.
 View the list of all users (other than the root user) in your AWS account.
 aws iam list-users
 
+A user can only be deleted only after deleting the attached user policies, 
+and access key. The commands below are executed using the default profile, 
+therefore we have not used the --profile option.
+
+# List the policies attached to the UdacityLab user
+aws iam list-attached-user-policies --user-name UdacityLab
+
+# A policy can be detached using its ARN, a unique identifier
+aws iam detach-user-policy --user-name UdacityLab --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+# List the access key for UdacityLab user
+aws iam list-access-keys --user-name UdacityLab
+
+# An access key can be deleted using its access key id
+aws iam delete-access-key  --user-name UdacityLab --access-key-id AKIAQGW4TBMDIZQP564S
+
+# Delete the user
+aws iam delete-user --user-name UdacityLab
+
+https://docs.aws.amazon.com/cli/latest/reference/iam/index.html#available-commands
+
+
+
 */ 
