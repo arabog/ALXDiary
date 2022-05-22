@@ -124,6 +124,27 @@ programmatic manner
 
 https://aws.amazon.com/cli/
 
+-: Install and Configure CLI using permanent IAM user access keys
+Before you run any of the aws commands, you need to follow three steps:
+
+Install AWS CLI
+Create an IAM user with Administrator permissions
+Configure the AWS CLI
+
+You can verify the installation using the following command in your 
+terminal (macOS)/cmd (Windows).
+
+# Display the folder that contains the symlink to the aws cli tool
+which aws
+# See the current version
+aws --version
+
+
+Profile - A collection of settings is called a profile. The default profile 
+name is default, however, you can create a new profile using the 
+aws configure --profile new_name command.
+
+
 
 
 
