@@ -234,6 +234,17 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
 https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
 
 
+Upload a file to your bucket. The command below uploads a file names Sample.html, 
+however, you can choose any file from your local system.
+
+aws s3api put-object --bucket my-033212455158-bucket --key Sample.html --body Sample.html --profile UdacityLab
+
+In the command above,
+--key option specifies the name you want to assign to your object in the bucket
+--body option specifies the file name (complete path) to upload from your local system
+
+https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html
+
 
 
 
