@@ -86,6 +86,34 @@ if (checkBal) {
           console.log("Thank you. Have a nice day!")
 }
 
+
+// change the values of `flavor`, `topping`, and `vessel` to test your code
+const flavor = "strawberry";
+const topping = "sprinkles";
+const vessel = "wafer cone";
+
+// your code goes here
+if(flavor === "vanilla" || flavor === "chocolate" 
+          && topping === "sprinkles" || topping === "peanuts"
+          && vessel === "wafer cone" || vessel === "sugar cone"
+) {
+          console.log("Great choice! Your ice cream is at the next window.")
+} else {
+          console.log("Please check our menu and try again.")
+}
+
+
+Let's focus on some more advanced aspects of working with 
+conditional statements:
+
+Truthy and falsey values
+The ternary operator
+The switch statement
+
 */ 
+
+
+
+
 
 
