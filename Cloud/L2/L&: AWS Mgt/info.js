@@ -195,6 +195,24 @@ In the future, you can set a single value, by using the command, such as:
 aws configure set default.region us-east-2
 It will update only the region variable in the existing default profile.
 
+The InvalidClientTokenId error may generate when the ~/.aws/credentials 
+file does not have all three items saved correctly:
+
+aws_access_key_id=*****
+aws_secret_access_key=*******
+aws_session_token=***********************
+If any of these three items are missing/incorrect, then you can set it 
+using a command similar to:
+
+aws configure set aws_session_token "Your-value" --profile default
+# or
+aws configure set default.aws_session_token "Your-value" 
+Note that the aws_session_token field is used only when you are using 
+a temporary AWS account generated in the classroom. However, when 
+you are using a pair of permanent credentials for an IAM user, then 
+you will not need the aws_session_token to be saved in 
+the ~/.aws/credentials file. You will have to either use a different profile 
+or delete the aws_session_token from the default profile.
 
 
 
