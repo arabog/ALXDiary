@@ -50,6 +50,32 @@ logs can be stored in Amazon S3 buckets or delivered to Amazon
 CloudWatch logs, which helps you to set alarms and take 
 appropriate actions.
 
+-: Cloud Watch
+Cloud Watch is a service that monitors resources and applications 
+that run on AWS by collecting data in the form of logs, metrics, 
+and events.
+
+Features
+There are several useful features:
+Collect and track metrics
+Collect and monitor log files
+Set alarms and create triggers to run your AWS resources
+React to changes in your AWS resources
+
+Tips
+CloudWatch is found under the Management & Governance section 
+on the AWS Management Console.
+Metrics are provided automatically for a number of AWS products 
+and services.
+
+Q: What are some uses of Cloud Watch? Pick three.
+Trigger a Lambda
+Capture log files from services
+Track metrics
+
+Cloud Watch can collect and track metrics, collect and monitor 
+log files, and create triggers to run your AWS resources.
+
 
 
 
