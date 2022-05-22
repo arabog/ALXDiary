@@ -271,8 +271,34 @@ Without any break statements in the code, after the switch statement
 jumps to the "nsfw deck", it continues to fall-through until reaching 
 the end of the switch statement.
 
+const education = "no high school diploma";
+
+let salary = 25636;
+
+switch (education) {
+          case "no high school diploma":
+                    console.log("In 2015, a person with no high school diploma earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "high school diploma":
+                    console.log("In 2015, a person with  high school diploma earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "Associate's degree":
+                    console.log("In 2015, a person with Associate's degree earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "Bachelor's degree":
+                    console.log("In 2015, a person with Bachelor's degree earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "Master's degree":
+                    console.log("In 2015, a person with Master's degree earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "Professional degree":
+                    console.log("In 2015, a person with Professional degree earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+          case "Doctoral degree":
+                    console.log("In 2015, a person with Doctoral degree earned an average of $" + salary.toLocaleString("en-US") + "/year.")
+                    break;
+}
 
 
 
 */ 
-
