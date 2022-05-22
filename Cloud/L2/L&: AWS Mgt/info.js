@@ -214,6 +214,27 @@ you will not need the aws_session_token to be saved in
 the ~/.aws/credentials file. You will have to either use a different profile 
 or delete the aws_session_token from the default profile.
 
+You can review the current configuration as:
+
+# Check the configuration
+aws configure list
+#View the content of the credentials and configuration file
+cat ~/.aws/credentials
+cat ~/.aws/config
+
+aws s3api  create-bucket --bucket my-033212455158-bucket --acl public-read-write --region us-east-1 --profile UdacityLab
+
+https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
+
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
+
+
+
 
 
 */ 
