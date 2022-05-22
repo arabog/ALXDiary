@@ -193,13 +193,23 @@ const isGoing = true;
 const color = isGoing ? "green" : "red";
 console.log(color);
 
+let eatsAnimals = true;
+let eatsPlants = true;
+
+eatsPlants && eatsAnimals 
+          ? "omnivore" 
+          : !eatsPlants && eatsAnimals 
+          ? "carnivore"
+          : eatsPlants && !eatsAnimals
+          ? "herbivore"
+          : unknown
+
+// your code
+category = eatsPlants 
+          ? (eatsAnimals ? "omnivore" : "herbivore") 
+          : (eatsAnimals ? "carnivore" : "undefined")
 
 
 
 */ 
-
-
-
- 
-
 
