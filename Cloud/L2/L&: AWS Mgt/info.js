@@ -113,6 +113,16 @@ Deploy CloudFormation Stack
 View S3 Bucket created by CloudFormation Stack
 Delete CloudFormation Stack
 
+-: AWS Command Line Interface (CLI)
+The AWS CLI allows you to access and control services running in 
+your AWS account from the command line. To use the CLI, simply 
+download, install, and configure it.
+
+Tips
+The AWS CLI allows you to work with AWS services in a 
+programmatic manner
+
+https://aws.amazon.com/cli/
 
 
 
