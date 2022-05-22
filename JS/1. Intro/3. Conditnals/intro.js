@@ -299,6 +299,12 @@ switch (education) {
                     break;
 }
 
+Key Points to Remember
+As you face new challenges and complex problems, remember what 
+you learned in this lesson about using logic to create algorithms:
 
+Break the problem down into smaller steps
+Use conditional statements and logical operators to tell your code 
+when and how to run
 
 */ 
