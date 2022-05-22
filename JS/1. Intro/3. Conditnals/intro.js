@@ -165,7 +165,33 @@ true
 
 Essentially, if it's not in the list of falsy values, then it's truthy!
 
+-: Ternary Operator
+Sometimes, you might find yourself with the following type of conditional.
 
+const isGoing = true;
+const color;
+
+if (isGoing) {
+          color = "green";
+} else {
+          color = "red";
+}
+
+console.log(color);
+Prints: "green"
+
+TIP: Using if(isGoing) is the same as using if(isGoing === true). 
+Alternatively, using if(!isGoing) is the same as using if(isGoing === false).
+
+The ternary operator provides you with a shortcut alternative 
+for writing lengthy if...else statements.
+
+conditional ? (if condition is true) : (if condition is false)
+
+For example, you can rewrite the example code above as:
+const isGoing = true;
+const color = isGoing ? "green" : "red";
+console.log(color);
 
 
 
