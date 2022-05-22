@@ -245,7 +245,22 @@ In the command above,
 
 https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html
 
+Delete the bucket and its content. A bucket can only be deleted if it is empty. 
+Therefore, first delete the Sample.html, and then delete the bucket, as follows:
+
+aws s3api delete-object --bucket my-033212455158-bucket --key Sample.html
+aws s3api delete-bucket --bucket my-033212455158-bucket --profile UdacityLab
+
+https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html#available-commands
 
 
+aws s3api delete-object --bucket my-033212785158-bucket --key index.html
+aws s3api delete-bucket --bucket my-033212785158-bucket --profile UdacityLab
+
+
+Use the cat ~/.aws/credentials command to list all the credentials set locally.
+
+View the list of all users (other than the root user) in your AWS account.
+aws iam list-users
 
 */ 
