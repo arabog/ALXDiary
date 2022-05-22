@@ -144,9 +144,56 @@ Profile - A collection of settings is called a profile. The default profile
 name is default, however, you can create a new profile using the 
 aws configure --profile new_name command.
 
+Here are the steps to configure the AWS CLI in your terminal:
+
+aws configure 
+
+If you already have a profile set locally, you can use 
+--profile <profile-name> option with any of the AWS commands 
+above. This will resolve the conflict with the existing profiles set 
+up locally
+
+Upon prompt, paste the copied access key (access key id and 
+secret access key). Enter the default region as us-east-1 and 
+output format as json. You can verify the saved config using:
+
+# View the current configuration
+aws configure list 
+# View all existing profile names
+aws configure list-profiles
+# In case, you want to change the region in a given profile
+# aws configure set <parameter> <value>  --profile <profile-name>
+aws configure set region us-east-1  
 
 
+Important - If you have already set the temporary AWS Access 
+keys generated in the classroom that expires after the session 
+ends, you should set the aws_session_token to a blank string, 
+using the command below:
 
+# Configure a single field
+aws configure set aws_session_token "" --profile default
+
+Let the system know that your sensitive information is residing in the .aws folder
+export AWS_CONFIG_FILE=~/.aws/config
+export AWS_SHARED_CREDENTIALS_FILE=~/.aws/credentials
+
+ Run your first AWS CLI command
+Check the successful configuration of the AWS CLI, by running 
+either of the following AWS command:
+
+# If you've just one profile set locally
+aws iam list-users
+# If you've multiple profiles set locally
+aws iam list-users --profile <profile-name>
+
+Updating the specific variable in the configuration
+In the future, you can set a single value, by using the command, such as:
+
+# Syntax
+# aws configure set <varname> <value> [--profile profile-name]
+aws configure set default.region us-east-2
+It will update only the region variable in the existing default profile.
 
 
 
