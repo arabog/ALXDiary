@@ -28,6 +28,19 @@ while (start < 10) { // when to stop
           start = start + 2; // how to get to the next item
 }
 
+Q: Here's a while loop that is supposed to print out the values 
+of x from 0 to 5, but there's a bug. What is missing? Hint: there 
+may be more than one correct response.
+
+while (x < 6) {
+          console.log('Printing out x = ' + x);
+}
+
+x never increments and x is never assigned a start value.
+
+
+
+
 
 
 
