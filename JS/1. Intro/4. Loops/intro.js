@@ -194,6 +194,60 @@ Once the inner loop is done iterating over y, then the outer
 loop continues to the next value, x = 1, and the whole process 
 begins again.
 
+-: Increment, Decrement and Assignment Operators
+Increment Operator
+The increment operator ++ adds one a to variable, returns a value 
+and assigns the incremented value to the variable.
+
+x++ is the postfix operator, which means that it returns the value 
+before incrementing it:
+
+let x = 2;
+x++ //returns 2 then assigns 3 as the value of x
+console.log(x); // logs out 3
+++x is the prefix operator, which means that it returns the 
+value after incrementing it:
+
+let x = 2;
+++x // assigns 31 as the value of x then returns 3
+console.log(x); // logs out 3
+
+Decrement Operator
+a The decrement operator -- subtracts one from a variable, 
+returns a value and assigns the decremented value to the variable.
+
+Similiar to the increment operator, x-- is the postfix operator, 
+which means that it returns the value before decrementing it:
+
+let x = 2;
+x-- //returns 2 then assigns 1 as the value of x
+console.log(x); // logs out 1
+--x is the prefix operator, which means that it returns the value 
+after decrementing it:
+
+let x = 2;
+--x // assigns 1 as the value of x then returns 1
+console.log(x); // logs out 1
+
+Assignment Operators
+An assignment operator is a shorthand way to peform a 
+mathematical operation on a variable and assigns that 
+value to the variable.
+
+You can use assignment operators for addition, subtraction, 
+multiplication, and division.
+
+// Add y to x
+x += y // x = x + y
+
+// Subtract y from x
+x -= y // x = x - y
+
+// Multiply x by x
+x *= y // x = x * y
+
+// Divide x by y
+x /= y // x = x / y
 
 
 
