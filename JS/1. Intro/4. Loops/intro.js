@@ -150,8 +150,22 @@ while (n >= 0) {
 
           //Never forget to decrement/increment the iteration variable in a while loop
           // Otherwise, you loop will run infinite iterations
-    n = n-1;
+          n = n-1;
 }
+
+-: Loop Basics
+A loop should always include:
+
+Where to start
+When to stop
+How to get to the next item
+It's easy to forget some of these pieces in a while loop and end up 
+with an infinte loop that crashes your browser!
+
+for loops give you more control over the looping process.
+
+
+
 
 
 
