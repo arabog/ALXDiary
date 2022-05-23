@@ -24,5 +24,10 @@ network service, CloudFront.
 You will access your website in a browser using the unique 
 CloudFront endpoint.
 
+website endpt:      http://hugb.s3-website-us-east-1.amazonaws.com
+
+CloudFront: https://d1oft9knqf9ghg.cloudfront.net
+
+S3 bucket object:   https://hugb.s3.amazonaws.com/index.html
 
 */ 
