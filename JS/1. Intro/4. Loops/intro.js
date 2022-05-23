@@ -183,6 +183,17 @@ for (let x = 0; x < 3; x = x + 1) {
           }
 }
 
+Notice the order that the output is being displayed.
+
+For each value of x in the outer loop, the inner for loop 
+executes completely. The outer loop starts with x = 0, 
+and then the inner loop completes its cycle with all values of y:
+
+x = 0 and y = 0, 1, 2 // corresponds to (0, 0), (0, 1), and (0, 2)
+Once the inner loop is done iterating over y, then the outer 
+loop continues to the next value, x = 1, and the whole process 
+begins again.
+
 
 
 
