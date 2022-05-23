@@ -164,6 +164,26 @@ with an infinte loop that crashes your browser!
 
 for loops give you more control over the looping process.
 
+for Loops Require a Start, Stop and Step
+The for loop explicitly forces you to define the start point, stop point,
+ and each step of the loop. In fact, you'll get an Uncaught SyntaxError: 
+ Unexpected token ) if you leave out any of the three required pieces.
+
+for ( start; stop; step ) {
+          // do this thing
+}
+
+-: Nested Loops Add Complexity
+Nested loops are just loops inside of other loops. Take a look at 
+our demo code:
+
+for (let x = 0; x < 3; x = x + 1) {
+          for (let y = 0; y < 2; y = y + 1) {
+                    console.log(x + ", " + y);
+          }
+}
+
+
 
 
 
