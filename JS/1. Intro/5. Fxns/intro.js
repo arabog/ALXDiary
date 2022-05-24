@@ -124,6 +124,93 @@ function laugh(num) {
 // test your code by logging out the returned value
 console.log(laugh(10));
 
+-: Return Values
+Output from a Function
+There are two ways to get output from a function:
+
+console.log is used to print a value to the JavaScript console.
+The return keyword is used to stop execution of a function and 
+return the value back to the caller.
+Points to Remember About Returning and Printing
+Returning is different from printing
+Printing a value to the JavaScript console only displays the value 
+but the value can't be used anwywhere else.
+
+Printing is great for debugging code
+Using console.log to test your code in the JavaScript console 
+or to print out values as your code runs can be extremely helpful 
+in pinpointing where something has gone wrong in your code.
+
+All function calls return something
+If a return value is not specified, the function will return undefined.
+
+The return keyword will stop the execution of a function
+Any code after a return statement will be ignored.
+
+function isPrime(integer) {
+          for (let x = 2; x < integer; x++ ) {
+          if(integer % x === 0) {
+                    console.log(integer + " is divisible by " + x);
+                    return false
+          }
+          }
+
+          return true
+}
+
+What does this function "return"?
+
+function sleep() {
+          console.log("I'm sleepy!");
+          return "zzz";
+          return "snore";
+}
+
+sleep()             //zzz
+
+The function will return "zzz" and print "I'm sleepy!" to the console. 
+"snore" will not be returned because the first return statement will 
+exit the function.
+
+Q: What do you think will happen with the following code?
+function test() {
+          return 1;
+          return 2;
+}
+
+test();             // 1 will be returned
+
+
+1 will be returned! Once the code evaluates the first return statement, 
+the function finishes. The second return statement will never be reached.
+
+However, it is possible to have multiple return statements in a function.
+
+For instance, you could use a conditional to specify when each of the 
+return statements is evaluated. You could, for example, only return the 
+value of 1 if the string "one" was passed into the test() function. Else, 
+you could return the value of 2.
+
+-: Using Return Values
+A function's return value can be stored in a variable or reused 
+throughout your program as a function argument.
+
+// returns the sum of two numbers
+function add(x, y) {
+          return x + y;
+}
+
+// returns the value of a number divided by 2
+function divideByTwo(num) {
+          return num / 2;
+}
+
+// call the "add" function and store the returned value in the "sum" variable
+const sum = add(5, 7); 
+
+// call the "divideByTwo" function and store the returned value in the "average" variable
+const average = divideByTwo(sum); 
+
 
 
 */ 
