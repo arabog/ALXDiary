@@ -296,9 +296,65 @@ https://en.wikipedia.org/wiki/Imperative_programming
 https://stackoverflow.com/questions/17826380/what-is-difference-between-functional-and-imperative-programming-languages
 
 
+-: Getting Started With CloudFormation Script
+Here is the link to the Cloudformation VPC documentation 
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
+
+Before you proceed further, get yourself familiarized with the 
+terminologies, such as Template, and Stack from the official 
+documentation.
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-whatis-concepts.html
 
 
+Q: If you have several types of IT experts across your company, 
+how would you group the resources you are creating in 
+CloudFormation in order to make it easy for everyone to have 
+their expert input on them?
+Type of resource
 
+Having scripts specific for networking and other scripts specific to 
+EC2 Servers or Databases keep your scripts small, and easily 
+shared across teams with different skill sets, such as database 
+administrators and network experts.
+
+YAML and JSON
+YAML and JSON file formats are both supported in CloudFormation, 
+but YAML is the industry preferred version that’s used for AWS and 
+other cloud providers (Azure, Google Cloud Platform).
+
+An important note about YAML files: the whitespace indentation 
+matters! We recommend that you use four white spaces for each 
+indentation.
+
+Glossary in CloudFormation scripts
+Name: A name you want to give to the resource (does this have to 
+be unique across all resource types?)
+
+Type: Specifies the actual hardware resource that you’re deploying.
+
+Properties: Specifies configuration options for your resource. Think 
+of these as all the drop-down menus and checkbox options that you 
+would see in the AWS console if you were to request the resource 
+manually.
+
+Stack: A stack is a group of resources. These are the resources that 
+you want to deploy, and that are specified in the YAML file.
+
+Best practices
+Create separate files to organize your code. You can either create 
+separate files for similar resources or create files for each developer 
+who uses those resources.
+
+How do I find the syntax for a particular resource?
+You don't need to memorize the code that you need for each resource. 
+You can find sample code in the AWS CloudFormation - Resource and 
+property types documentation for each AWS Service, such as EC2. 
+Then, you can select the particular resource within the selected service, 
+such as AWS::EC2::VPC in the list.
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 
 
 
