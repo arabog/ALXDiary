@@ -201,7 +201,7 @@ user. (N.B: Think of another option that would help to test your
 IAM User’s permissions and perform command line automated 
 tasks on your AWS Account).
 
-
+-: Configuring AWS CLI
 
 
 

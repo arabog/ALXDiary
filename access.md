@@ -1,0 +1,10 @@
+aws configure
+
+AKID
+AKIAQZZVUAQFGYVSDHEQ
+
+Sak
+zZS20DF8TWtTluI/NB2vIGaTg8qVyWSO1P/T3yl+
+
+aws s3 ls
+
