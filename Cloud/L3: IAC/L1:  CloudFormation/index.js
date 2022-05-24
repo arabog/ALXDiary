@@ -113,6 +113,35 @@ AWS CLI tool
 # See the current version
 aws --version
 
+# Clone the repository to your local system
+git clone https://github.com/udacity/nd9991-c2-Infrastructure-as-Code-v1.git
+
+cd nd9991-c2-Infrastructure-as-Code-v1
+
+# See the content in the current directory. You will see README.md, project_starter, 
+and supporting_material directories. 
+ls
+
+# Get inside the supporting_material
+cd supporting_material
+
+# Open the VS code editor to display your content
+code .
+
+Q: Let's recap and identify which tools you need to set up?
+You'll need these three tools to get started in CloudFormation
+
+Version Ctrl
+Code Editor for YAML and JSON
+Amazon Web Service account
+
+N.B: While GitHub is a version control platform, you can use 
+any version control system to work with, not necessarily GitHub.
+
+
+
+
+
 
 
 
