@@ -249,8 +249,24 @@ x *= y // x = x * y
 // Divide x by y
 x /= y // x = x / y
 
+-: Factorials! 
+let n =12;
+let m = 1
 
+for(i = n; i >=1; i--) {
+          m = m * i
+}
 
+console.log(m)
+
+Or: 
+let solution = 1;
+
+for (let i = 1; i <= 12; i++) {
+          solution *= i;
+}
+
+console.log(solution);
 
 
 
