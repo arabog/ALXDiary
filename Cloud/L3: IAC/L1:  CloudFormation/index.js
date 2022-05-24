@@ -99,6 +99,20 @@ Submit a ticket to Student Support Services to know your current balance.
 https://udacity.zendesk.com/hc/en-us/requests/new?ticket_form_id=110806
 
 
+-: Set up Tools
+What is CloudFormation?
+CloudFormation is an AWS tool for creating, managing, configuring, 
+and deploying cloud resources. This tool is beneficial if you have to 
+provision a set of cloud resources multiple times, at scale. You can 
+do so by simply writing (YAML or JSON) scripts that you can easily 
+edit and run numerous times.
+
+Tools required for the current course
+AWS CLI tool
+
+# See the current version
+aws --version
+
 
 
 
