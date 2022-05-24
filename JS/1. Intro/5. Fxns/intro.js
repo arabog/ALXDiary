@@ -211,6 +211,11 @@ const sum = add(5, 7);
 // call the "divideByTwo" function and store the returned value in the "average" variable
 const average = divideByTwo(sum); 
 
+-: Scope
+Understanding Scope
+Scope is the part of the program where a particular identifier, 
+such as a variable or a function name, is visible or accessible.
+
 
 
 */ 
