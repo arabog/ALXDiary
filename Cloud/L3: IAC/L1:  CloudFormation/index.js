@@ -266,5 +266,49 @@ sudo ./aws/install
 Additional Access Keys
 Note that each user can have up to 2 access keys at the same time.
 
+Why Making Keys Inactive is a Better Choice
+You may make your access key temporarily inactive rather than 
+destroying it and creating a new one. This may be helpful if you 
+want to stop an automated process that uses that key (for example, 
+a CI/CD process).
+
+-: Understanding CloudFormation
+CloudFormation is a declarative language, not an imperative language.
+
+CloudFormation handles resource dependencies so that you don’t have 
+to specify which resource to start up before another. There are cases 
+where you can specify that a resource depends on another resource, but 
+ideally, you’ll let CloudFormation take care of dependencies.
+
+VPC is the smallest unit of resource.
+
+Glossary
+Declarative languages: These languages specify what you want, without 
+requiring you to specify how to get it. An example of a popular 
+declarative language is SQL.
+
+Imperative languages: These languages use statements to change the 
+state of the program.
+
+Additional resources:
+https://en.wikipedia.org/wiki/Imperative_programming
+
+https://stackoverflow.com/questions/17826380/what-is-difference-between-functional-and-imperative-programming-languages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 */ 
