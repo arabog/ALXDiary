@@ -260,6 +260,29 @@ For example, this code runs without an error:
 console.log(bookSeeker + " is looking for " + book);
 Prints James is looking for Great Expectations
 
+We can also run the library function without an error:
+
+library();
+Prints
+James asked Julia for Great Expectations
+James found Great Expectations on the Dickens shelf!
+
+Function Scope
+What happens when we try to access the librarian variable 
+declared inside the library function from the console? We get 
+an error, because librarian can only be accessed inside the 
+scope of the library function.
+
+console.log(librarian);
+Returns Uncaught ReferenceError: librarian is not defined
+
+We get a similar error when we try to access shelf in the console 
+because the shelf variable is declared inside the classicLiterature 
+function.
+
+console.log(shelf);
+Returns Uncaught ReferenceError: shelf is not defined
+
 
 
 
