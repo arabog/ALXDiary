@@ -83,6 +83,46 @@ the other hand, an argument is always going to be a value
 boolean, etc.) and will always appear in the code when the 
 function is called or invoked.
 
+-: Function Recap
+What You’ve Learned So Far:
+Functions package up code so you can easily use (and reuse) 
+a block of code.
+Parameters are variables that are used to store the data that's 
+passed into a function for the function to use.
+Arguments are the actual data that's passed into a function when 
+it is invoked:
+
+// x and y are parameters in this function declaration
+function add(x, y) {
+          // function body
+          // Here, `sum` variable has a scope within the function. 
+          // Such variables defined within a function are called Local variables
+          // You can try giving it another name
+          const sum = x + y;
+          return sum; // return statement
+}
+
+// 1 and 2 are passed into the function as arguments, 
+// and the result returned by the function is stored in a new variable `sum`
+// Here, `sum` is another variable, different from the one used inside the function
+const sum = add(1, 2);
+
+Write a function called laugh() that takes one parameter, num.
+The function should return a string with num number of "ha"s.
+The string should end with an exclamation point "!".
+
+function laugh(num) {
+          let ha = '';
+
+          for(i = 0; i < num; i++) {
+                    ha += "ha";
+          }
+
+          return ha + "!";
+}
+
+// test your code by logging out the returned value
+console.log(laugh(10));
 
 
 
