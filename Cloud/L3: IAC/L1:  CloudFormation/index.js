@@ -539,6 +539,8 @@ https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html#cli-a
 
 Can you try deleting the stack yourself?
 
+aws cloudformation delete-stack  --stack-name myFirstTest 
+
 https://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stacks.html
 
 https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html#cli-aws-cloudformation
