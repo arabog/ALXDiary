@@ -290,6 +290,18 @@ for(i = 0; i <= 25; i++) {
           }
 }
 
+Loops Are a Fundamental Programming Tool
+You will be using loops all the time as you progress as a coder. And you should 
+now be really good at them!
+
+What We Learned in This Lesson
+
+You now know how to:
+Use while loops
+Use for loops
+Nest loops for more complex automation
+Use assignment operators to write more concise code
+
 
 
 */ 
