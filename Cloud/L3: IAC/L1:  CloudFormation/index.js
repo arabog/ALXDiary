@@ -138,6 +138,70 @@ Amazon Web Service account
 N.B: While GitHub is a version control platform, you can use 
 any version control system to work with, not necessarily GitHub.
 
+-: Creating Access Key ID for IAM User
+After installing AWS CLI, recall that you must configure the following 
+four items on your local machine before you can interact with any of 
+the AWS services:
+
+Access key - It is a combination of Access Key ID and a Secret Access 
+Key. You can generate an Access key from the AWS IAM service, and 
+specify the level of permissions (authorization) with the help of IAM Roles.
+
+Default AWS Region - It specifies the AWS Region where you want 
+to send your requests by default.
+
+Default output format - It specifies how the results are formatted. It 
+can either be a json, yaml, text, or a table.
+
+Profile - A collection of settings is called a profile. The default profile 
+name is default, however, you can create a new profile using the aws 
+configure --profile new_name command.
+
+-: Let’s create an IAM User and copy the access key
+Note that each user can have up to 2 access keys at the same time.
+
+Deciding Access Privileges within AWS
+AWS access type
+Programmatic Access: In the AWS console, choose "programmatic access." 
+This allows us to use code to interact with AWS, instead of relying on mouse 
+clicking in the console web pages. Choosing this option will Enable the 
+access key ID and secret access key for the AWS CLI.
+
+AWS Management Console access: it is used only when you want the 
+new user to be able to sign-in to the AWS web console using a 
+password. This one is not the case in our course
+
+Permissions
+Administrator Access: The permissions to a user are granted in 
+form of Policies, which are JSON documents. The AWS web 
+console provides a pre-created list of policies to choose from. 
+For the current IAM user that you are creating, choose “administrator 
+access.” This is just for the initial setup of your account. Afterward, 
+you’ll want to limit access to only what you need.
+
+Once a user is created, copy the access key for configuring the CLI. 
+Do not save the access key in your code or into any public repositories. 
+Keep them private to you.
+
+Development and Production user accounts
+In practice, Development and DevOps members may have separate 
+user accounts for the development environment as opposed to the 
+production environment. This makes it easier for developers by 
+giving them wider privileges in the dev environment that would 
+normally only be reserved for DevOps members in the production 
+environment.
+
+Q: When creating a new API Access user, you will... (Select all that apply)
+Create a programatic access IAM User
+Assign an appropriate IAM Policy to the user, depending
+on their require access
+
+Configure d AWS CLI Tool with the newly created keys for our
+user. (N.B: Think of another option that would help to test your 
+IAM User’s permissions and perform command line automated 
+tasks on your AWS Account).
+
+
 
 
 
