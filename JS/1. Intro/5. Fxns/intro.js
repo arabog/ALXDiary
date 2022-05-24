@@ -312,5 +312,12 @@ a, b, and c, are all available in the y function scope.
 Which of these variables a, b, c, and d, are defined in the scope of function z?
 All of these variables are available inside the scope of function z.
 
+-: The Scope Chain
+
+
+
+
 
 */ 
+
+
