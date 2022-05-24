@@ -216,6 +216,52 @@ Understanding Scope
 Scope is the part of the program where a particular identifier, 
 such as a variable or a function name, is visible or accessible.
 
+-: Global and Function Scope
+The Three Types of Scope in JavaScript
+global scope
+function scope
+block scope
+
+The first two are pretty simple:
+Variables declared in the global scope are accessible to any other 
+part of the program.
+
+Variables declared inside a function are in the function scope 
+which means they are only accessible inside that function.
+
+Block scope is more complicated. 
+
+Translating the Library Example to Code
+Let's translate James's requests for a book into JavaScript code so 
+we can take a closer look at the scope:
+
+const bookSeeker = "James";
+const book = "Great Expectations";
+
+function library() {
+          const librarian = "Julia"; 
+          console.log(bookSeeker + " asked " + librarian + " for " + book);
+
+          function classicLiterature() {
+                    const shelf = "Dickens"; 
+
+                    console.log( bookSeeker + " found " + book + " on the " + shelf + " shelf!");
+          }
+
+          classicLiterature();
+}
+
+Global Scope
+bookSeeker and book are in the global scope so as expected, we 
+can use access them anywhere in the code.
+
+For example, this code runs without an error:
+
+console.log(bookSeeker + " is looking for " + book);
+Prints James is looking for Great Expectations
+
+
+
 
 
 */ 
