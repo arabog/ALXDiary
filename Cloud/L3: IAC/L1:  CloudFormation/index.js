@@ -548,6 +548,50 @@ https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html#cli-a
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
 
 
+Summary of the commands:
+aws cloudformation create-stack --stack-name ourfirsttest --region us-east-1 --template-body file://testcfn.yml
+
+aws cloudformation update-stack  --stack-name myFirstTest --region us-east-1 --template-body file://testcfn.yml
+
+aws cloudformation describe-stacks --stack-name myFirstTest
+
+aws cloudformation delete-stack  --stack-name myFirstTest 
+
+
+-: EC2 Instance with an Admin Role
+Brief Introduction
+You will create an EC2 Instance based on Amazon Linux AMI 
+that you can connect via SSH. While provisioning the instance, 
+you will make sure to limit access to your IP address only, using 
+Security Groups. The instance will already have the CLI installed 
+by default. You just need to assign permissions to this instance.
+
+Once the instance is running, create an IAM role with admin 
+access to your account. Then, attach the role to your EC2. 
+In this case, the CLI tool will pick up the credentials from the 
+role and won’t need hard-coded credentials.
+
+Exercise objectives
+By the end of this exercise, you will be able to:
+Launch a secure EC2 instance
+Create IAM role with admin privileges
+Attach the IAM role to the EC2 instance created earlier
+Connect to your EC2 instance via SSH
+Use CLI tool in the EC2 instance
+
+Step 1. Create a default VPC(use aws console)
+Step 2. Launch an EC2 instance
+Step 3. Create an IAM Role
+Step 4. Attach the Role to the EC2 Instance
+Step 5. Connect to your EC2 instance using SSH
+
+ssh -i "cloud-formation.pem" ubuntu@ec2-35-173-136-20.compute-1.amazonaws.com
+
+
+
+
+
+
 
 
 */ 
