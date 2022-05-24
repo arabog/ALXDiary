@@ -88,6 +88,17 @@ applications and different environments - dev, prod, or test.
 Infrastructure as code
 https://en.wikipedia.org/wiki/Infrastructure_as_code
 
+Track your usage on the AWS web console. Go to AWS Billing Dashboard,
+and view the monthly spending. It will list you the services constituting the 
+spend.
+
+https://aws.amazon.com/pricing/
+
+Submit a ticket to Student Support Services to know your current balance.
+
+https://udacity.zendesk.com/hc/en-us/requests/new?ticket_form_id=110806
+
+
 
 
 
