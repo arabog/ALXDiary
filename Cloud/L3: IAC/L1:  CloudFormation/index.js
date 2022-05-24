@@ -464,5 +464,88 @@ already backed it up. If you generate a change set, you will see that
 your change will cause your database to be replaced, and you will 
 be able to plan accordingly before you update your stack.
 
+-: Exercise - Create a VPC: Automated
+Description: 
+          Babs    /       Udacity
+          This template deploys a VPC
+Resources: 
+          UdacityVPC:
+                    Type: AWS::EC2::VPC
+                    Properties: 
+                    CidrBlock: 10.0.0.0/16
+                    EnableDnsHostnames: true
+
+
+to find d file containing d code: 
+ls <filename>
+
+to create stack: (i.e a grp of resources)
+aws cloudformation create-stack --stack-name ourfirsttest --region us-east-1 --template-body file://testcfn.yml
+
+1. Create stack
+Create the template file: Use the following code for your first test file: 
+testcfn.yml (or choose any other name). Be careful about the indentation 
+while you paste/write the same code in your editor.
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Carlos Rivas / Udacity - This template deploys a VPC
+Resources:
+UdacityVPC:
+          Type: 'AWS::EC2::VPC'
+          Properties:
+                    CidrBlock: 10.0.0.0/16
+                    EnableDnsHostnames: 'true'
+                    Tags:
+                              - Key: name
+                              Value: myfirsttestvpc
+
+Run the aws command : Run the following command in the terminal, 
+from the same directory where you've placed your testcfn.yml file. 
+We are assuming that your stack name is myFirstTest
+
+aws cloudformation create-stack  --stack-name myFirstTest --region us-east-1 --template-body file://testcfn.yml
+
+Alternate method - Shell Script: You can write a shell script (.sh) file as:
+aws cloudformation create-stack --stack-name $1 --template-body file://$2  --parameters file://$3 --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-west-2
+
+were $1, $2, and $3 can be replaced with the actual values passed 
+as command-line arguments. Note the --parameters and --capabilities 
+options
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html
+
+Update stack
+You may also want to use update-stack when you want to update an 
+existing stack instead of destroying your stack and creating a new one. 
+The syntax is similar to before:
+
+aws cloudformation update-stack  --stack-name myFirstTest --region us-east-1 --template-body file://testcfn.yml
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/update-stack.html
+
+Describe stack
+Once a stack is created successfully, you can verify by either going to 
+the web console or running the following command, which will display 
+all the details the stack.
+
+aws cloudformation describe-stacks --stack-name myFirstTest
+
+You can describe the details of multiple stacks in one command. If no 
+stack name is specified, then it will return the description for all the 
+stacks created in your account.
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html#cli-aws-cloudformation
+
+
+Can you try deleting the stack yourself?
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stacks.html
+
+https://docs.aws.amazon.com/cli/latest/reference/cloudformation/index.html#cli-aws-cloudformation
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html
+
+
+
 
 */ 
