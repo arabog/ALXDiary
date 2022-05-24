@@ -587,6 +587,16 @@ Step 5. Connect to your EC2 instance using SSH
 
 ssh -i "cloud-formation.pem" ubuntu@ec2-35-173-136-20.compute-1.amazonaws.com
 
+Summary
+As this lesson comes to an end, now you must be able to...
+Describe IaaC as one of the best practices used in the DevOps model.
+Configure basic settings to start using AWS services as an IAM user.
+Explain the fundamentals of Cloud Formation.
+Contrast the manual vs. automated provisioning of EC2 instances in a VPC.
+Utilize the AWS command-line tool - CLI for necessary activities, such 
+as configuring a VPC, or creating an IAM user.
+
+
 
 
 
