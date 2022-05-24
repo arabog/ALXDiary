@@ -40,6 +40,13 @@ DevOps = Development + Operatns
 
 Operatnal is d part of IT dt mnages, monitors, configures, and deploys software
 
+-: Why you need DevOps
+Issues that DevOps tries to solve:
+Unpredictable deployments
+Mismatched environments (development doesn’t match production)
+Configuration Drift
+
+
 
 
 
