@@ -202,11 +202,69 @@ IAM User’s permissions and perform command line automated
 tasks on your AWS Account).
 
 -: Configuring AWS CLI
+Q: Regarding your access keys it's always best to...
+Rotate them(change them) frequently
+Make them inactive if dy wont be used for a long time
 
+Perfect, be sure to rotate your keys every 90 days, disable or delete 
+unused ones and save them in a good location, such as AWS’s own 
+Parameter Store.
 
+Configuring the AWS Command Line Interface (CLI)
+Assuming you have already installed the AWS CLI tool and copied 
+the access key for an administrator IAM user, follow the steps below:
 
+Verify, if you already have a CLI v1 installed. If yes, prefer to 
+uninstall CLI v1 and have CLI v2 installed, which is the latest 
+one. You can verify the version using:
 
+aws --version
 
+To set up your AWS CLI, type either of the following commands in 
+the terminal:
+
+aws configure
+aws configure --profile default
+
+Upon prompt:
+Paste the copied access key (access key id and secret access key).
+
+Enter the default region either as as us-east-1 or us-west-2, even if 
+you’re living closer to another available region.
+
+Enter the output format either as json or leave it blank
+
+Verifying your Setup
+Verify the successful configuration of the AWS CLI, by running any 
+AWS command:
+
+# List your S3 buckets. This will be blank if you have no S3 buckets
+aws s3 ls
+
+# List the IAM users in your account
+aws iam list-users
+
+Uninstalling awscli:
+which aws
+
+ls -l /usr/bin/aws
+
+sudo rm /usr/local/bin/aws
+
+sudo rm /usr/bin/aws_completer
+
+sudo rm -rf /usr/aws-cli
+
+How to install cli v2:
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+unzip awscliv2.zip
+
+sudo ./aws/install
+
+-: Adding Additional Keys
+Additional Access Keys
+Note that each user can have up to 2 access keys at the same time.
 
 
 */ 
