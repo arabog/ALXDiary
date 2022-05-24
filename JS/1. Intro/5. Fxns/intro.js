@@ -283,8 +283,34 @@ function.
 console.log(shelf);
 Returns Uncaught ReferenceError: shelf is not defined
 
+Q: Which of these variables a, b, c, and d, are defined in the scope of function x?
+const a = 1;
 
+function x() {
+          const b = 2;
 
+          function y() {
+                    const c = 3;
+
+                    function z() {
+                              const d = 4;
+                    }
+
+                    z();
+          }
+
+          y();
+}
+
+x();
+
+a and b are available in the x function scope.
+
+Q: Which of these variables a, b, c, and d, are defined in the scope of function y?
+a, b, and c, are all available in the y function scope.
+
+Which of these variables a, b, c, and d, are defined in the scope of function z?
+All of these variables are available inside the scope of function z.
 
 
 */ 
