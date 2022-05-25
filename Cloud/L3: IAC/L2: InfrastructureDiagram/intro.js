@@ -53,6 +53,28 @@ Add AWS General Users onto your canvas
 Rename ur  AWS General Users shape to Users
 
 -: Diagramming Availability Zones
+Q: When designing production systems, you should consider multiple 
+availabilities zones in all situations except which one of these:
+Cost
+
+It is cheaper to run a single copy of your web server or service, 
+however, keep in mind that if something happens to it, there's no 
+alternative in place in this case.
+
+Availability Zones (AZ): An AZ is a set of one or more data centers 
+(physical building).
+
+Best Practices
+Choose to have more than one availability zone to avoid a 
+single point of failure.
+Include more than one availability zone to design for high 
+availability, .
+You may choose to reduce to one AZ, possibly for prototyping 
+and design for low cost. But it is not recommended for 
+production environments.
+
+
+
 
 
 */ 
