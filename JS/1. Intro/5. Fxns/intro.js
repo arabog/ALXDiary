@@ -602,6 +602,42 @@ keep doing this until it reaches the global scope.
 Global identifiers are a bad idea. They can lead to bad variable names, 
 conflicting variable names, and messy code.
 
+-: Function Expressions
+Remember how you can store anything you want in a variable? Well, 
+in JavaScript, you can also store functions in variables. When a 
+function is stored inside a variable it's called a function expression.
+
+const catSays = function(max) {
+          let catMessage = "";
+
+          for (let i = 0; i < max; i++) {
+                    catMessage += "meow ";
+          }
+
+          return catMessage;
+};
+
+Notice how the function keyword no longer has a name.
+
+It's an anonymous function, a function with no name, and you've 
+stored it in a variable called catSays.
+
+And, if you try accessing the value of the variable catSays, 
+you'll even see the function returned back to you.
+
+catSays;
+
+Returns:
+function(max) {
+          let catMessage = "";
+
+          for (let i = 0; i < max; i++) {
+                    catMessage += "meow ";
+          }
+          
+          return catMessage;
+}
+
 
 
 
