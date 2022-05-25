@@ -313,8 +313,59 @@ Which of these variables a, b, c, and d, are defined in the scope of function z?
 All of these variables are available inside the scope of function z.
 
 -: The Scope Chain
+How Does Javascript Find a Variable? It Uses the Scope Chain
+When the JavaScript engine is looking for a variable, it starts 
+from the current scope and moves outward:
 
+The JavaScript engine will start looking in the scope where the variable is requested.
+If it can't find it in the current scope, it moves out one level and checks again.
+It keeps moving to the outer scope until it has reached the global scope.
+If the JavaScript engine checks all of the outer functions and global scope, and 
+it still can't find the identifier then it will return a Reference error.
 
+// <-- 4. JavaScript engine looks here last
+const globalVar = "I am in the global scope";
+
+function outerOuterFunction() {
+          // <-- 3. JavaScript engine looks here third
+          const outerOuterVar = 'I am in the outerOuterFunction scope';
+
+          function outerFunction() {
+          // <-- 2. JavaScript engine looks here second
+                    const outerVar = 'I am in the outerFunction scope';
+
+                    function innerFunction() {
+                              // <-- 1. JavaScript engine looks here first
+                              const innerVar = 'I am in the innerFunction scope';
+                              console.log(globarVar);
+                    }
+          }
+}
+
+Q: Where can you print out the value of variable c without resulting in an error?
+
+const a = 1;
+
+function x() {
+          const b = 2;
+
+          function y() {
+                    const c = 3;
+
+                    function z() {
+                              const d = 4;
+                    }
+                    z();
+          }
+          y();
+}
+
+x();
+
+The variable c is defined inside function y(), so it's accessible only 
+inside function y(). This means it can be printed anywhere inside 
+function y(), as well as inside any functions declared inside 
+function y() -- like the function z().
 
 
 
