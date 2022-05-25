@@ -52,7 +52,7 @@ Add AWS cloud container to ur canvas
 Add AWS General Users onto your canvas
 Rename ur  AWS General Users shape to Users
 
-
+-: Diagramming Availability Zones
 
 
 */ 
