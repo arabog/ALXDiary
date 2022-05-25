@@ -778,6 +778,121 @@ The variable declaration and assignment are both already at
 the top of the function scope, so the function will print out: 
 "Hello Julia"
 
+What About Function Expressions?
+Function expressions are not hoisted, since they involve variable 
+assignment, and only variable declarations are hoisted. The function 
+expression will not be loaded until the interpreter reaches it in the script.
+
+Example: Function Expressions vs Function Declarations
+The function expression meow is not hoisted so this code throws an error:
+
+function cat() {
+          console.log(meow(2));
+
+          const meow = function (max) {
+                    let catMessage = '';
+
+                    for (let i = 0; i < max; i++) {
+                              catMessage = 'meow ';
+                    }
+
+                    return catMessage;
+          };
+
+          function purr() {
+                    return 'purrrr!';
+          }
+}
+
+cat();
+
+Returns Uncaught ReferenceError: Cannot access 'meow' before initialization
+
+The function declaration purr is hoisted so this code runs without error:
+
+function cat() {
+          console.log(purr());
+
+          const meow = function (max) {
+                    let catMessage = '';
+
+                    for (let i = 0; i < max; i++) {
+                              catMessage = 'meow ';
+                    }
+
+                    return catMessage;
+          };
+
+          function purr() {
+                    return 'purrrr!';
+          }
+}
+
+cat();
+Prints purrrr!
+
+Hoisting Is Another Reason to Use let and const Instead of var!
+Variables declared with let and const eliminate the issue of variable 
+hoisting because they’re scoped to the block, not to the function.
+
+When a variable is declared using let or const inside a block of 
+code (denoted by curly braces { }), the variable is stuck in the 
+temporal dead zone until the variable’s declaration is processed. 
+This sounds scary, but it basically means that the code cannot 
+access the variable before it has been declared. If you try, you'll 
+get a Reference Error.
+
+Q: What will happen when you run this code?
+
+function getClothing(isCold) {
+          if (isCold) {
+                    var freezing = 'Grab a jacket!';
+          } else {
+                    var hot = 'It’s a shorts kind of day.';
+                    console.log(freezing);
+          }
+}
+
+getClothing(false)  //undefined
+
+You realized that while freezing is available because it has been hoisted, 
+but its value isn't set unless the JavaScript runs the if part of this code 
+block.
+
+Q: What will happen when you run this code?
+
+function getClothing(isCold) {
+          if (isCold) {
+                    const freezing = 'Grab a jacket!';
+          } else {
+                    const hot = 'It’s a shorts kind of day.';
+                    console.log(freezing);
+          }
+}
+
+getClothing(false)  //  Uncaught Reference Error
+
+You will get a Reference Error here because freezing is not defined in 
+the block that it was called in.
+
+Q: What will be returned when you run this code?
+
+let x = 1;
+
+function addTwo() {
+          let x = x + 2;
+}
+
+addTwo();
+x = x + 1;
+console.log(x);
+
+Uncaught Reference Error: Cannont access 'x' bf initialization
+
+This is a demonstration of one of the reasons why it is a 
+best practice to declare variables with let or const rather 
+than var. JavaScript won't allow you to inadvertently access 
+the x in the global scope like it does when you use var.
 
 
 */ 
