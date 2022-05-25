@@ -634,10 +634,149 @@ function(max) {
           for (let i = 0; i < max; i++) {
                     catMessage += "meow ";
           }
-          
+
           return catMessage;
 }
 
+-: Hoisting
+Hoisting is a result of how JavaScript is interpreted by your 
+browser. Essentially, before any JavaScript code is executed, 
+all function declarations and variables declared with var are 
+hoisted, which means they're raised to the top of the function 
+scope.
+
+Intuitively, you might think "This code shouldn't work!" because 
+we're trying to call findAverage before it is declared:
+
+findAverage(5, 9);
+
+function findAverage(x, y) {
+          var answer = (x + y) / 2;
+          return answer;
+}
+
+But, surprisingly it does work!
+Returns 7
+
+in JavaScript we can call a function before we declare it due to 
+hoisting. Before any JavaScript code is executed, all function 
+declarations and variables declared with var are hoisted to the 
+top of their current scope.
+
+So even though the code you write doesn't change, the JavaScript 
+engine interprets it as if you wrote it this way:
+
+function findAverage(x, y) {
+          var answer = (x + y) / 2;
+          return answer;
+}
+
+findAverage(5, 9);
+
+Demo Code
+Hosting can lead to odd results.
+As expected, this code returns a reference error because we 
+haven't defined greeting anywhere:
+
+function sayGreeting() {
+          console.log(greeting);
+}
+
+sayGreeting()
+Returns Uncaught ReferenceError: greeting is not defined
+
+To get rid of the error, we can define greeting anywhere 
+inside the sayGreeting function, even after we call it:
+
+function sayGreeting() {
+          console.log(greeting);
+          var greeting;
+}
+
+sayGreeting()
+Returns undefined
+
+We don't get an error, but we do get undefined. Can we fix this 
+by assigning a value to greeting when we declare it? No. This 
+code still returns undefined:
+
+function sayGreeting() {
+          console.log(greeting);
+          var greeting = "hello";
+}
+
+sayGreeting()
+Returns undefined
+
+This is because with hoisting, the variable declaration is being 
+hoisted to the top of the function, but the value of greeting isn't 
+assigned until after the console.log statement is run. 
+JavaScript is interpreting the code as if it were written like this:
+
+function sayGreeting() {
+          var greeting;
+          console.log(greeting);
+          greeting = "hello";
+}
+
+sayGreeting()
+Returns undefined
+
+To avoid bugs like this, declare your functions at the top of your 
+scripts and declare and assign your variables at the top of your 
+functions.
+
+function sayGreeting() {
+          var greeting = "hello";
+          console.log(greeting);
+          greeting 
+}
+
+sayGreeting()
+Prints Hello
+
+Q: What value will be printed to the console?
+
+sayHi("Julia");     //undefined Julia
+
+function sayHi(name) {
+          console.log(greeting + " " + name);
+          var greeting;
+}
+
+The function declaration is hoisted to the top of its current scope, 
+and inside the function, the greeting variable declaration is also 
+hoisted to the top of its function scope.
+
+Q: What value will be printed to the console?
+
+sayHi("Julia");     //undefined Julia
+
+function sayHi(name) {
+          console.log(greeting + " " + name);
+          var greeting = "Hello";
+}
+
+The variable declaration is hoisted to the top of current scope 
+(the top of the function). Remember that the declaration is 
+hoisted, not the assignment. The code inside sayHi is equivalent to:
+
+          var greeting;
+          console.log(greeting + " " + name);
+          greeting = "Hello";
+
+Q: What value will be printed to the console?
+
+function sayHi(name) {
+          var greeting = "Hello";
+          console.log(greeting + " " + name);
+}
+
+sayHi("Julia");
+
+The variable declaration and assignment are both already at 
+the top of the function scope, so the function will print out: 
+"Hello Julia"
 
 
 
