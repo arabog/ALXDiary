@@ -20,7 +20,21 @@ https://lethain.com/introduction-to-architecting-systems-for-scale/
 https://github.com/udacity/nd9991-c2-Infrastructure-as-Code-v1/tree/master/supporting_material
 
 
+-: Setting up Lucidcharts
 
+Q: Cloud Architecture diagrams are...
+A way to visualize d infrastructure u want to design
+it's a great discussion tool to communicate to others what 
+you intend to create.
+
+Lucidchart
+We’ll use Lucidchart to create cloud diagrams. Other applications that 
+generate diagrams include Visio or Cloudcraft.
+
+Set Up A Lucid Chart
+Navigate to www.lucidchart.com
+create a new doc using a blank template
+select AWS Architecture 2017 & 2019 from d Shape manager sectn
 
 
 
