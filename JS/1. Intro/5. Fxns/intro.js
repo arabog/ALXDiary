@@ -894,7 +894,70 @@ best practice to declare variables with let or const rather
 than var. JavaScript won't allow you to inadvertently access 
 the x in the global scope like it does when you use var.
 
+-; What You’ve Learned So Far:
+JavaScript hoists function declarations and variables declared 
+with var to the top of the current scope.
+Hoisting doesn't happen when variables are declared with let or const.
+Variable assignments are not hoisted so function expressions are not hoisted.
+
+Best Practices
+Declare functions and variables at the top of your scripts, so the syntax and 
+behavior are consistent with each other.
+Use let and const to declare variables. You may see var in legacy code, but 
+do not use it in any new code you are writing.
+
+-: Build a Triangle
+function buildTriangle(num) {
+
+          function makeLine(length) {
+                    var line = "";
+
+                    for(let j = 1; j <= length; j++) {
+                              line += "* ";
+
+                              console.log(line) + "\n";
+                    }
+
+          }
+
+          return makeLine(num);
+}
+
+console.log(buildTriangle(10))
+
+Or:
+
+// creates a line of * for a given length
+function makeLine(length) {
+          let line = "";
+          
+          for (var j = 1; j <= length; j++) {
+                    line += "* ";
+          }
+ 
+          return line + "\n";
+}
+
+
+function buildTriangle(num) {
+            // Let's build a huge string equivalent to the triangle
+          let triangle = ""
+
+
+          //Let's start from the topmost line i.e 1
+
+          // We will not print one line at a time.
+        // Rather, we will make a huge string that will comprise the whole triangle
+          for (let i = 1; i <= num; i++) {
+                    triangle += makeLine(i);
+          }
+
+          return triangle;
+}
+
+
+console.log(buildTriangle(10))
+
+
 
 */ 
-
-
