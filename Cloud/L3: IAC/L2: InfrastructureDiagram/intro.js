@@ -36,6 +36,16 @@ Navigate to www.lucidchart.com
 create a new doc using a blank template
 select AWS Architecture 2017 & 2019 from d Shape manager sectn
 
+Q: If my diagram covers multiple AWS accounts, regions and 
+subnets, I should...
+Create multiple diagrams, with each diagram covering a logical
+container, such as subnet, VPC or Account
+
+If you have too much going on inside a subnet, for example, you 
+could create a Cloud Architecture diagram just for that one subnet 
+and have a separate diagram that shows the VPC, AWS Account 
+and/or region.
+
 
 
 
