@@ -136,7 +136,15 @@ placed in a public subnet. Routing rules applied to a subnet
 allow us to define access to all resources placed inside that 
 subnet.
 
+Q: If I just created a VPC and I want to provide internet access 
+to it, I should make sure to...
+Create a route to d Internet GateWay(IGW) and associate it with my subnet(s)
+Create an IGW
+Attach d IGW to my VPC
 
+Sometimes you'll forget the route or forget to attach the Internet 
+Gateway. Just be sure to consider these steps when troubleshooting 
+a "no internet access" issue.
 
 
 
