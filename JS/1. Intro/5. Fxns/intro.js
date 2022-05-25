@@ -481,6 +481,129 @@ inside the function, even when you declare them with var.
 That is the big difference between how block scope and 
 function scope work.
 
+-: Scope Gotcha I: Shadowing
+Scope Can Be Tricky!
+Scope can be a tricky subject, especially when you're working in 
+both global and function scope.
+
+Shadowing occurs when variables in different scopes have the 
+same name. When this happens the variable in the inner scope 
+overrides the variable in the outer scope.
+
+Example: scope shadowing
+
+let bookTitle = "Le Petit Prince";
+console.log(bookTitle);
+
+function displayBookEnglish() {
+          bookTitle = 'The Little Prince';
+          console.log(bookTitle);
+}
+
+displayBookEnglish()
+console.log(bookTitle);    
+
+Prints
+Le Petit Prince
+The Little Prince
+The Little Prince
+
+Best Practice: Declare a New Variable
+To avoid scope override, always declare a new variable inside 
+your function. This prevents JavaScript from reassigning the 
+value of the variable in the outer scope.
+
+Example: no shadowing
+
+let bookTitle = "Le Petit Prince";
+console.log(bookTitle);
+
+function displayBookEnglish() {
+          let bookTitle = 'The Little Prince';
+          console.log(bookTitle);
+}
+
+displayBookEnglish()
+console.log(bookTitle);     
+
+Prints
+Le Petit Prince
+The Little Prince
+Le Petit Prince
+
+Q: Without pasting into your console, what do you think this code will print out?
+let x = 1;
+
+function addTwo() {
+          x = x + 2;
+}
+
+addTwo();
+x = x + 1;
+console.log(x);     //4
+
+The global variable x is assigned the value of 1.
+Then, the function addTwo() increments the variable by 2.
+Next, the variable is incremented by 1.
+Finally, it's printed out using console.log, wc is 4
+
+Q: Without pasting into your console, what do you think this code will print out?
+
+var x = 1;
+
+function addTwo() {
+          var x = x + 2;
+}
+
+addTwo();
+x = x + 1;
+console.log(x);               //2
+
+The global variable x is incremented by 1. Since the global variable's 
+original value was 1, and it was incremented by 1, console.log will 
+print out 2.
+
+The variable assignment inside the function addTwo() only has function 
+scope, so its affect is not reflected outside the function.
+
+You may be wondering... Why are we using var in the second quiz?
+Great question! There are some interesting implications of block scoping 
+that we will cover later in the lesson. If you want a preview, try replacing 
+var with let and see what happens when you run the code. We'll explore 
+this more when we look into hoisting.
+
+var x = 1;
+
+function addTwo() {
+          let x = x + 2;
+}
+
+addTwo();
+x = x + 1;
+console.log(x);  
+
+What You’ve Learned So Far:
+If an identifier is declared in global scope, it's available everywhere.
+
+If an identifier is declared in function scope, it's available in the function 
+it was declared in (even in functions declared inside the function).
+
+If an identifier is declared in block scope with var, it is available in the 
+block and in the outer scope of the block it was declared in.
+
+If an identifier is declared in block scope with let or const, it is only 
+available in the block it was declared in.
+
+When trying to access an identifier, the JavaScript Engine will first 
+look in the current function. If it doesn't find anything, it will continue 
+to the next outer function to see if it can find the identifier there. It will 
+keep doing this until it reaches the global scope.
+
+Global identifiers are a bad idea. They can lead to bad variable names, 
+conflicting variable names, and messy code.
+
+
+
 
 */ 
 
