@@ -958,6 +958,56 @@ function buildTriangle(num) {
 
 console.log(buildTriangle(10))
 
+-: Patterns with Function Expressions
+Being able to store a function in a variable makes it really 
+simple to pass the function into another function. A function 
+that is passed into another function is called a callback. 
+Let's say you had a helloCat() function, and you wanted it 
+to return "Hello" followed by a string of "meows" like you 
+had with catSays. Well, rather than redoing all of your hard 
+work, you can make helloCat() accept a callback function, 
+and pass in catSays.
+
+// function expression catSays
+const catSays = function(max) {
+          let catMessage = "";
+
+          for (let i = 0; i < max; i++) {
+                    catMessage += "meow ";
+          }
+
+          return catMessage;
+};
+
+// function declaration helloCat accepting a callback
+function helloCat(callbackFunc) {
+          return "Hello " + callbackFunc(3);
+}
+
+// pass in catSays as a callback function
+helloCat(catSays);
+Returns 'Hello meow meow meow '
+
+Named Function Expressions
+You can create a function expression with a named function, like this:
+
+const favoriteMovie = function movie() {
+          return "The Fountain";
+};
+
+But you still need to use its assigned identifier to call it:
+
+favoriteMovie();
+Returns 'The Fountain'
+
+If you try to use the function name to call the function you'll get an error:
+
+movie();
+Returns Uncaught ReferenceError: movie is not defined
+
+
+
+
 
 
 */ 
