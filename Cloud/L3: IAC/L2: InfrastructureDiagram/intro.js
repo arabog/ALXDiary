@@ -208,7 +208,7 @@ the public subnet. Place NAT gateway inside the public subnet
 so that it can communicate with the public Internet and handle 
 requests from resources in a private subnet.
 
-
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html
 
 
 */ 
