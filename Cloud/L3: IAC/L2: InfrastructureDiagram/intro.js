@@ -46,6 +46,12 @@ could create a Cloud Architecture diagram just for that one subnet
 and have a separate diagram that shows the VPC, AWS Account 
 and/or region.
 
+-: Diagramming AWS accounts & regions
+Create A Diagram for AWS Accounts & A Region
+Add AWS cloud container to ur canvas
+Add AWS General Users onto your canvas
+Rename ur  AWS General Users shape to Users
+
 
 
 
