@@ -1067,36 +1067,55 @@ movies(function (movieName) {
 }, "Finding Nemo");
 
 -: Function Expression Recap
-
 What You’ve Learned So Far:
-Function Expression: When a function is assigned to a variable. The function can be named, or anonymous. Use the variable name to call a function defined in a function expression.
+Function Expression: When a function is assigned to a variable. 
+The function can be named, or anonymous. Use the variable 
+name to call a function defined in a function expression.
 
 // anonymous function expression
 const doSomething = function(y) {
-  return y + 1;
+          return y + 1;
 };
 // named function expression
 const doSomething = function addOne(y) {
-  return y + 1;
+          return y + 1;
 };
 // for either of the definitions above, call the function like this:
 doSomething(5);
 Returns: 6
 
-You can even pass a function into another function inline. This pattern is commonly used in JavaScript, and can be helpful streamlining your code.
+You can even pass a function into another function inline. This 
+pattern is commonly used in JavaScript, and can be helpful 
+streamlining your code.
 
 // function declaration that takes in two arguments: a function for displaying
 // a message, along with a name of a movie
 function movies(messageFunction, name) {
-  messageFunction(name);
+          messageFunction(name);
 }
 
 // call the movies function, pass in the function and name of movie
 movies(function displayFavorite(movieName) {
-  console.log("My favorite movie is " + movieName);
+          console.log("My favorite movie is " + movieName);
 }, "Finding Nemo");
 
+-: Quiz: Laugh
+// Declare an empty string
+let sound = "" ; 
 
+// An anonymous function expression stored in the variable `laugh`
+const laugh = function(num) {
+
+          //Iterate
+          for (var x = 0 ; x < num ; x++) {
+                    sound = sound + "ha" ;  
+          }
+
+          sound = sound +"!"; 
+          
+          return sound; 
+};
 
 
 */ 
+
