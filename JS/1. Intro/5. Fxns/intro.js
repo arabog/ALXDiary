@@ -1131,10 +1131,38 @@ emotions("happy", laugh(2)); // you can use your laugh function from
 the previous quizzes
 
 Prints: "I am happy, haha!"
+function emotions(str, func) {
+          return "I am " + str + func(3);
+}
 
 
+emotions("happy ", function named(num) {
+          let hap = "";
+
+          for(let i = 1; i <= num; i++) {
+                    hap += "ha"
+          }
+
+          return hap + "!"
+})
+
+Or:
+const laugh = function named(num) {
+          let hap = "";
+
+          for(let i = 1; i <= num; i++) {
+                    hap += "ha"
+          }
+
+          return hap + "!"
+}
 
 
+function emotions(str, func) {
+          return "I am " + str + func(3);
+}
+
+emotions("Happy ", laugh)
 */ 
 
 
