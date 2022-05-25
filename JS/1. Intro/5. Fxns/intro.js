@@ -367,6 +367,119 @@ inside function y(). This means it can be printed anywhere inside
 function y(), as well as inside any functions declared inside 
 function y() -- like the function z().
 
+-: Block Scope
+What is a Block?
+A block is a group of statements in between curly braces. 
+You've seen blocks in conditional statements:
+
+const x = 5;
+
+if (x < 6) {
+          const double = x * 2;
+          console.log(double);
+} else {
+          const half = x / 2;
+          console.log(half);
+}
+
+and in loops:
+
+for (let i = 0; i < 5; i++) {
+          let triple = x * 3;
+          console.log(triple);
+}
+
+In the examples above, the variables double, half and 
+triple are only available inside the block where they are declared.
+
+Q: What will print out to the console when this code is run?
+
+let fruit = "apple"; 
+
+if (fruit !== "banana") {
+          let fruit = "banana";
+          console.log(fruit);   
+}
+
+console.log(fruit);
+
+A new fruit variable is declared inside the curly braces with a 
+value of "banana". The first fruit variable declared in the global 
+scope has the value "apple"
+
+Block Scope Only Works with let And const
+Unlike with function scope, if you declare a variable inside a 
+block using var the variable will be accessible both inside the 
+block and in the block's outer scope.
+
+Q: What will print out to the console when this code is run?
+
+var fruit = "apple"; 
+
+if (fruit !== "banana") {
+          var fruit = "banana";
+          console.log(fruit);   
+}
+
+console.log(fruit); 
+
+The var inside the if block reassigns the value of the global 
+variable fruit to "banana` resulting in "banana`"banana`
+
+.Q: What will print out when you run this code?
+
+if (true) {
+          var x = "x is accessible";
+          let y = 'y is accessible'; 
+          const z = 'z is accessible'; 
+
+          console.log("Inside the if block scope:");
+          console.log(x);
+          console.log(y);
+          console.log(z);
+}
+
+console.log("Outside the if block scope:")
+console.log(x);
+console.log(y);
+console.log(z);
+
+You can access x in both the global scope and the block 
+scope. y can only be accessed in the block scope.
+
+When JavaScript encounters a reference error it stops so 
+the console.log(z) statement isn't run.
+
+Q: What will print out when you run this code?
+
+function whereAmIAssessible(a) {
+          if (a) {
+                    var x = "x is accessible";
+                    let y = 'y is accessible';
+                    const z = 'z is accessible';
+
+                    console.log("Inside the if block scope:");
+                    console.log(x);
+                    console.log(y);
+                    console.log(z);
+          }
+}
+
+whereAmIAssessible(true);
+
+console.log("Outside the function scope:")
+console.log(x);
+console.log(y);
+console.log(z);
+
+When a variable is declared inside a function it is only 
+be accessible in that function -- even if you use var. x is 
+not accessible in the global scope.
+
+You can only access variables declared in the function scope 
+inside the function, even when you declare them with var. 
+That is the big difference between how block scope and 
+function scope work.
 
 
 */ 
