@@ -1117,5 +1117,14 @@ const laugh = function(num) {
 };
 
 
+-: Quiz: Cry
+const cry = function named() {
+          returns "boohoo";
+}
+
+-: 
+
 */ 
+
+
 
