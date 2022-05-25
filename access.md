@@ -4,7 +4,7 @@ AKID
 AKIAQZZVUAQFGYVSDHEQ
 
 Sak
-zZS20DF8TWtTluI/NB2vIGaTg8qVyWSO1P/T3yl+
+zZS20DF8TWtTluI/NB2vIGaTg8qV
 
 Verifying your Setup
 Verify the successful configuration of the AWS CLI, by running any AWS command:
