@@ -73,7 +73,30 @@ You may choose to reduce to one AZ, possibly for prototyping
 and design for low cost. But it is not recommended for 
 production environments.
 
+-: Virtual Private Cloud
+An IPv4 address is made up of four octets.
 
+10        0         0         0         /16
+
+CIDR Block = 10.0.0/16        One octect is missing here
+
+We could create 255 of this smaller subnets within our VPC 
+by doing [10.0.2.0, 10.0.2.1, 10.0.2.2, 10.0.2.3.....10.0.2.255], 
+[10.0.3.0, 10.0.3.1, 10.0.3.2, 10.0.3.3...... 10.0.3.255], and so on. 
+
+Glossary
+Virtual Private Cloud (VPC): A virtual private cloud is a pool 
+of networked cloud resources. It can span more than one 
+availability zone.
+
+The equivalent of this would be a data center. However, thanks 
+to availability zones, VPCs can span more than one physical 
+building. This is an amazing feature that protects against real 
+world disasters like electrical failures, fires and similar events.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 
 
 
