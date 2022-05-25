@@ -99,5 +99,48 @@ https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
 https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 
 
+-: Public vs Private Subnets
+Decide for each practical, everyday service whether you think 
+it should be a private or public subnet. Drag the appropriate 
+blue block into the Subnet Restriction column.
+
+APPLICATION                                       SUBNET RESTRICTION
+
+Public-facing Web Server                          Public
+
+Database                                                    Private
+
+Load Balancer to your web servers                 Public
+
+Back-end application server                       Private
+
+Subnets
+A subnet is a subset of the overall VPC network and it only exists 
+in a single availability zone, unlike its parent network, the VPC.
+
+A subnet contains resources, and can be assigned access rights 
+that apply to all resources within that subnet.
+
+Subnets can be public or private. Public subnets are accessible 
+to external users. Private subnets are only accessed internally 
+by other resources within your cloud container.
+
+Use IP addresses for routing traffic
+Use IP addresses as the “keys” for routing traffic. We can 
+route traffic to stay within the VPC, or within a particular 
+subnet, for security reasons.
+
+For example, a database or any sensitive data will be placed 
+in a private subnet. A public server, like a web server, can be 
+placed in a public subnet. Routing rules applied to a subnet 
+allow us to define access to all resources placed inside that 
+subnet.
+
+
+
+
+
+
+
 
 */ 
