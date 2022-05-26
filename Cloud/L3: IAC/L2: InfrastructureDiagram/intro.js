@@ -263,6 +263,32 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction
 https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
 
 
+-: Security Groups
+Security groups manage traffic at the server level (the resource level). Security 
+Groups aren’t for managing higher-level groups such as subnets, VPC, or user 
+accounts.
+
+The same security group can be assigned to multiple resources that require 
+the same security access settings defined by that security group.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
+
+Q: A Security group is a collection of networking rules for...
+Inbound and outbound traffic
+
+While you could certainly specify just one type of traffic, it's common 
+practice to include rules for both inbound and outbound in a single 
+Security group.
+
+Q: A security group can be assigned to...
+Any instance (or same level) in the current VPC
+
+You can assign an SG (firewall rule) either to an instance, load balancer, 
+or database, etc., in your VPC. However, each SG can scope to one or 
+more IP address anywhere on the Internet (such as giving access to 
+yourself, allowing the entire network 0.0.0.0/0 )
+
+
 
 
 */ 
