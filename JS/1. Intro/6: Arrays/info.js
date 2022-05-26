@@ -149,6 +149,23 @@ join()
 
 You can combine the elements in an array to form a string using the join() method.
 
+-: Array Methods for Looping
+Arrays have a set of special methods to help you iterate over and 
+perform operations on collections of data. 
+
+The forEach Method
+The forEach() method gives you an alternative way to iterate over an 
+array, and manipulate each element in the array with an inline function 
+expression.
+
+const donuts = ["jelly donut", "chocolate donut", "glazed donut"];
+
+donuts.forEach(function(donut) {
+          donut += " hole";
+          donut = donut.toUpperCase();
+          console.log(donut);
+});
+
 
 
 */ 
