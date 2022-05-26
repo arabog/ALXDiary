@@ -49,6 +49,16 @@ the available Array methods.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
+Q: What is the length of the following inventory array?
+
+const inventory = [
+          ["gold pieces", 25],
+          ["belt", 4],
+          ["ring", 1],
+          ["shoes", 2]
+];
+
+Arrays inside an array count as one, unique element in the array.
 
 
 */ 
