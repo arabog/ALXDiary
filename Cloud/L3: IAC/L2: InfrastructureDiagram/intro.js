@@ -288,9 +288,54 @@ or database, etc., in your VPC. However, each SG can scope to one or
 more IP address anywhere on the Internet (such as giving access to 
 yourself, allowing the entire network 0.0.0.0/0 )
 
+-: Routing Table
+The entries in a routing table are about information regarding how 
+to "move traffic" not about allowing or denying traffic. A routing 
+table defines the rules, meaning if a packet arrives for a particular 
+destination, then it should be moved towards the defined target.
+
+To allow/deny traffic at the network/subnetwork level you have ACLs!.
+To allow/deny traffic at an instance level, you have security groups.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+
+
+-: S3
+An S3 bucket is a public service for users to upload or download files.
+Place the S3 service outside of your VPC.
+
+In the following quiz you’ll see an option for Log files as one of the 
+possible answers, please keep in mind that this means sanitized logs, 
+which means: with all sensitive information removed, such as passwords,
+ credit card numbers or similar info.
+
+Q: What should I store on S3? (Pick two answer choices here.)
+Images/Video
+Log files 
+
+and not credentials and dbs
+
+Images, Video, large text files, log files, audit logs are all great uses for 
+S3. Log files should be cleaned of all sensitive data prior to storing them 
+in S3 as a shared resource for your team or company.
+
+-: Reviewing Our Diagram
+In the upcoming lessons, you will create the VPC and the resources 
+contained therein, as shown in the diagram. Since an S3 does not reside 
+in your VPC, let's exclude it from your final diagram. Though, you will 
+learn to create S3 buckets and their policies programmatically in the 
+last lesson.
+
+Q: Should I include hostnames and IP addresses in my cloud diagrams?
+No
+
+it would be too much clutter and the data can change.
+
+
 
 
 
 */ 
 
 Is this statement correct IP addresses are in VPC but they are used in Subnets?
+Diff btw routing table, ACL and security grp
