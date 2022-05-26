@@ -114,5 +114,18 @@ What does the donuts array look like after the following changes?
 
 const donuts = ["cookies", "chocolate frosted", "glazed", "cinnamon sugar", "creme de leche"];
 
+
+-: Rainbow
+The standard rainbow colors are usually listed in this order:
+const rainbow = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
+
+const rainbow = ['Red', 'Orange', 'Blackberry', 'Blue'];
+
+// your code goes here
+
+rainbow.splice(2, 1,  "Yellow", "Green");
+rainbow.splice(-1, 0,  "Purple");
+console.log(rainbow);
+
 */ 
 
