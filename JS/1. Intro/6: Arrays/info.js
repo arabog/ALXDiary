@@ -60,6 +60,13 @@ const inventory = [
 
 Arrays inside an array count as one, unique element in the array.
 
+-: Push
+You can use the push() method to add elements to the end of an array.
+
+Notice that the push() method returns the length of the array after an 
+element has been added.
+
+
 
 */ 
 
