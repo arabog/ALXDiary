@@ -257,6 +257,38 @@ const total = bills.map((item) => {
 console.log(total)
 
 -: Arrays in Arrays
+Think of an Array in an Array as a Grid
+An array of arrays can be represented as a grid-like structure, where 
+each element of the array corresponds to a row of cells.
+
+each row of the grid is an array
+each of those arrays is an element of the larger array
+
+const grid = [
+          [ 1,  2,  3,  4,  5],
+          [ 6,  7,  8,  9, 10],
+          [11, 12, 13, 14, 15],
+          [16, 17, 18, 19, 20],
+];
+You can use a single loop to access each row of the grid.
+
+for (let r = 0; r < grid.length; r++) {
+          console.log(grid[r]);
+}
+
+And you can use nested loops, or a loop inside of a loop, to loop over 
+each element of each of those rows.
+
+for (let r = 0; r < grid.length; r++) {
+          for (let c = 0; c < grid[r].length; c++) {
+                    console.log(grid[r][c]);
+          }
+}
+
+The outer loop will cycle through each row and then in the row 
+that's currently being iterated over, the inner loop will iterate 
+over each cell.
+
 
 
 
@@ -267,12 +299,3 @@ console.log(total)
 
 */ 
 
-const bills = [50.23, 19.12, 34.01, 100.11, 12.15, 9.90, 29.11, 12.99, 10.00, 99.22, 102.20, 100.10, 6.77, 2.22];
-
-bills.map((item) => {
-          item += 0.15;
-
-          item = Number(item.toFixed(2));
-})
-
-console.log(bills)
