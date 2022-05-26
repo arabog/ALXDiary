@@ -166,7 +166,23 @@ donuts.forEach(function(donut) {
           console.log(donut);
 });
 
+const test = [
+          12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+          19, 300, 3775, 299, 36, 209, 148, 169, 299,
+          6, 109, 20, 58, 139, 59, 3, 1, 139
+];
+
+// Write your code here
+//const miniTest = [12, 29, 11, 3];
+
+test.forEach(function(item) {
+          if(item % 3 === 0) {
+                    item += 100;
+          }
+
+          console.log(item);
+})
+
 
 
 */ 
-
