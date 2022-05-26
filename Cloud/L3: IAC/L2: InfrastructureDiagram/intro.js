@@ -331,6 +331,15 @@ No
 
 it would be too much clutter and the data can change.
 
+Summary
+As this lesson comes to an end, now you must be able to...
+
+Make use of www.lucidchart.com to draw the diagrams.
+Identify the AWS resources that are required to be used in the diagrams.
+Place the resources correctly in the diagram, such as VPC, availability 
+zones, subnets, internet gateway, NAT gateway, autoscaling groups, 
+load balancers, and EC2 instances
+
 
 
 
