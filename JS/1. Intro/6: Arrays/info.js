@@ -66,6 +66,28 @@ You can use the push() method to add elements to the end of an array.
 Notice that the push() method returns the length of the array after an 
 element has been added.
 
+-: Pop
+Alternatively, you can use the pop() method to remove elements from 
+the end of an array.
+With the pop() method you don’t need to pass a value; instead, pop() 
+will always remove the last element from the end of the array.
+
+Notice that pop() returns the element that has been removed. This 
+can be handy if you want to do something with the element that you 
+removed from the array.
+
+-: Splice
+splice() is another handy method that allows you to add and remove 
+elements from anywhere within an array.
+
+While push() and pop() limit you to adding and removing elements
+from the end of an array, splice() lets you specify the index location 
+to add new elements, as well as the number of elements you'd like to 
+delete (if any).
+
+
+
+
 
 
 */ 
