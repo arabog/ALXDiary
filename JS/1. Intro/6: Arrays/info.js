@@ -38,6 +38,11 @@ inside it. If those people move out, and a new group of people
 moves in, the names of the people inside the house changes, 
 but the house's postal address won't.
 
+We use const to declare arrays because JavaScript is assigning 
+a reference that points to that array. We can change whatever 
+we want inside the array, but we cannot change which array 
+the variable points to.
+
 
 
 
