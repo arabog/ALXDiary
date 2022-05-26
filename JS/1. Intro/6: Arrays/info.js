@@ -43,7 +43,11 @@ a reference that points to that array. We can change whatever
 we want inside the array, but we cannot change which array 
 the variable points to.
 
+-: Array Properties and Methods
+TIP: You can type []. into the JavaScript console for a list of all 
+the available Array methods.
 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 
 
