@@ -183,6 +183,96 @@ test.forEach(function(item) {
           console.log(item);
 })
 
+-: Map
+How Should I Loop?
+for Loops
+for loops are very versatile and give you complete control over the 
+looping process because you can explicitly define where to start and 
+stop in the array, whether you want to skip over values in the array, 
+and whether you'd like to break out of the loop early using a break 
+statement:
+
+const myArray = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < myArray.length; i = i + 2) {
+          console.log(myArray[i]);
+
+          if (i === 2) {
+                    break;
+          }
+}
+
+forEach Loops
+forEach gives you a concise way of looping over an array if you 
+know you're going to be loopingover every element from start to 
+finish. You have less versatility than with a regular for loop, but 
+you can access each element directly, without using an index.
+
+const myArray = [1, 2, 3, 4, 5];
+
+myArray.forEach(function (elem) {
+          console.log(elem);
+});
+
+but using forEach() will not be useful if you want to permanently 
+modify the original array. forEach() always returns undefined.
+
+map Loops
+Creating a new array from an existing array is simple with the 
+powerful map() method.
+
+With the map() method, you can take an array, perform some 
+operation on each element of the array, and return a new array.
+
+const newArray = myArray.map(function (elem) {
+          elem = elem + 100;
+          return elem;
+});
+
+console.log(newArray); //[101, 102, 103, 104, 105]
+
+TIP: Check out the toFixed() method for numbers to help with 
+rounding the values to a maximum of 2 decimal places. Note, 
+that the method returns a string to maintain the "fixed" format 
+of the number. So, if you want to convert the string back to a number, 
+you can cast it or convert it back to a number:
+
+Number("1");
+
+const bills = [
+          50.23, 19.12, 34.01,
+          100.11, 12.15, 9.90, 29.11, 12.99,
+          10.00, 99.22, 102.20, 100.10, 6.77, 2.22
+];
+
+
+const total = bills.map((item) => {
+          item += item * 0.15;
+
+          item = Number(item.toFixed(2));
+
+          return item;
+});
+
+console.log(total)
+
+-: Arrays in Arrays
+
+
+
+
+
+
 
 
 */ 
+
+const bills = [50.23, 19.12, 34.01, 100.11, 12.15, 9.90, 29.11, 12.99, 10.00, 99.22, 102.20, 100.10, 6.77, 2.22];
+
+bills.map((item) => {
+          item += 0.15;
+
+          item = Number(item.toFixed(2));
+})
+
+console.log(bills)
