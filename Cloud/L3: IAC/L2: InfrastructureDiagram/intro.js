@@ -340,6 +340,10 @@ Place the resources correctly in the diagram, such as VPC, availability
 zones, subnets, internet gateway, NAT gateway, autoscaling groups, 
 load balancers, and EC2 instances
 
+https://aws.amazon.com/architecture/?cards-all.sort-by=item.additionalFields.sortDate&cards-all.sort-order=desc&awsf.content-type=*all&awsf.methodology=*all&awsf.tech-category=*all&awsf.industries=*all
+
+https://github.com/aws-samples/aws-refarch-wordpress
+
 
 
 
