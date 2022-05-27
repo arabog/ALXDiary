@@ -109,8 +109,28 @@ Don't use a number as the first character in a property name
 Don't use quotes around key names unless absolutely necessary
 Use camelCase when you need a multi-word variable name.
 
+-: Summary of Objects
+They have properties (information about the object) 
+and methods (functions or capabilities the object has). 
 
+Object literals, methods, and properties
+You can define objects using object-literal notation:
 
+const myObj = { 
+          color: "orange",
+          shape: "sphere",
+          type: "food",
+          eat: function() { return "yummy" }
+};
+
+myObj.eat(); // method
+myObj.color; // propert
+
+Naming conventions
+Feel free to use upper and lowercase numbers and letters, 
+but don't start your property name with a number. You don't 
+need to wrap the string in quotes! If it's a multi-word property, 
+use camel case. Don't use hyphens in your property names
 
 
 
