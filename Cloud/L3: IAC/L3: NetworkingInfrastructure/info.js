@@ -91,4 +91,34 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 
 
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html
+
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
+
+-: Routing
+Route table: Routing is the action of applying (routing) rules to your 
+network, in this case, to your VPC. A route table contains a set of rules. 
+It blocks traffic from resources that do not follow the routing rule. It is 
+represented as an AWS::EC2::RouteTable resource in CloudFormation 
+terminology.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+
+Rules: Rules define (in a particular order of precedence) the network 
+protocol, allowed IP addresses, and ports to allow the inbound and 
+outbound traffic separately. A single rule is called an 
+AWS::EC2::Route resource in CloudFormation terminology.
+
+The flow of creating resources here will be: 
+Create route tables → Add routes → Associate route table to subnets.
+
+
+
+
+
+
+
 */ 
