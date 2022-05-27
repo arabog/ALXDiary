@@ -115,7 +115,29 @@ AWS::EC2::Route resource in CloudFormation terminology.
 The flow of creating resources here will be: 
 Create route tables → Add routes → Associate route table to subnets.
 
+SubnetRouteTableAssociation
+In order to associate subnets with our route table, we will need to 
+use a SubnetRouteTableAssociation resource using the following 
+syntax:
+This only takes two properties, which are the id's used for our 
+RouteTable and our Subnet.
 
+Important Note: Routes should be defined starting with the most 
+specific rule and transitioning to the least specific rule.
+
+Q: If your servers have no internet access it's probably because...
+U created d internet gateway but forgot to attach it to ur VPC
+
+and not bcos u created a routing table but forgot to associate
+ur subnet(s) with it
+
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
 
 
 
