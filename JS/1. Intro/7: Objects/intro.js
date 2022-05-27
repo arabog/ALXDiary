@@ -132,7 +132,74 @@ but don't start your property name with a number. You don't
 need to wrap the string in quotes! If it's a multi-word property, 
 use camel case. Don't use hyphens in your property names
 
+var savingsAccount = {
+          balance: 1000,
+          interestRatePercent: 1,
 
+          deposit: function addMoney(amount) {
+                    if (amount > 0) {
+                              savingsAccount.balance += amount;
+                    }
+          },
+
+          withdraw: function removeMoney(amount) {
+                    var verifyBalance = savingsAccount.balance - amount;
+
+                    if (amount > 0 && verifyBalance >= 0) {
+                              savingsAccount.balance -= amount;
+                    }
+          }
+};
+
+const facebookProfile = {
+          name: "Babs",
+          friends: 14,
+          messages: ["Hello", "Hi", "Morning"],
+
+          postMessage: (message) => {
+                    return facebookProfile.messages.push(message)
+          },
+
+          deleteMessage: (index) => {
+                    return facebookProfile.messages.splice(index, 1)
+          },
+
+          addFriend: () => {
+                    return facebookProfile.friends += 1
+          },
+
+          removeFriend: () => {
+                    return facebookProfile.friends -= 1
+          }
+};
+
+
+// text code
+console.log("Name: ", facebookProfile.name);
+console.log("Messages: ", facebookProfile.messages);
+facebookProfile.postMessage("New message!");
+console.log("Messages: ",  facebookProfile.messages);
+facebookProfile.deleteMessage(2);
+console.log("Messages: ",  facebookProfile.messages);
+console.log("Friends: ", facebookProfile.friends);
+facebookProfile.addFriend();
+console.log("Friends: ", facebookProfile.friends);
+facebookProfile.removeFriend();
+console.log("Friends: ", facebookProfile.friends);
+
+const donuts = [
+          { type: "Jelly", cost: 1.22 },
+          { type: "Chocolate", cost: 2.45 },
+          { type: "Cider", cost: 1.59 },
+          { type: "Boston Cream", cost: 5.99 }
+];
+
+const result = donuts.forEach(function(donut) {
+          console.log( donut.type + " donuts cost $" + donut.cost + " each")
+})
+
+
+console.log(result)
 
 
 
