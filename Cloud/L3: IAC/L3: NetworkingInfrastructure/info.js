@@ -79,6 +79,16 @@ permission to the owner (yourself) explicitly as:
 chmod +x update.sh 
 chmod +x create.sh 
 
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EC2.html
+
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 
 
 */ 
