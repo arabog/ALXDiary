@@ -1,0 +1,62 @@
+Learning about the YAML file
+The video above shows you the testcfn.yml file, which you'd have created 
+in the previous lesson. In the upcoming video demos, you will have to create 
+a new YAML file. Let's learn about the sections present the testcfn.yml file:
+
+Format version: The AWSTemplateFormatVersion section is optional. 
+The current valid value is 2010-09-09. You can add it to your file as:
+
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: TheDescription field is also optional. Here we start by 
+adding a short description of the project we are working on.
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Carlos Rivas / Udacity - This template deploys a VPC
+
+Resouces: Although a description is optional, the Resources section is 
+required. Remember to include at least one resource (e.g., a VPC, an EC2 
+instance, a database) in the CloudFormation template, otherwise, it will 
+give an error when you try to run the script.
+
+AWSTemplateFormatVersion: 2010-09-09
+Description: Carlos Rivas / Udacity - This template deploys a VPC
+Resources:
+UdacityVPC:
+  Type: 'AWS::EC2::VPC'
+  Properties:
+    CidrBlock: 10.0.0.0/16
+    EnableDnsHostnames: 'true'
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+
+
+AWS command in a Shell script
+As demonstrated in the video above, you can save your aws 
+cloudformation command in a shell (.sh) script, so that you 
+can run it multiple times easily. The instructor has created 
+the following two shell scripts for the current course:
+
+create.sh: 
+This file contains the create-stack command, which expects 
+three command-line arguments.
+
+aws cloudformation create-stack --stack-name $1 --template-body file://$2  --parameters file://$3 --region=us-east-1
+
+update.sh: 
+This file contains the update-stack command, and this too 
+expects three command-line arguments.
+
+aws cloudformation update-stack --stack-name $1 --template-body file://$2  --parameters file://$3 --region=us-east-1
+
+Note: As stated earlier, you can choose either region, us-west-2 or us-east-1.
+
+Moving forward, we will learn and add an additional option, 
+--capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM", in these commands as:
+
+aws cloudformation create-stack --stack-name $1 --template-body file://$2  --parameters file://$3 --capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" --region=us-east-1
+
+Practice Fixing Errors
+Practice fixing errors, as this will help you prepare for real scenarios on the job.
+For instance, try altering correct, working YAML scripts to see if they generate an error.
+Practice reading error messages to understand what caused the error, and how to fix them.
