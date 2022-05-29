@@ -23,6 +23,8 @@ uniformly across multiple servers (target group) within the same
 or different AZs. We will also create a listener and target group for 
 the load balancer.
 
+https://github.com/udacity/nd9991-c2-Infrastructure-as-Code-v1/tree/master/supporting_material
+
 
 
 
