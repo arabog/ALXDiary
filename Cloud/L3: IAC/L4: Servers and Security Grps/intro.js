@@ -427,6 +427,30 @@ https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0648/modules/71d
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html
 
 
+          Fn::Base64: !Sub |
+          #!/bin/bash
+          # Install docker
+          apt-get update
+          apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          add-apt-repository \
+          "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+          $(lsb_release -cs) \
+          stable"
+          apt-get update
+          apt-get install -y docker-ce
+          usermod -aG docker ubuntu
+          docker run -p 8080:8080 tomcat:8.0
+
+          Or:
+
+          # #!/bin/bash
+          # sudo apt-get update -y
+          # sudo apt-get install apache2 -y
+          # sudo systemctl start apache2.service    
+
+
+-: Debugging Launch Configuration
 
 */ 
 
