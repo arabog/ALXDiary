@@ -339,12 +339,193 @@ mutates the object.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
 
 
-
-
 -: invoking obj methods
+Say that we have a function, sayHello(), which simply logs a 
+message to the console:
+
+function sayHello () {
+          console.log('Hi there!');
+}
+
+Now, say that we also have a developer object with a single property, name:
+
+const developer = {
+          name: 'Andrew'
+};
+
+If we want to add the sayHello() function into the developer object, we 
+can add the same way as we add other new properties: by providing 
+property name, then giving it a value. This time, the value of the property 
+is a function!
+
+developer.sayHello = function () {
+          console.log('Hi there!');
+};
+
+This is how the updated developer object looks:
+
+{
+
+          name: 'Andrew',
+
+          sayHello: function () {
+                    console.log('Hi there!');
+          }
+}
+
+Calling Methods
+developer.sayHello();
+// 'Hi there!'
+
+developer["sayHello"]();
+// 'Hi there!'
+
+Passing Arguments Into Methods
+If the method takes arguments, you can proceed the same way, too:
+
+const developer = {
+          name: 'Andrew',
+
+          sayHello: function () {
+                    console.log('Hi there!');
+          },
+
+          favoriteLanguage: function (language) {
+                    console.log(`My favorite programming language is ${language}`);
+          }
+};
 
 
+developer.favoriteLanguage('JavaScript');
+// My favorite programming language is JavaScript'
 
+developer["favoriteLanguage"]('JavaScript');
+
+
+Q: What is true about object methods?
+A method is a property of an object whose value is a function. 
+Methods are called on objects in the following format: 
+object.method().
+
+Q: Write an expression that invokes the alerter() function in 
+the following array, myArray:
+
+const myArray = [ function alerter() { alert('Hello!'); } ];
+myArray[0]()
+
+Consider writing an expression to first access the single 
+element in myArray. Then, you can simply append 
+parentheses to invoke the internal function!
+
+Call Methods by Property Name 
+We've been using anonymous functions (i.e., functions 
+without a name) for object methods. However, naming 
+those functions is still valid JavaScript syntax. Consider 
+the following object, greeter:
+
+const greeter = {
+          greet: function sayHello() {
+                    console.log('Hello!');
+          }
+};
+
+Note that the greet property points to a function with a 
+name: sayHello. Whether this function is named or not, 
+greet is invoked the same way:
+
+greeter.greet();
+
+// 'Hello!'
+
+A Method Can Access the Object it was Called On
+Using this, methods can directly access the object that it 
+is called on. Consider the following object, triangle:
+
+const triangle = {
+          type: 'scalene',
+
+          identify: function () {
+                    console.log(`This is a ${this.type} triangle.`);
+          }
+};
+
+Note that inside the identify() method, the value this is used. 
+When you say this, what you're really saying is "this object" 
+or "the object at hand." this is what gives the identify() 
+method direct access to the triangle object's properties:
+
+triangle.identify();
+
+When the identify() method is called, the value of this is 
+set to the object it was called on: triangle. As a result, 
+the identify() method can access and use triangle's type 
+property, as seen in the above console.log() expression.
+
+const dog = {
+          name: 'Jodi',
+          age: 7,
+
+          ageOneYear: function () {
+                    this.age += 1;
+                    console.log('Current age: ' + this.age);
+          },
+
+          woof: function () {
+                    console.log(this.name + " says 'woof!'");
+          },
+
+          whatIsThis: function () {
+                    console.log(this);
+          }
+};
+
+dog.whatIsThis();
+
+Q:What is true about this?
+
+A value for this is set when a method is invoked on an object, 
+and that value refers to that object. Since it is a reserved word, 
+it should not be used as any variable name, function name, etc.
+
+Q: Create an object called `chameleon` with two properties:
+
+1. `color`, whose value is initially set to 'green' or 'pink'
+2. `changeColor`, a function which changes `chameleon`'s `color` to 'pink'
+if it is 'green', or to 'green' if it is 'pink'
+
+const chameleon = {
+          // "color": "green",
+          "color": "pink",
+
+          "changeColor": function colorChange() {
+                    if(this.color === 'green') {
+                              return this.color = 'pink'
+                    }else if(this.color === 'pink') {
+                              return this.color = 'green'
+                    }
+          }
+}
+
+console.log(chameleon["changeColor"]())
+
+ The value of this
+Depending on how a function is called, this can be set to different 
+values! Later in this course, we'll take a deep dive into different 
+ways that functions can be invoked, and how each approach 
+influences the value of this.
+
+Summary
+The value of this is determined when a method is invoked, and 
+its value is the object on which the method was called
+
+Do you know that the value of this can have different meanings 
+outside an object? In the next section, we'll take a close look at 
+globals, their relationship with this, and the implications of 
+using them.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_methods
+
+https://javascript.info/object-methods#this-in-methods
 
 
 -: beware of globals
