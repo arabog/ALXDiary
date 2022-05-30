@@ -451,6 +451,348 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auto
 
 
 -: Debugging Launch Configuration
+WebAppGroup
+An Auto Scaling Group is in charge of providing servers for 
+your application based on an Alarm/Criteria, such as number 
+of concurrent users, CPU Usage or HTTP Requests
+
+Since The Auto Scaling Group is not specific to your application, 
+you need to provide a Launch Configuration which says which 
+machine image to use and how much memory and disk space 
+your application will need, among other things.
+
+You can specify a Minimum and Maximum count of servers 
+to use for Auto Scaling -- This is a great feature of cloud 
+that can save you lots of money in unused infrastructure 
+and it’s a key example of the elasticity of the cloud.
+
+Q: Should a server in your auto-scaling group fail, you would...
+Destroy the server and let the auto-scaling grp createa new,
+fresh server
+
+For the purpose of business continuity, it's perfectly fine to 
+quickly destroy the server and allow Auto-Scaling to take 
+over and spin up a new one. That said, if it happens again, 
+soon thereafter you may have a bigger problem at hand.
+
+To display a key pair
+This example displays the fingerprint for the key pair named MyKeyPair.
+
+Command:
+aws ec2 describe-key-pairs --key-name MyKeyPair
+
+-: Launch Templates
+you can also use a Launch Template instead of a Launch Configuration. 
+Let's understand how to code an AWS::EC2::LaunchTemplate from 
+AWS::EC2::LaunchConfiguration.
+
+Notice that a AWS::AutoScaling::LaunchConfiguration comprises 
+the following two section:
+
+WebAppLaunchConfig:
+  Type: AWS::AutoScaling::LaunchConfiguration
+  Properties:
+
+On the other hand, a AWS::EC2::LaunchTemplate has the following sections:
+WebAppLaunchTemplate:
+   Type: AWS::EC2::LaunchTemplate
+   Properties: 
+       LaunchTemplateName: 
+       LaunchTemplateData:
+
+In other words, a LaunchTemplate comprises of two main components: 
+LaunchTemplateName and LaunchTemplateData. The LaunchTemplateName 
+is optional, and LaunchTemplateData will have the detailed configuration.
+
+The content of the LaunchTemplateData can have various fields 
+and values. However, in our example, the content of the 
+LaunchConfiguration → Properties is similar to the LaunchTemplate 
+→ LaunchTemplateData section. The analogous LaunchTemplate will be:
+
+myWebAppLaunchTemplate:
+ Type: AWS::EC2::LaunchTemplate
+ Properties: 
+   LaunchTemplateData:
+     UserData:
+       Fn::Base64: !Sub |
+         #!/bin/bash
+         apt-get update -y
+         apt-get install apache2 -y
+         systemctl start apache2.service
+         cd /var/www/html
+         echo "Udacity Demo Web Server Up and Running!" > index.html
+     ImageId: ami-005bdb005fb00e791
+     KeyName: VocareumKey2
+     SecurityGroupIds:
+       - sg-020ac9d8f54335c66
+     InstanceType: t3.small
+     BlockDeviceMappings:
+     - DeviceName: "/dev/sdk"
+       Ebs:
+         VolumeSize: '10'
+
+In the Launch template above, notice the following important points:
+It is almost similar to a Launch configuration.
+
+It must be defined prior to defining the AutoScalingGroup.
+
+We already had a user key-pair with the name VocareumKey2 in 
+our account. You can use the one you have.
+
+In the SecurityGroupIds field, we have used a hard-coded value 
+of the web server SecurityGroup we created earlier. It is because, 
+in a nondefault VPC, AWS doesn't allow us to use the SecurityGroups 
+field. Instead, we must use security group IDs. Therefore, replace 
+the sg-020ac9d8f54335c66 with the one applicable to you. 
+
+Lastly, change the autoscaling group to use the new LaunchTemplate as:
+WebAppGroup:
+ Type: AWS::AutoScaling::AutoScalingGroup
+ Properties:
+   VPCZoneIdentifier:
+   - Fn::ImportValue: 
+       !Sub "${EnvironmentName}-PRIV-NETS"
+   LaunchTemplate:
+     LaunchTemplateId: !Ref myWebAppLaunchTemplate
+     Version: !Ref myLaunchTemplateVersionNumber
+   MinSize: '3'
+   MaxSize: '5'
+   TargetGroupARNs:
+   - Ref: WebAppTargetGroup
+
+In the LaunchTemplate field above, both the LaunchTemplateId and 
+Version are mandatory to the specified. Therefore, you may have 
+to create a new parameter myLaunchTemplateVersionNumber 
+
+Complete code:
+Parameters:
+
+  EnvironmentName:
+    Description: .........
+    Type: String
+
+  myLaunchTemplateVersionNumber:
+    Type: String
+    Default: 1
+
+Resources:
+
+myWebAppLaunchTemplate:
+ Type: AWS::EC2::LaunchTemplate
+ Properties: 
+   LaunchTemplateData:
+     UserData:
+       Fn::Base64: !Sub |
+         #!/bin/bash
+         apt-get update -y
+         apt-get install apache2 -y
+         systemctl start apache2.service
+         cd /var/www/html
+         echo "Udacity Demo Web Server Up and Running!" > index.html
+     ImageId: ami-005bdb005fb00e791
+     KeyName: VocareumKey2
+     SecurityGroupIds:
+       - sg-020ac9d8f54335c66
+     InstanceType: t3.small
+     BlockDeviceMappings:
+     - DeviceName: "/dev/sdk"
+       Ebs:
+         VolumeSize: '10'
+
+WebAppGroup:
+ Type: AWS::AutoScaling::AutoScalingGroup
+ Properties:
+   VPCZoneIdentifier:
+   - Fn::ImportValue: 
+       !Sub "${EnvironmentName}-PRIV-NETS"
+   LaunchTemplate:
+     LaunchTemplateId: !Ref myWebAppLaunchTemplate
+     Version: !Ref myLaunchTemplateVersionNumber
+   MinSize: '3'
+   MaxSize: '5'
+   TargetGroupARNs:
+   - Ref: WebAppTargetGroup
+
+
+-: Adding Target Groups and Listeners
+What is a Load Balancer?
+We learned earlier that a load-balancer automatically distributes 
+incoming application traffic across multiple servers (EC2 instances). 
+These servers need not essentially be present in a single subnet. 
+They (servers) can span across numerous subnets in a given VPC. 
+In our example, these servers are residing in the private subnets.
+
+A load balancer is not exactly a part of Auto Scaling. Still, it helps 
+answer the question: "If I am running a web application in 20 
+different servers, how do I set up a single point of entry that 
+guarantees an even workload distribution across all 20 servers?" 
+The answer is a load balancer.
+
+A load balancer allows you to reduce your Autoscaling down 
+to 1 server at night when very few people are using your web 
+application, and then Scale up to 10 or more servers during 
+the day, when hundreds or thousands may be using it. The 
+user doesn't experience any difference in availing of the 
+services due to auto-scaling.
+
+What is a Listener and Listener Rule?
+A load balancer requires a listener. A listener is a process 
+that checks for connection requests using the protocol and 
+port that you specify in your code. In comparison, a listener 
+rule determines how the load balancer routes request to the 
+registered targets. For example, a listener for an application 
+load balancer will route the particular request to a specific 
+target group based on some conditions we specify, such as 
+URL path.
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
+
+What is a Target Group?
+A target group is a logical group of EC2 instances spanning 
+across numerous subnets in a given VPC. You must explicitly 
+register an EC2 instance with a target group, after which it 
+will be called a target. In our example, the autoscaling group 
+manages all EC2 instances in the target group, meaning it 
+will automatically add/remove the instances to/from the 
+target group.
+
+Relationship between Target Groups and Auto Scaling groups.
+A load balancer is a device that simply forwards traffic, evenly 
+across a group of servers, known as a Target Group.
+
+The problem is, we can’t specifically name those servers, 
+because if they are part of an Auto Scaling group, this 
+means that they can come and go as demand for your 
+application increases or decreases.
+
+The way around this is, using the TargetGroupARNs property 
+of the Auto Scaling group, we can automatically associate any 
+new servers and remove discarded servers from the Target group 
+automatically by simply including the Resource Name (ARN) 
+of our Load Balancer’s target group in this property of our 
+Auto Scaling Group. This way, the Load Balancer will always 
+know where to send the traffic.
+
+AWS::ElasticLoadBalancingV2::TargetGroup
+Health Checks are the requests your Application Load Balancer 
+sends to its registered targets. These periodic requests test the 
+status of these targets. You can see us defining our Health 
+Check properties in the code below:
+
+  WebAppTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 10
+      HealthCheckPath: /
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 8
+      HealthyThresholdCount: 2
+      Port: 8080
+      Protocol: HTTP
+      UnhealthyThresholdCount: 5
+      VpcId: 
+        Fn::ImportValue:
+          Fn::Sub: "${EnvironmentName}-VPCID"
+In the above example we specify the following:
+
+The port where our targets receive traffic - Port: 80
+
+The protocol the load balancer uses when performing 
+health checks on targets - HealthCheckProtocol: HTTP
+
+The time it takes to determine a non-responsive target 
+is unhealthy - HealthCheckIntervalSeconds: 10
+
+The number of healthy/unhealthy checks required to 
+change the health status - HealthyThresholdCount: 
+2 UnhealthyThresholdCount: 5
+
+The healthy threshold represents the number of 
+consecutive health check successes required before 
+considering an unhealthy target healthy. An unhealthy 
+threshold shows the number of consecutive health check 
+failures required before considering a target unhealthy.
+
+AWS::ElasticLoadBalancingV2::LoadBalancer
+Our load balancer will be present in the public subnet, and 
+use the dedicated security group we created earler. The code 
+will look like:
+
+  WebAppLB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Subnets:
+      - Fn::ImportValue: !Sub "${EnvironmentName}-PUB1-SN"
+      - Fn::ImportValue: !Sub "${EnvironmentName}-PUB2-SN"
+      SecurityGroups:
+      - Ref: LBSecGroup
+AWS::ElasticLoadBalancingV2::Listener
+The listener to attach to our load balancer will be:
+
+  Listener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+      - Type: forward
+        TargetGroupArn:
+          Ref: WebAppTargetGroup
+      LoadBalancerArn:
+        Ref: WebAppLB
+      Port: '80'
+      Protocol: HTTP
+
+It will check for the load balancer's connection requests 
+on the HTTP protocol port 80 directed towards the target 
+group.
+
+AWS::ElasticLoadBalancingV2::ListenerRule
+A Listener requires a Listener Rule. The Listener Rule 
+below will determine how (condition) the load balancer's 
+connection requests are routed to the registered targets.
+
+  ALBListenerRule:
+      Type: AWS::ElasticLoadBalancingV2::ListenerRule
+      Properties:
+        Actions:
+        - Type: forward
+          TargetGroupArn: !Ref 'WebAppTargetGroup'
+        Conditions:
+        - Field: path-pattern
+          Values: [/]
+        ListenerArn: !Ref 'Listener'
+        Priority: 1
+
+The above listener rule will route all connection requests 
+with the default root (/) endpoint to the specified target group.
+
+Had our application served two different API endpoints, 
+we could have created a dedicated target group for each 
+API endpoint. The listener rule will correspondingly route 
+the first endpoint's connection requests to one target group 
+and the requests for other endpoints to the second target group.
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticLoadBalancingV2.html
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
+
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html
+
+
+-:
+This new stack is cross-referencing the resources that you have 
+already created in the previous lesson. The final command that 
+the instructor has run to create a new stack ourdemoservers is 
+(run either one):
+
+aws cloudformation create-stack --stack-name ourdemoservers --template-body file://servers.yml  --parameters file://server-parameters.json  --region=us-west-2
+
+./create.sh ourdemoservers servers.yml server-parameters.json
+
+-: Debugging Our Security Group
+
+
+
+
 
 */ 
 
