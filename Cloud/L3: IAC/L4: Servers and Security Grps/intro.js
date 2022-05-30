@@ -891,6 +891,16 @@ Similarly, you can SSH login to the second private server
 from the Jumpbox. You have to replace the private IP 
 address of the second server in the commands above.
 
+-: Summary
+As this lesson comes to an end, now you should be able to...
+
+Specify firewall rules using security groups
+Create autoscaling groups for the elasticity of servers
+Code the launch configuration for the web application
+Add the target groups and listeners
+Update the stack with the load balancer
+Learn to debug the security group
+
 
 */ 
 
