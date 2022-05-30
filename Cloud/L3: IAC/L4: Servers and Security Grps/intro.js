@@ -901,6 +901,26 @@ Add the target groups and listeners
 Update the stack with the load balancer
 Learn to debug the security group
 
+-: Appendix
+https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0648/modules/71d62f39-2467-4131-b9fd-fd372e818257/lessons/c7659a71-f18f-4674-96e8-7d7fc865e6a7/concepts/fb24a746-0e42-4c33-8fcc-83938d6fb4e3
+
+Comparison between Security groups of a Load balancer and an EC2 instance
+Another point of confusion may be the ports mentioned 
+in the Security group of the Load balancer vs Security 
+group of the EC2 instance (web server) in this sample code.
+
+Referring to the diagram below, the LB will listen from 
+the outside world on the default TCP port - 80 and 
+forward the requests to the target group (EC2 instance) 
+on the port 8080. This infers that the web server (EC2 
+instance) will serve on the port 8080.
+
+
+
+
+
+
+
 
 */ 
 
