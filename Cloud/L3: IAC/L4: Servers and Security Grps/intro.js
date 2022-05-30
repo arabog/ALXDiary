@@ -789,7 +789,16 @@ aws cloudformation create-stack --stack-name ourdemoservers --template-body file
 ./create.sh ourdemoservers servers.yml server-parameters.json
 
 -: Debugging Our Security Group
+  SecurityGroupEgress:
+        - IpProtocol: tcp
+        //  private access
+          # FromPort: 80
+          # ToPort: 80
 
+          // public access
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
 
 
 
