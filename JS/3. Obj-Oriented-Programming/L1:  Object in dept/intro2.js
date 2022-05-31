@@ -266,4 +266,65 @@ https://en.wikipedia.org/wiki/Coupling_(computer_programming)
 
 https://en.wikipedia.org/wiki/Name_collision
 
+
+
+-: Extracting Properties and Values
+Object Methods
+Do you remember earlier when we used the Object() constructor 
+function to create (i.e., instantiate) new objects with the new keyword?
+
+const myNewFancyObject = new Object();
+
+The Object() function actually includes a few methods of its own 
+to aid in the development of your applications. These methods are:
+
+Object.keys()
+Object.values()
+
+Whether you're building logic in your code, or just writing a utility 
+"helper" function, feel free to use these methods as necessary. 
+
+Object.keys() and Object.values()
+At its core, an object is just a collection of key/value pairs. What if we 
+want to extract only the keys from an object? Say we have this object 
+representing a real-life dictionary:
+
+const dictionary = {
+          car: 'automobile',
+          apple: 'healthy snack',
+          cat: 'cute furry animal',
+          dog: 'best friend'
+};
+
+When Object.keys() is given an object, it extracts just the keys of that 
+object, then returns those keys in an array:
+
+Object.keys(dictionary);
+
+// ['car', 'apple', 'cat', 'dog']
+
+ikewise, if we want a list of the values of an object, we can use Object.values():
+
+Object.values(dictionary);
+// ['automobile', 'healthy snack', 'cute furry animal', 'best friend']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */ 
