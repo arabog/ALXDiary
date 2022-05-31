@@ -99,7 +99,131 @@ newFunction();
 returnsAFunction()();
 
 
+-: Callbacks
+A function that is passed as an argument into another function is 
+called a callback function.
 
+function callAndAdd(n, callbackFunction) {
+          return n + callbackFunction();
+}
+
+function returnsThree() {
+          return 3;
+}
+
+let result = callAndAdd(2, returnsThree);
+
+console.log(result);
+// 5
+
+Q: Consider the following two functions:
+
+function each(array, callback) {
+          for (let i = 0; i < array.length; i++) {
+                    if (callback(array[i])) {
+                              console.log(array[i]);
+                    }
+          }
+}
+
+function isPositive(n) {
+          return n > 0;
+};
+
+The following is then executed:
+
+each([-2, 7, 11, -4, -10], isPositive);
+What is outputted to the console?
+
+The each() function takes in two arguments: an array, and callback function. 
+The code within comprises of a for loop and a conditional: it first iterates 
+through all the values of a supplied array argument, then prints out that 
+values only _if_ its callback function returns true.
+
+The isPositive() function returns a boolean depending on the argument 
+passed in (i.e., true if the number passed in is positive, and false if not).
+
+As such, when each([-2, 7, 11, -4, -10], isPositive); is executed, the 
+each() function iterates through the entire array and only prints out 
+values to the console that return true when tested against the callback 
+function: 7 and 11.
+
+Array Methods
+Where have you probably seen callback functions used? In array methods! 
+Functions are commonly passed into array methods and called on elements 
+within an array (i.e., the array on which the method was called).
+
+Let's check out a couple in detail:
+
+forEach()
+map()
+filter()
+forEach()
+
+Array's forEach() method takes in a callback function and invokes that 
+function for each element in the array. In other words, forEach() allows 
+you to iterate (i.e., loop) through an array, similar to using a for loop. 
+Check out its signature:
+
+array.forEach(function callback(currentValue, index, array) {
+    // function code here
+});
+
+The callback function itself receives the arguments: the current 
+array element, its index, and the entire array itself.
+
+Let's say we have a simple function, logIfOdd(), that takes in a single 
+number and logs it to the console if that number is an odd number:
+
+function logIfOdd(n) {
+          if (n % 2 !== 0) {
+                    console.log(n);
+          }
+}
+
+logIfOdd(2);
+// (nothing is logged)
+
+logIfOdd(3);
+// 3
+
+[1, 5, 2, 4, 6, 3]
+We can iterate through the above array with forEach() and simply 
+pass it the logIfOdd() function!
+
+[1, 5, 2, 4, 6, 3].forEach(function logIfOdd(n) {
+          if (n % 2 !== 0) {
+                    console.log(n);
+          }
+});
+
+// 1
+// 5
+// 3
+
+Let's recap what happened: logIfOdd() is a function and is passed in 
+as an argument to forEach(). forEach() then invokes logIfOdd() for 
+each element in the array (i.e., [1, 5, 2, 4, 6, 3]), which outputs 1, 5, and 3.
+
+Keep in mind that it's quite common to pass an anonymous function 
+as an argument in forEach() as well:
+
+[1, 5, 2, 4, 6, 3].forEach(function (n) {
+          if (n % 2 !== 0) {
+                    console.log(n);
+          }
+});
+
+Alternatively, it's possible to simply pass in just the name of the function 
+as well (i.e., assuming the function was already defined, of course).
+
+[1, 5, 2, 4, 6, 3].forEach(logIfOdd);
+
+// 1
+// 5
+// 3
+The three different ways shown each produce the same output (i.e., logging 
+1, 5, and 3 to the console).
 
 
 
