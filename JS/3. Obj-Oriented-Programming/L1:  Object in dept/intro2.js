@@ -320,20 +320,9 @@ an object, we can use:
 Object.keys() returns an array of a given object's own keys (property names).
 Object.values() returns an array of a given object's own values (property values).
 
+http://crockford.com/javascript/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+https://www.goodreads.com/book/show/2998152-javascript
 
 
 */ 
