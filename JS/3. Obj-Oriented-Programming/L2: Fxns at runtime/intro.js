@@ -362,6 +362,14 @@ const results = musicData.filter((albumLength) => {
 
 console.log(results);
 
+Summary
+JavaScript functions can take in a variety of different arguments, 
+including strings, numbers, arrays, and objects. Since functions 
+are first-class functions, functions can also be passed as arguments 
+to a given function. Functions that take in other functions as arguments 
+are called higher-order functions. Functions that are passed as arguments 
+to other functions are called callback functions.
+
 
 
 
