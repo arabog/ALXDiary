@@ -416,7 +416,7 @@ Also, in this case, you will have to use different AMI-ID as:
 
 us-east-1 N Virginia - ami-047a51fa27710816e
 
-us-west-2 Oregon  - ami-0e999cbd62129e3b1
+us-west-2 Oregon - ami-0e999cbd62129e3b1
 
 The AMI ID varies for each region, and updates periodically. 
 See the snapshot below to know how to get the right AMI ID 
