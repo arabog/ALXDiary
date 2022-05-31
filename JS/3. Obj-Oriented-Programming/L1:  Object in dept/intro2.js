@@ -308,8 +308,17 @@ ikewise, if we want a list of the values of an object, we can use Object.values(
 Object.values(dictionary);
 // ['automobile', 'healthy snack', 'cute furry animal', 'best friend']
 
+Object.keys() will return an array of strings and will return them 
+in the same order as they would be when using a for...in loop.
 
 
+Summary
+The Object() constructor function has access to several methods 
+to aid in development. To extract property names and values from 
+an object, we can use:
+
+Object.keys() returns an array of a given object's own keys (property names).
+Object.values() returns an array of a given object's own values (property values).
 
 
 
