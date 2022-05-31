@@ -225,6 +225,77 @@ as well (i.e., assuming the function was already defined, of course).
 The three different ways shown each produce the same output (i.e., logging 
 1, 5, and 3 to the console).
 
+map()
+Array's map() method is similar to forEach() in that it invokes a 
+callback function for each element in an array. However, map() 
+returns a new array based on what's returned from the callback 
+function.
+
+const names = ['David', 'Richard', 'Veronika'];
+
+const nameLengths = names.map(function(name) {
+          return name.length;
+});
+
+Let's go over what's happening here. The map() method works on arrays, 
+so we have to have an array to start with:
+
+const names = ['David', 'Richard', 'Veronika'];
+
+We call map() on the names array and pass it an anonymous function 
+as an argument:
+
+names.map(function(name) {
+          return name.length;
+});
+
+The function that's passed to map() gets called for each item in the 
+names array! The function receives the first name in the array, stores 
+it in the name variable and returns its length. Then it does that again 
+for the remaining two names.
+
+Remember that the key difference between forEach() and map() is that 
+forEach() doesn't return anything, while map() returns a new array with 
+the values that are returned from the function:
+
+const nameLengths = names.map(function(name) {
+          return name.length;
+});
+
+So nameLengths will be a new array: [5, 7, 8]. Again, it is 
+important to understand that the map() method returns a new 
+array; it does not modify the original array.
+
+ *
+ * Using the musicData array and map():
+ *   - Return a string for each item in the array in the following format:
+ *     <album-name> by <artist> sold <sales> copies
+ *   - Store the returned data in a new albumSalesStrings variable
+ *
+ * Note:
+ *   - Do not delete the musicData variable
+ *   - Do not alter any of the musicData content
+ *   - Do not format the sales number; leave it as a long string of digits
+
+const musicData = [
+          { artist: 'Adele', name: '25', sales: 1731000 },
+          { artist: 'Drake', name: 'Views', sales: 1608000 },
+          { artist: 'Beyonce', name: 'Lemonade', sales: 1554000 },
+          { artist: 'Chris Stapleton', name: 'Traveller', sales: 1085000 },
+          { artist: 'Pentatonix', name: 'A Pentatonix Christmas', sales: 904000 },
+          { artist: 'Original Broadway Cast Recording', name: 'Hamilton: An American Musical', sales: 820000 },
+          { artist: 'Twenty One Pilots', name: 'Blurryface', sales: 738000 },
+          { artist: 'Prince', name: 'The Very Best of Prince', sales: 668000 },
+          { artist: 'Rihanna', name: 'Anti', sales: 603000 },
+          { artist: 'Justin Bieber', name: 'Purpose', sales: 554000 }
+];
+
+const albumSalesStrings = musicData.map(function(data) {
+          return data.name + "by " + data.artist + " sold " + data.sales + " copies"
+});
+
+console.log(albumSalesStrings);
+
 
 
 
