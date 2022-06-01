@@ -425,17 +425,128 @@ variables outside of it. Functions also keep a link to its parent's
 scope even if the parent has returned. This prevents data in its 
 parents from being garbage collected.
 
+-: Immediately-Invoked Function Expressions (IIFE)
+A function declaration defines a function and does not require 
+a variable to be assigned to it. It simply declares a function, 
+and doesn't itself return a value. Here's an example:
 
+function returnHello() {
+          return 'Hello!';
+}
 
+On the other hand, a function expression does return a value. 
+Function expressions can be anonymous or named, and are 
+part of another expression's syntax. 
 
+Immediately-Invoked Function Expressions: Structure and Syntax
+An immediately-invoked function expression, or IIFE (pronounced iffy), 
+is a function that is called immediately after it is defined. Check out 
+the following example:
 
+(function sayHi(){
+          alert('Hi there!');
+})();
 
+// alerts 'Hi there!'
+The syntax might seem a bit odd, but all we're doing is 
+wrapping a function in parentheses, then adding a pair 
+of parentheses at the end of that to invoke it!
 
+Passing Arguments into IIFE's
+Let's look into how we can go about passing arguments into IIFE's. 
+Consider the following example of an anonymous function expression 
+that takes in a single argument:
 
+(function (name){
+          alert(`Hi, ${name}`);
+  }
+)('Andrew');
+// alerts 'Hi, Andrew'
 
+Here's another example of an IIFE, this time taking two arguments 
+and returning their product:
 
+(function (x, y){
+    console.log(x * y);
+  }
+)(2, 3);
 
+ Alternative Syntax for IIFE's
+The first set of parentheses can wrap around the entire expression.
+That is, we can move the first closing parenthesis to the very end:
 
+(function sayHi(){
+          alert('Hi there!');
+}());
+
+// alerts 'Hi there!'
+
+IIFE's, Private Scope, and Event Handling
+
+<!-- button.html -->
+
+<html>
+
+          <body>
+
+                    <button id='button'>Click me!</button>
+
+                    <script src='button.js'></script>
+
+          </body>
+
+</html>
+
+// button.js
+const button = document.getElementById('button');
+
+Next, we'll add an event listener to button, and listen for a 
+'click' event. Then, we'll pass in an IIFE as the second argument:
+
+// button.js
+
+button.addEventListener('click', (function() {
+          let count = 0;
+
+          return function() {
+                    count += 1;
+
+                    if (count === 2) {
+                              alert('This alert appears every other press!');
+                              count = 0;
+                    }
+          };
+})());
+
+What is important to note is that the returned function closes 
+over the count variable. That is, because a function maintains 
+a reference to its parent's scope, count is available for the returned 
+function to use! As a result, we immediately invoke a function 
+that returns that function. And since the returned function has 
+access to the internal variable, count, a private scope is created 
+-- effectively protecting the data!
+
+Containing count in a closure allows us to retain the data from each click.
+
+Q: The following immediately-invoked function expression is run in the browser:
+
+(function(n){
+          delete n;
+          return n;
+})(2);
+
+What is the return value?
+
+The key to this quiz is the result of using the delete operator. 
+The delete operator is actually only effective on an object's 
+properties; it isn't used to directly deallocate resources (i.e., 
+free up memory), and has no effect on variables or names of 
+functions.
+
+As such, the number passed into this immediately-invoked 
+function expression, 2, is returned.
+
+https://www.patterns.dev/posts/classic-design-patterns/
 
 
 */ 
