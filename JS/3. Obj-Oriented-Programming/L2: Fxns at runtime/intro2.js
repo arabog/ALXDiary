@@ -90,5 +90,43 @@ outside of that function. On the other hand, if there are any
 variables defined inside a block (e.g., within an if statement), 
 those variables are available outside of that block.
 
+Let's see an example of how function-scoping in JavaScript works:
+var globalNumber = 5;
+
+function globalIncrementer() {
+          const localNumber = 10;
+
+          globalNumber += 1;
+          return globalNumber;
+}
+
+In the example above, globalNumber is outside the function; it is 
+a global variable that the globalIncrementer() function has access 
+to. globalIncrementer() simply has a local variable (localNumber) 
+declared within it, then increments globalNumber by 1 before 
+returning the updated value of globalNumber itself.
+
+After calling the function a few times, we see that the value of 
+globalNumber has indeed increased each time:
+
+console.log(globalIncrementer());
+// 6
+console.log(globalIncrementer());
+// 7
+console.log(globalIncrementer());
+// 8
+
+However, when attempting to access localNumber outside of 
+the function, we see a error:
+
+console.log(localNumber);
+
+// ReferenceError: localNumber is not defined
+
+
+
+
+
+
 
 */ 
