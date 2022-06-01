@@ -415,6 +415,16 @@ remains available for future access. After all, a given function
 Remember that functions in JavaScript retain access to the 
 scope that they were created in!
 
+Summary
+A closure refers to the combination of a function and the lexical 
+environment in which that function was declared. Every time a 
+function is defined, closure is created for that function. This is 
+especially powerful in situations where a function is defined 
+within another function, allowing the nested function to access 
+variables outside of it. Functions also keep a link to its parent's 
+scope even if the parent has returned. This prevents data in its 
+parents from being garbage collected.
+
 
 
 
