@@ -38,14 +38,14 @@ sure it doesn't create a single point of failure for my application,
 I'd choose...
 DB on EC2 with replicas in another AZ
 
- In fact, all the above options are valid. The problem with 
- a database on EC2 is that you are responsible for eliminating 
- that point of failure by creating additional replicas -- but it's 
- certainly possible! Also note-worthy: DynamoDB works but it 
- is a document store and not a relational database, which is 
- great and sufficient for most cases but not all.
+In fact, all the above options are valid. The problem with 
+a database on EC2 is that you are responsible for eliminating 
+that point of failure by creating additional replicas -- but it's 
+certainly possible! Also note-worthy: DynamoDB works but it 
+is a document store and not a relational database, which is 
+great and sufficient for most cases but not all.
 
-
+go over rds part one
 
 
 
