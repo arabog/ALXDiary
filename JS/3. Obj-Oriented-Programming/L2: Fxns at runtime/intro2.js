@@ -123,9 +123,105 @@ console.log(localNumber);
 
 // ReferenceError: localNumber is not defined
 
+Because JavaScript is function-scoped, functions have access 
+to all its own variables as well as all the global variables outside 
+of it. 
+
+Block-Scoping 
+ES6 syntax allows for additional scope while declaring variables 
+with the let and const keywords. These keywords are used to declare 
+block-scoped variables in JavaScript, and largely replace the need for var.
+
+https://www.udacity.com/course/es6-javascript-improved--ud356
 
 
+Scope Chain
+Whenever your code attempts to access a variable during a function 
+call, the JavaScript interpreter will always start off by looking within 
+its own local variables. If the variable isn't found, the search will 
+continue looking up what is called the scope chain. Let's take a look 
+at an example:
 
+function one() {
+          two();
+
+          function two() {
+                    three();
+
+                    function three() {
+                              // function three's code here
+                    }
+          }
+}
+
+one();
+
+In the above example, when one() is called, all the other nested 
+functions will be called as well (all the way to three()).
+
+You can visualize the scope chain moving outwards starting at 
+the innermost level: from three(), to two(), to one(), and finally 
+to window (i.e., the global/window object). This way, the function 
+three() will not only have access to the variables and functions 
+"above" it (i.e., those of two() and one()) -- three() will also have 
+access to any global variables defined outside one()
+
+Variable Shadowing
+What happens when you create a variable with the same name as 
+another variable somewhere in the scope chain?
+
+JavaScript won't throw an error or otherwise prevent you from 
+creating that extra variable. In fact, the variable with local scope 
+will just temporarily "shadow" the variable in the outer scope. 
+This is called variable shadowing. Consider the following example:
+
+const symbol = '¥';
+
+function displayPrice(price) {
+          const symbol = '$';
+          console.log(symbol + price);
+}
+
+displayPrice('80');
+// '$80'
+
+In the above snippet, note that symbol is declared in two places:
+
+Outside the displayPrice() function, as a global variable.
+Inside the displayPrice() function, as a local variable.
+After invoking displayPrice() and passing it an argument of '80', the 
+function outputs '$80' to the console.
+
+How does the JavaScript interpreter know which value of symbol to 
+use? Well, since the variable pointing to '$' is declared inside a 
+function (i.e., the "inner" scope), it will override any variables of the 
+same name that belong in an outer scope -- such as the global variable 
+pointing to '¥'. As a result, '$80' is displayed rather than '¥80'.
+
+When the following code runs, what is the output of the first, 
+second, and third logs to the console (respectively)?
+
+let n = 8;
+
+function functionOne() {
+          let n = 9;
+
+          function functionTwo() {
+                    let n = 10;
+                    console.log(n);  // First log
+          }
+
+          functionTwo();
+
+          console.log(n);  // Second log
+}
+
+functionOne();
+
+console.log(n);  // Third log
+
+
+Summary
 
 
 
