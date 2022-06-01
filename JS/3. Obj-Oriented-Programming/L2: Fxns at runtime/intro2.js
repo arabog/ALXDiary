@@ -222,6 +222,164 @@ console.log(n);  // Third log
 
 
 Summary
+The scope of a function includes:
+The function's arguments.
+Local variables declared within the function.
+Variables from its parent function's scope.
+Global variables.
+
+Variables in JavaScript are also function-scoped. This means that 
+any variables defined inside a function are not available for use 
+outside the function, though any variables defined within blocks 
+(e.g. if or for) are available outside that block.
+
+Scope can be local scope (either in the function or block). If it's not 
+found locally, then it might exist in an outer scope(global).
+
+Closures
+Consider the remember() function below:
+
+function remember(number) {
+          return function() {
+                    return number;
+          }
+}
+
+const returnedFunction = remember(5);
+
+console.log( returnedFunction() );
+// 5
+
+When the Javascript engine enters remember(), it creates a new 
+execution scope that points back to the prior execution scope. 
+This new scope includes a reference to the number parameter 
+(an immutable Number with the value 5). When the engine reaches 
+the inner function (a function expression), it attaches a link to the 
+current execution scope.
+
+This process of a function retaining access to its scope is called a 
+closure. In this example, the inner function "closes over" number. 
+
+As such, a closure is:
+The function itself, and
+The code (but more importantly, the scope chain of) where the function is declared
+
+Creating a Closure
+Every time a function is defined, closure is created for that function. 
+Strictly speaking, then, every function has closure! 
+
+Recall that a nested function has access to variables outside of it. 
+From what we have learned about the scope chain, this includes 
+the variables from the outer, enclosing function itself (i.e., the parent 
+function)! These nested functions close over (i.e., capture) variables 
+that aren't passed in as arguments nor defined locally, otherwise 
+known as free variables.
+
+Closures and Scope
+Closures and scope are so closely related that you may even be 
+surprised you had been working with them all along! Let's revisit 
+an example from the previous section:
+
+const myName = 'Andrew';
+
+function introduceMyself() {
+          const you = 'student';
+
+          function introduce() {
+                    console.log(`Hello, ${you}, I'm ${myName}!`);
+          }
+
+          return introduce();
+}
+
+introduceMyself();
+// 'Hello, student, I'm Andrew!'
+
+To recap: myName is a variable defined outside a function, hence 
+it's a global variable in the global scope. In other words, myName 
+is available for all functions to use.
+
+But let's look closely at the other variable: you. you is referenced 
+by introduce(), even though it wasn't declared within introduce()! 
+This is possible because a nested function's scope includes variables 
+declared in the scope where the function is nested
+
+As it turns out, the introduce() function and its lexical environment 
+form a closure. This way, introduce() has access to not only the 
+global variable myName, but also the variable you, which was 
+declared in the scope of its parent function, introduceMyself().
+
+const number = 3;
+
+function myFunction () {
+          const otherNumber = 1;
+
+          function logger() {
+                    console.log(otherNumber);
+          }
+
+          return logger;
+}
+
+const result = myFunction();
+
+result();
+
+
+Q: What is true about closures? 
+A function maintains a reference to its parent's scope
+If d reference to a parent function is still accessible, d scope persists
+
+Q: What is the output when result(10); is executed?
+
+function outerFunction() {
+          let num1 = 5;
+
+          return function(num2) {
+                    console.log(num1 + num2);
+          };
+}
+
+let result = outerFunction();
+
+result(10);         15
+
+After outerFunction() is returned, it may seem that all of its local 
+variables would be allocated back to available memory. As it turns 
+out, however, the nested innerFunction() still has access to the 
+num1 variable!
+
+Let's take a closer look: outerFunction() returns a reference to 
+the inner, nested function. The return value of this invocation is 
+saved in result. When this function is called, it maintains access 
+to its scope; that is, all the variables it was able to access back 
+when it was originally defined. This includes the num1 variable 
+in its parent scope. The nested function closes over these variables, 
+and those variables persist as long as the reference to the function 
+itself exists.
+
+When result(10); is executed, then, the function is still able to 
+access num1's value of 5. As a result, 15 is logged to the console
+
+Applications of Closures
+To recap, we've seen two common and powerful applications of closures:
+
+Passing arguments implicitly.
+At function declaration, storing a snapshot of scope.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
