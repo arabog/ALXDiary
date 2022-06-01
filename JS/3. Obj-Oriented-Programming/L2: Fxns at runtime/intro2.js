@@ -367,6 +367,37 @@ To recap, we've seen two common and powerful applications of closures:
 Passing arguments implicitly.
 At function declaration, storing a snapshot of scope.
 
+Q: Declare a function named `expandArray()` that:
+
+* Takes no arguments
+* Contains a single local variable, `myArray`, which points to [1, 1, 1]
+* Returns an anonymous function that directly modifies `myArray` by
+  appending another `1` into it
+* The returned function then returns the value of `myArray`
+
+function expandArray() {
+          let myArray = [1, 1, 1];
+          
+          return function() {
+                    myArray.push(1);
+                    return myArray
+          }
+          
+}
+
+const arr = expandArray();
+console.log(arr())
+
+Garbage Collection
+Let's look at garbage collection in the context of closures. We 
+know that the variables of a parent function are accessible to 
+the nested, inner function. If the nested function captures and 
+uses its parent's variables (or variables along the scope chain, 
+such as its parent's parent's variables), those variables will stay 
+in memory as long as the functions that utilize them can still be 
+referenced.
+
+As such, referenceable variables in JavaScript are not garbage collected!
 
 
 
@@ -384,3 +415,4 @@ At function declaration, storing a snapshot of scope.
 
 
 */ 
+
