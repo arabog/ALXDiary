@@ -399,7 +399,21 @@ referenced.
 
 As such, referenceable variables in JavaScript are not garbage collected!
 
+function myCounter() {
+          let count = 0;
 
+          return function () {
+                    count += 1;
+                    return count;
+          };
+}
+
+The existence of the nested function keeps the count variable 
+from being available for garbage collection, therefore count 
+remains available for future access. After all, a given function 
+(and its scope) does not end when the function is returned. 
+Remember that functions in JavaScript retain access to the 
+scope that they were created in!
 
 
 
