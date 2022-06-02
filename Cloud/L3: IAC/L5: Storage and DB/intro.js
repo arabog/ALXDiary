@@ -88,7 +88,26 @@ Accessing server and services via TCP ports is a key networking
 concept that is governed by Security Groups within your private 
 cloud.
 
+-: RDS - Create Aurora database
+According to AWS: Amazon Aurora supports up to 64TB of 
+auto-scaling storage capacity, 6-way replication across 
+three availability zones, and 15 low-latency read replicas.
 
+Create a Database
+1. Database creation method
+
+Q: When should your database have a read replica?
+When u want to accomodate statistical reporting and other
+read-only queries
+
+SQL Queries that take a long time use resources that slow 
+down your transactional database. These are better served 
+by a separate copy of your DB
+
+Transactions per seconds and single-point-of-failure, while valid, 
+are not the preferred solution: If you need higher speeds, you need 
+to consider upgrading your database, and if you need to eliminate 
+single-point-of-failure, consider a Multi-AZ Database.
 
 
 
