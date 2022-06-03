@@ -203,6 +203,24 @@ storage, your own databases, and even your own custom
 networking. Not saying that you SHOULD, but it certainly 
 is possible.
 
+-: Conclusion
+As this last lesson comes to an end, now you must be able 
+to employ the following storage options:
+
+Relation Database Storage (RDS) service
+Object storage service - Simple Storage Service (S3)
+Recommended best practices for S3 Storage
+Remember to keep S3 as private as possible, never “Open to the world”
+
+If you need to share files publicly, use expiring pre-signed URLs 
+as recommended
+
+If your web application captures incoming files, such as PDFs or 
+Photos, capture those to local, temporary storage first, --which is 
+really fast -- and then move the data to S3
+
+Finally, when creating IAM Roles, be sure to limit access to 
+a specific bucket and not all of them!.
 
 
 
