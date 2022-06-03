@@ -213,6 +213,46 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/inst
 
 
 -: The `this` Keyword
+this in Constructor Functions
+In the previous section, we saw this right inside a constructor function. 
+Here's another example:
+
+function Cat(name) {
+          this.name = name;
+
+          this.sayName = function () {
+                    console.log(`Meow! My name is ${this.name}`);
+          };
+}
+
+const bailey = new Cat('Bailey');
+
+In the above Cat() constructor, the function sayName references 
+this.name. Back in Lesson 1, we saw this used in methods. But in 
+Cat()'s case, what exactly does this refer to?
+
+As it turns out, when invoking a constructor function with the new operator, 
+this gets set to the newly-created object! Let's check out what the new bailey 
+object looks like:
+
+{
+          name: 'Bailey',
+          
+          sayName: function () {
+                    console.log(`Meow! My name is ${this.name}`);
+          }
+}
+
+In the snippet above, notice that this is outside a constructor function 
+(i.e., in a method). As we saw in Lesson 1, when you say this in a 
+method, what you're really saying is "this object" or "the object at 
+hand." As a result, the sayName() method can use this to access the 
+name property of that object! This makes the following method call 
+possible:
+
+bailey.sayName();
+// 'Meow! My name is Bailey'
+
 
 
 
