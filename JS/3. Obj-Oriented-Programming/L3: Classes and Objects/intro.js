@@ -97,6 +97,53 @@ let teacher = new SoftwareDeveloper('Richard');
 console.log(teacher);
 // SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }
 
+Let's check out another example!
+function Hero(name, role) {
+          this.name = name;
+          this.role = role;
+
+          this.introduce = function () {
+                    console.log(`My name is ${this.name} and I am a ${this.role}.`);
+          };
+}
+
+let taylor = new Hero('Taylor', 'mother');
+
+let riley = new Hero('Riley', 'coach');
+
+taylor.name;
+riley.role;
+
+taylor.introduce();
+riley.introduce();
+
+Q: Which of the following about constructor functions are true? 
+Constructor functions
+must be invoked with new
+are used to instantiate a new object
+
+A constructor function doesn't directly return anything (i.e., there's 
+no explicit return statement), but invoking them with the new operator 
+constructs a new object.
+
+Q: Now it's your turn to create a constructor function. Declare a
+`Sandwich` constructor function that takes three parameters:
+
+1. `bread` (string) - the type of bread for the sandwich (e.g. "Wheat")
+2. `meat` (array) - the meats to put on the sandwich (e.g. `[]` for a vegetarian sandwich!)
+3. `vegetables` (array) - the vegetables to include in the sandwich
+
+function Sandwich(bread, meat, vegetables){
+          this.bread = bread;
+          this.meat = meat;
+          this.vegetables = vegetables;
+}
+
+const food = new Sandwich("Wheat", ["turkey", "goat meat", "cow meat"], ["efo", "ewedu", "wuro"]);
+
+console.log(food)
+
+
 
 
 
