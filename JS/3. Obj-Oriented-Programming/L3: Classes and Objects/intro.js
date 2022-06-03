@@ -296,13 +296,106 @@ further up the scope chain.
 To tie things all together: this.bark(); tells barkTwice to look at dog 
 -- the object that the method was called on -- to find bark.
 
+Q: What is true about this?
+Using this, methods can access and manipulate an object's ppties
+this is a reserved word in JS
 
+A value for this is set when a method is invoked on an object, and 
+that value refers to that object. Since it is a reserved word, it 
+should not be used as any variable name, function name, etc.
 
+Q: Consider the following constructor function, City:
 
+function City(name, population) {
+          this.name = name;
+          this.population = population;
 
+          this.identify = function () {
+                    console.log(`${this.name}'s population is ${this.population}.`);
+          };
+}
 
+The following is executed:
 
+const sanFrancisco = new City('San Francisco', 870000);
 
+What is the value of this?
+The newly-created object, referenced by sanFrancisco
 
+Depending on how a function is invoked, the value of this is set to 
+a different value. 
 
+What Does this Get Set To?
+At this point, we've seen this in many different contexts, such as 
+within a method, or referenced by a constructor function. Let's 
+now organize our thoughts and bring it all together!
+
+There are four ways to call functions, and each way sets this differently.
+
+First, calling a constructor function with the new keyword sets this 
+to a newly-created object. 
+
+On the other hand, calling a function that belongs to an object 
+(i.e., a method) sets this to the object itself. Recall that earlier, 
+the dog object's barkTwice() method was able to access properties 
+of dog itself.
+
+Third, calling a function on its own (i.e., simply invoking a 
+regular function) will set this to window, which is the global 
+object if the host environment is the browser
+
+function funFunction() {
+          return this;
+}
+
+funFunction();
+// (returns the global object, `window`)
+
+The fourth way to call functions allows us to set this ourselves! 
+
+Q: Consider the following object, building:
+const building = {
+          floors: 5,
+
+          addFloor: function () {
+                    this.floors += 1;
+          }
+};
+
+building.addFloor();
+// ???
+
+What is the value of this when building.addFloor(); is executed?
+building
+
+Recall that a method can directly access the object on which 
+it was called. In this case, it modifies building's floors property 
+by incrementing its value by 1.
+
+Q: Consider the following:
+function myFunction() {
+          console.log("What is the value of 'this'?");
+}
+
+myFunction();
+// ???
+When myFunction(); is executed, what is the value of the this keyword?
+window
+
+When a function is invoked (i.e., as a function, rather than as a 
+method or with the new operator), this gets set to the global 
+object: window. 
+
+Summary:
+If a constructor function is called with the new operator, the value 
+of this is set to the newly-created object. If a method is invoked on 
+an object, this is set to that object itself. And if a function is simply 
+invoked, this is set to the global object: window.
+
+Along with all this, there is yet one more set of ways to invoke 
+functions: with apply(), and with call(). Both methods share quite 
+a few similarities, and they each allow us to specify how we want 
+to set this
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 */ 
