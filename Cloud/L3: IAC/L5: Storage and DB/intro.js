@@ -184,6 +184,26 @@ that requires really fast I/O operations.
 
 -: Key Points
 
+Key Points
+S3 can be used to store your config files, media or log files.
+
+Your servers don't need credentials to access S3 provided 
+they have a role assigned.
+
+We recommend you choose RDS as opposed to installing a 
+database in your own servers that you have to manage and 
+back up yourself.
+
+Q: Can I replace most AWS Services with my own?
+Yes
+
+Inside an EC2 Server, you can run any software you like, 
+and this allows you the possibility of creating your own 
+storage, your own databases, and even your own custom 
+networking. Not saying that you SHOULD, but it certainly 
+is possible.
+
+
 
 
 */ 
