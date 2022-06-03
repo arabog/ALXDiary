@@ -143,7 +143,73 @@ const food = new Sandwich("Wheat", ["turkey", "goat meat", "cow meat"], ["efo", 
 
 console.log(food)
 
+Omitting the new Operator 
+What happens if you inadvertently invoke a constructor function 
+without using the new operator?
 
+function SoftwareDeveloper(name) {
+          this.favoriteLanguage = 'JavaScript';
+          this.name = name;
+}
+
+let coder = SoftwareDeveloper('David');
+
+console.log(coder);
+// undefined
+
+What's going on? Without using the new operator, no object was 
+created. The function was invoked just like any other regular 
+function. Since the function doesn't return anything (except 
+undefined, which all functions return by default), the coder 
+variable ended up being assigned to undefined.
+
+One more thing to note: since this function was invoked as a 
+regular function, the value of this is also drastically different.
+
+Seeing the Object's Constructor (instanceof)
+What if we want to see if an object was created with a constructor 
+function in the first place? We can use the instanceof (which returns 
+a boolean) to give us some insight.
+
+function Developer(name) {
+          this.name = name;
+}
+
+let dev = new Developer('Veronika');
+
+typeof dev
+// "object"
+
+dev instanceof Developer;
+// true
+
+Q: Consider the following constructors:
+
+function Finch(name) {
+          this.kingdom = 'Animalia';
+          this.name = name;
+}
+
+function Sparrow(name) {
+          this.kingdom = 'Animalia';
+          his.name = name;
+}
+
+Let's create an instance of each constructor:
+
+const atticus = new Finch('Atticus');
+const jack = new Sparrow('Jack');
+
+What is the result when atticus instanceof Sparrow; is executed?
+False
+
+false is returned. Not only is Sparrow not the atticus object's 
+constructor function -- the Sparrow object is nowhere to be 
+found in atticus's prototype chain.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
 
 
 
