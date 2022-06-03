@@ -52,6 +52,50 @@ let developer = new SoftwareDeveloper();
 
 console.log(developer)        // SoftwareDeveloper {favoriteLanguage: 'JavaScript'}
 
+Creating Multiple Objects
+What's more: we can even use the same constructor function to 
+create as many objects as we'd like!
+
+Let's invoke the same SoftwareDeveloper() constructor two more 
+times to instantiate two additional objects: engineer and programmer.
+
+let engineer = new SoftwareDeveloper();
+let programmer = new SoftwareDeveloper();
+
+console.log(engineer);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript' }
+
+console.log(programmer);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript' 
+
+Constructor Functions Can Have Parameters
+Just like regular functions, one benefit of using constructor 
+functions is that they can also accept arguments. Let's update 
+the constructor above to accept a single argument, and assign 
+the name property to it:
+
+function SoftwareDeveloper(name) {
+          this.favoriteLanguage = 'JavaScript';
+          this.name = name;
+}
+
+In the updated SoftwareDeveloper() function, whatever value is 
+passed into the function will be the value of the object's name 
+property. Let's check it out:
+
+let instructor = new SoftwareDeveloper('Andrew');
+
+console.log(instructor);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Andrew' }
+
+Great! And as we've seen above, we can create different objects 
+using the same constructor. Let's call the same constructor 
+function but pass a different argument this time:
+
+let teacher = new SoftwareDeveloper('Richard');
+
+console.log(teacher);
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }
 
 
 
