@@ -230,6 +230,74 @@ The value of this has some potential scope issues when
 callback functions are involved, and things can get a 
 bit tricky
 
+function invokeTwice(cb) {
+          cb();
+          cb();
+}
+
+const dog = {
+          age: 5,
+
+          growOneYear: function () {
+                    this.age += 1;
+          }
+};
+
+dog.growOneYear();
+// (this works as expected)
+
+dog.age;
+// 6
+
+invokeTwice(dog.growOneYear);
+// undefined
+
+dog.age;
+// 6
+First, invoking growOneYear() works as expected, updating the 
+value of the dog object's age property from 5 to 6:
+
+dog.growOneYear();
+
+dog.age; 
+// 6
+However, passing dog.growOneYear (a function) as an 
+argument into invokeTwice() produces an odd result:
+
+invokeTwice(dog.growOneYear);
+
+dog.age;
+// 6
+You may have expected the value of the age property in dog 
+to have increased to 8. Why did it remain 6?
+
+As it turns out, invokeTwice() does indeed invoke growOneYear 
+-- but it is invoked as a function rather than a method
+
+If a constructor function is called with the new operator, the 
+value of this is set to the newly-created object. If a method is 
+invoked on an object, this is set to that object itself. And if a 
+function is simply invoked, this is set to the global object: window.
+
+Saving this with an Anonymous Closure
+Recall that simply invoking a normal function will set the 
+value of this to the global object (i.e., window). This is 
+an issue, because we want this to be the dog object!
+
+So how can we make sure that this is preserved?
+
+One way to resolve this issue is to use an anonymous 
+closure to close over the dog object:
+
+invokeTwice(function () { 
+          dog.growOneYear(); 
+});
+
+dog.age;
+// 7
+
+
+
 
 
 
