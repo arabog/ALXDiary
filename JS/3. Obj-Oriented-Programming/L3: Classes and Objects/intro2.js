@@ -540,6 +540,170 @@ console.dir(myArray); //TRY this
 Checking an Object's Properties
 As we've just seen, if an object doesn't have a particular property of its own, it can access one somewhere along the prototype chain (assuming it exists, of course). With so many options, it can sometimes get tricky to tell just where a particular property is coming from! Here are a few useful methods to help you along the way.
 
+hasOwnProperty()
+hasOwnProperty() allows you to find the origin of a particular property. Upon passing in a string of the property name you're looking for, the method will return a boolean indicating whether or not the property belongs to the object itself (i.e., that property was not inherited). Consider the Phone constructor with a single property defined directly in the function, and another property on its prototype object:
+
+function Phone() {
+  this.operatingSystem = 'Android';
+}
+
+Phone.prototype.screenSize = 6;
+Let's now create a new object, myPhone, and check whether operatingSystem is its own property, meaning that it was not inherited from its prototype (or somewhere else along the prototype chain):
+
+const myPhone = new Phone();
+
+const own = myPhone.hasOwnProperty('operatingSystem');
+
+console.log(own);
+// true
+Indeed it returns true! What about the screenSize property, which exists on Phone objects' prototype?
+
+const inherited = myPhone.hasOwnProperty('screenSize');
+
+console.log(inherited);
+// false
+Using hasOwnProperty(), we gain insight a certain property's origins.
+
+isPrototypeOf()
+Objects also have access to the isPrototypeOf() method, which checks 
+whether or not an object exists in another object's prototype chain. 
+Using this method, you can confirm if a particular object serves as 
+the prototype of another object. Check out the following rodent object:
+
+const rodent = {
+  favoriteFood: 'cheese',
+  hasTail: true
+};
+Let's now build a Mouse() constructor function, and assign its prototype to rodent:
+
+function Mouse() {
+  this.favoriteFood = 'cheese';
+}
+
+Mouse.prototype = rodent;
+
+If we create a new Mouse object, its prototype should be the rodent object. Let's confirm:
+
+const ralph = new Mouse();
+
+const result = rodent.isPrototypeOf(ralph);
+
+console.log(result);
+// true
+Great! isPrototypeOf() is a great way to confirm if an object exists in another object's prototype chain.
+
+Object.getPrototypeOf()
+isPrototypeOf() works well, but keep in mind that in order to use it, 
+you must have that prototype object at hand in the first place! What 
+if you're not sure what a certain object's prototype is? 
+Object.getPrototypeOf() can help with just that!
+
+Using the previous example, let's store the return value of Object.getPrototypeOf() in a variable, myPrototype, then check what it is:
+
+const myPrototype = Object.getPrototypeOf(ralph);
+
+console.log(myPrototype);
+// { favoriteFood: 'cheese', hasTail: true }
+Great! The prototype of ralph has the same properties as the result because they are the same object. Object.getPrototypeOf() is great for retrieving the prototype of a given object.
+
+The constructor Property
+Each time an object is created, a special property is assigned to it 
+under the hood: constructor. Accessing an object's constructor 
+property returns a reference to the constructor function that 
+created that object in the first place! Here's a simple Longboard 
+constructor function. We'll also go ahead and make a new object,
+ then save it to a board variable:
+
+function Longboard() {
+          this.material = 'bamboo';
+}
+
+const board = new Longboard();
+
+If we access board's constructor property, we should 
+see the original constructor function itself:
+
+console.log(board.constructor);
+
+// function Longboard() {
+          //   this.material = 'bamboo';
+// }
+
+Excellent! Keep in mind that if an object was created 
+using literal notation, its constructor is the built-in 
+Object() constructor function!
+
+const rodent = {
+          favoriteFood: 'cheese',
+          hasTail: true
+};
+
+console.log(rodent.constructor);
+// function Object() { [native code] }
+
+Q:What is true about hasOwnProperty()>
+hasOwnProperty() takes in a single argument (i.e. the 
+property to be checked), and the method is invoked 
+directly on an object.
+
+Q: What is true about isPrototypeOf() or getPrototypeOf()
+isPrototypeOf() checks weda or not an obj exists in anoda
+obj's prototype chain
+isPrototype() takes a single argumts: an obj whose prototype 
+chains is to be searched
+
+getPrototypeOf() returns d prototype of d obj passed into it
+
+
+Q: What is true about constructor property? Select all that apply:
+All objects have a constructor property. 
+Accessing an obj's constructor ppty returns a reference to 
+d constructor fxn dt created dt obj
+objs created with literal notatin r constructed with d Object()
+constructor fnx
+
+Q: Let's say that we create the following object, capitals, using regular object literal notation:
+
+const capitals = {
+  California: 'Sacramento',
+  Washington: 'Olympia',
+  Oregon: 'Salem',
+  Texas: 'Austin'
+};
+What is returned when Object.getPrototypeOf(capitals); is executed?
+
+A reference to Object's prototype
+
+This one may have been tricky! Keep in mind that since capitals was created with object literal notation, its constructor is the built-in Object() constructor function itself! As such, it maintains a reference to its constructor's prototype. That is,
+
+Object.getPrototypeOf(capitals) === Object.prototype
+// true
+
+Summary
+Inheritance in JavaScript is when an object is based on another object. Inheritance allows us to reuse existing code, having objects take on properties of other objects.
+
+When a function is called as a constructor using the new operator, the function creates and returns a new object. This object is secretly linked to its constructor's prototype, which is just another object. Using this secret link allows an object to access the prototype's properties and methods as if it were its own. If JavaScript does not find a particular property within an object, it will keep looking up the prototype chain, eventually reaching Object() (top-level parent) if necessary.
+
+We also looked at a few methods and properties that allow use to check the origins and references of objects and their prototypes, namely:
+
+hasOwnProperty()
+isPrototypeOf()
+Object.getPrototypeOf()
+.constructor
+In the next section, we'll check out another part of prototypal inheritance in the form of subclassing. What if you want to inherit just a few properties from an object -- but want an object to also have other, specialized properties of their own?
+
+http://www.objectplayground.com/
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+
+
+-: Prototypal Inheritance: Subclasses
 
 
 
