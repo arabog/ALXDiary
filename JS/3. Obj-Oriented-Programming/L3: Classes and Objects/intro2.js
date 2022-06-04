@@ -413,8 +413,147 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 -: Prototypal Inheritance
+Adding Methods to the Prototype
+Recall that objects contain data (i.e., properties), as well as the means to manipulate that data (i.e., methods). Earlier in this Lesson, we simply added methods directly into the constructor function itself:
+
+function Cat(name) {
+ this.lives = 9;
+ this.name = name;
+
+ this.sayName = function () {
+   console.log(`Meow! My name is ${this.name}`);
+ };
+}
+This way, a sayName method gets added to all Cat objects by saving a function to the sayName attribute of newly-created Cat objects.
+
+Finding Properties and Methods on the Prototype Chain
+Whether you're accessing a property (e.g., bailey.lives;) or invoking a method (e.g., bailey.meow();), the JavaScript interpreter looks for them along the prototype chain in a very particular order:
+
+First, the JavaScript engine will look at the object's own properties. This means that any properties and methods defined directly in the object itself will take precedence over any properties and methods elsewhere if their names are the same (similar to variable shadowing in the scope chain).
+If it doesn't find the property in question, it will then search the object's constructor's prototype for a match.
+If the property doesn't exist in the prototype, the JavaScript engine will continue looking up the chain.
+At the very end of the chain is the Object() object, or the top-level parent. If the property still cannot be found, the property is undefined.
+Previously, we simply defined methods directly in a constructor function itself. Let's see how things look if we defined methods in the constructor's prototype instead
+
+function Dog(age, wgt, name) {
+          this.age = age;
+          this.wgt = wgt;
+          this.name = name;
+}
+
+Dog.prototype.bark = function() {
+          console.log(`${this.name} says woof!`)
+}
+
+
+dog1 = new Dog(2, 60, 'Java');
+
+dog2 = new Dog(4, 55, 'Jodi');
+
+
+dog1.bark();
+
+dog2.bark();
+
+Q: For the next quiz, consider the following two code snippets below (i.e., A and B):
+
+// (A)
+
+function Dalmatian (name) {
+  this.name = name;
+
+  this.bark = function() {
+    console.log(`${this.name} barks!`);
+  };
+}
+// (B)
+
+function Dalmatian (name) {
+  this.name = name;
+}
+
+Dalmatian.prototype.bark = function() {
+  console.log(`${this.name} barks!`);
+};
+
+Let's say that we want to define a method that can be invoked on instances (objects) of the Dalmatian constructor function (we'll be instantiating at least 101 of them!).
+
+Which of the preceding two approaches is optimal?
+
+While both approaches work just fine (i.e., any instances created by the constructor function will be able to invoke a bark() method), the second approach is more ideal. By adding methods to the prototype, memory is saved as more Dalmatian objects are instantiated. Along with being more efficient, we also don't have to update all objects individually should be decide to change a method.
+
+Replacing the prototype Object 
+What happens if you completely replace a function's prototype object? How does this affect objects created by that function? Let's look at a simple Hamster constructor function and instantiate a few objects:
+
+function Hamster() {
+  this.hasFur = true;
+}
+
+let waffle = new Hamster();
+let pancake = new Hamster();
+First, note that even after we make the new objects, waffle and pancake, we can still add properties to Hamster's prototype and it will still be able to access those new properties.
+
+Hamster.prototype.eat = function () {
+  console.log('Chomp chomp chomp!');
+};
+
+waffle.eat();
+// 'Chomp chomp chomp!'
+
+pancake.eat();
+// 'Chomp chomp chomp!'
+Now, let's replace Hamster's prototype object with something else entirely:
+
+Hamster.prototype = {
+  isHungry: false,
+  color: 'brown'
+};
+The previous objects don't have access to the updated prototype's properties; they just retain their secret link to the old prototype:
+
+console.log(waffle.color);
+// undefined
+
+waffle.eat();
+// 'Chomp chomp chomp!'
+
+console.log(pancake.isHungry);
+// undefined
+As it turns out, any new Hamster objects created moving forward will use the updated prototype:
+
+const muffin = new Hamster();
+
+muffin.eat();
+// TypeError: muffin.eat is not a function
+
+console.log(muffin.isHungry);
+// false
+
+console.log(muffin.color);
+// 'brown'
+
+const myArray = [1, 2, 3];
+
+myArray.join('');
+
+console.dir(myArray); //TRY this
+
+Checking an Object's Properties
+As we've just seen, if an object doesn't have a particular property of its own, it can access one somewhere along the prototype chain (assuming it exists, of course). With so many options, it can sometimes get tricky to tell just where a particular property is coming from! Here are a few useful methods to help you along the way.
+
+
+
+
+
+
+
+
+
+
+
 
 */
+
+
 
 
 // console.log()
