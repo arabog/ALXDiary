@@ -156,6 +156,7 @@ mockingbird.describe.call(pride); and mockingbird.describe.
 apply(pride); is just the method! Both approaches produce 
 the same result.
 
+-: Choosing One Method Over the Other
 
 
 
