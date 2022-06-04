@@ -120,6 +120,42 @@ arguments in an array! Then, we pass that entire array into apply():
 
 multiply.apply(window, [3,4])
 
+Great! Note that the first argument in both call() and apply() is 
+still window (i.e., the object to bind the value of this to).
+
+Now what about invoking an object's method with apply()? 
+Recall the previous mockingbird and pride objects:
+
+const mockingbird = {
+          title: 'To Kill a Mockingbird',
+
+          describe: function () {
+                    console.log(`${this.title} is a classic novel`);
+          }
+};
+
+
+const pride = {
+          title: 'Pride and Prejudice'
+};
+
+Previously, we used call() to allow the pride object to 
+"borrow" mockingbird's describe() method:
+
+mockingbird.describe.call(pride);
+// 'Pride and Prejudice is a classic novel'
+
+We can achieve the same result using apply()!
+mockingbird.describe.apply(pride);
+// 'Pride and Prejudice is a classic novel'
+
+Note that the first argument passed into both call() and 
+apply() is the same: pride. Since the describe() method 
+doesn't take any arguments, the only difference between 
+mockingbird.describe.call(pride); and mockingbird.describe.
+apply(pride); is just the method! Both approaches produce 
+the same result.
+
 
 
 
