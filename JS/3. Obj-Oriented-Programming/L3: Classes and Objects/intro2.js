@@ -157,29 +157,85 @@ apply(pride); is just the method! Both approaches produce
 the same result.
 
 -: Choosing One Method Over the Other
+Both call() and apply() invoke a function in the scope of the 
+first argument passed in them (i.e., the object to be the value 
+of this). So when would you choose call() over apply(), or 
+vice versa?
 
 
+IMPT:
+call() may be limited if you don't know ahead of time the 
+number of arguments that the function needs. In this case, 
+apply() would be a better option, since it simply takes an 
+array of arguments, then unpacks them to pass along to the 
+function. Keep in mind that the unpacking comes at a minor 
+performance cost, but it shouldn't be much of an issue.
 
+const cat = {
+          name: "Bailey",
+};
 
+function sayHello(msg) {
+          console.log(`${msg}, ${this.name}`)
+}
 
+sayHello.call(cat, "Nice to see you")
+
+sayHello.apply(cat, ["Hello"])
+
+Q: Consider the following Andrew and Richard objects:
+
+const Andrew = {
+          name: 'Andrew',
+
+          introduce: function () {
+                    console.log(`Hi, my name is ${this.name}!`);
+          }
+};
+
+const Richard = {
+          name: 'Richard',
+
+          introduce: function () {
+                    console.log(`Hello there! I'm ${this.name}.`);
+          }
+};
+
+When Richard.introduce.call(Andrew); is executed, what is 
+logged to the console?
+
+First, we access the Richard object's introduce property with 
+Richard.introduce (note the lack of parentheses). This returns 
+a function. By invoking .call(Andrew) on that returned function, 
+we are actually invoking the (returned) function's introduce() 
+method -- but with this set to the Andrew object.
+
+As a result, when this.name is called, the Andrew object's 
+name is accessed; this outputs 'Hello there! I'm Andrew' 
+to the console.
+
+Q:
+const andrew = {
+          name: 'Andrew'
+};
+        
+function introduce(language) {
+          console.log(`I'm ${this.name} and my favorite programming language is ${language}.`);
+}
+
+introduce.call(andrew, "JavaScript")
+
+-: Callbacks and this
+The value of this has some potential scope issues when 
+callback functions are involved, and things can get a 
+bit tricky
 
 
 
 
 */
-const mockingbird = {
-          title: "To Kill a Mockingbird",
 
-          describe: function() {
-                    console.log(`${this.title} is a classic novel`)
-          }
-}
-
-
-const pride = {
-          title: "Pride and Prejudice",
-}
-
-mockingbird.describe.call(pride)
 
 // console.log()
+
+
