@@ -296,14 +296,100 @@ invokeTwice(function () {
 dog.age;
 // 7
 
+Using this approach, invoking invokeTwice() still sets the 
+value of this to window. However, this has no effect on the 
+closure; within the anonymous function, the growOneYear() 
+method will still be directly called onto the dog object! As a 
+result, the value of dog's age property increases from 5 to 7.
 
+Since this is such a common pattern, JavaScript provides 
+an alternate and less verbose approach: the bind() method.
 
+Saving this with bind()
+Similar to call() and apply(), the bind() method allows us 
+to directly define a value for this. bind() is a method that 
+is also called _on_ a function, but unlike call() or apply(), 
+which both invoke the function right away -- bind() returns 
+a new function that, when called, has this set to the value 
+we give it.
+
+function invokeTwice(callback) {
+          callback();
+          callback();
+}
+
+const dog = {
+          age: 5,
+
+          growOneYear: function() {
+                    this.age += 1
+          }
+}
+
+const myGrow = dog.growOneYear.bind(dog);
+
+invokeTwice(myGrow)
+
+console.log(dog.age)
+
+Q: What is true about bind()? Select all that apply:
+bind() is a method that is called on a fxn
+bind() returns a new fxn dt, wh called, has this set to
+d provided object
+
+False: d obj passed into bind() must be d same as d obj
+on wc d method was called e/g dob.growOneYear.bind(dog)
+
+Under the hood, bind() returns a new function that can 
+be called like a normal function (e.g., myFunction()), 
+but inside of it, a method will be invoked method-style 
+(e.g., myObject.myMethod()). This has helps us when 
+we see potential scope issues with this when passing 
+callback functions.
+
+Q: Consider the following:
+
+const driver = {
+          name: 'Danica',
+
+          displayName: function () {
+                    console.log(`Name: ${this.name}`);
+          }
+};
+
+const car = {
+          name: 'Fusion'
+};
+
+Write an expression using bind() that allows us to 
+"borrow" the displayName() method from driver 
+for the car object to use. Note: The expression itself 
+is sufficient (no need to save it to a variable).
+
+const driver = {
+          name: 'Danica',
+
+          displayName: function () {
+                    console.log(`Name: ${this.name}`);
+          }
+};
+
+const car = {
+          name: 'Fusion'
+};
+
+const whichCar = driver.displayName.bind(car)
+
+function callback(cb) {
+          return cb()
+}
+
+callback(whichCar)
 
 
 
 */
-
-
+// console.log()
 // console.log()
 
 
