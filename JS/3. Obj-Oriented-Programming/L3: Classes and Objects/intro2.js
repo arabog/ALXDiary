@@ -386,9 +386,37 @@ function callback(cb) {
 
 callback(whichCar)
 
+Summary
+JavaScript provides three methods that allow us to set 
+the value of this for a given function:
 
+call() invokes the function and has arguments passed in 
+individually, separated by commas.
+
+apply() is similar to call(); it invokes the function just the same, 
+but arguments are passed in as an array.
+
+bind() returns a new function with this bound to a specific 
+object, allowing us to call it as a regular function.
+
+Did you know that you can even base objects on other 
+objects? This is the main idea behind prototypal 
+inheritance, and by implementing it, objects can take 
+on properties of other objects. 
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+
+
+-: Prototypal Inheritance
 
 */
+
+
 // console.log()
 // console.log()
 
