@@ -99,6 +99,30 @@ in the scope of the first argument passed into it. Likewise, we
 can leverage the apply() method to do the same, albeit with 
 differences in how arguments are passed into it. 
 
+apply()
+Just like call(), the apply() method is called on a function to 
+not only invoke that function, but also to associate with it a 
+specific value of this. However, rather than passing arguments 
+one-by-one, separated by commas -- apply() takes the function's 
+arguments in an array. Recall the multiply() function from earlier:
+
+function multiply(n1, n2) {
+          return n1 * n2;
+}
+
+We used call() and passed in arguments individually:
+
+multiply.call(window, 3, 4);
+// 12
+
+Using apply(), however, we collect all of the multiply() function's 
+arguments in an array! Then, we pass that entire array into apply():
+
+multiply.apply(window, [3,4])
+
+
+
+
 
 
 
@@ -106,7 +130,6 @@ differences in how arguments are passed into it.
 
 
 */
-
 const mockingbird = {
           title: "To Kill a Mockingbird",
 
