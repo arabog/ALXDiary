@@ -400,7 +400,7 @@ to set this
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
 
 
--: Setting Our Own `this`
+
 
 
 */ 
