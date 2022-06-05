@@ -182,9 +182,119 @@ That is, its __proto__ property should point to mammal:
 console.log(rabbit.__proto__ === mammal);
 // true
 
+Great! This means that now, rabbit extends mammal (i.e., rabbit 
+inherits from mammal). As a result, rabbit can access mammal's 
+properties as if it were its own!
+
+console.log(rabbit.vertebrate);
+// true
+
+console.log(rabbit.earBones);
+// 3
+Object.create() gives us a clean method of establishing 
+prototypal inheritance in JavaScript. We can easily extend 
+the prototype chain this way, and we can have objects 
+inherit from just about any object we want!
+
+function Animal(name) {
+          this.name = name
+}
 
 
+Animal.prototype.walk = function() {
+          console.log(`${this.name} walks`)
+}
 
 
+function Cat(name) {
+          // console.log(this)
+          Animal.call(this, name)
+
+          this.lives = 9
+}
+
+Cat.prototype = Object.create(Animal.prototype)
+
+
+Cat.prototype.constructor = Cat;
+
+
+Cat.prototype.meow = function() {
+          console.log("Meow!")
+}
+
+const bambi = new Cat("Bambi")
+
+bambi.meow()
+
+bambi.walk()
+
+console.log(bambi.name)
+
+Q: Consider the following:
+
+function Parent() {
+          // ...
+}
+
+function Child() {
+          // ...
+}
+
+Child.prototype = Object.create(Parent.prototype);
+const child = new Child();
+
+The following is then executed:
+child instanceof Parent;
+
+What is printed to the console?
+True
+
+Object.create() takes in a single object as an argument, and 
+returns a new object. That new object's __proto__ property 
+is set to whatever was originally passed into Object.create().
+
+In this quiz, Parent.prototype was the argument passed into 
+Object.create(). The return value of the expression 
+Object.create(Parent.prototype);was then set to the value 
+of theChildconstructor'sprototypeproperty. After that, we 
+instantiate a new object:child`.
+
+The expression child instanceof Parent; returns a boolean 
+indicating whether the Parent constructor exists in the child 
+object's prototype chain. Since we know this is true after 
+executing the first expression (i.e., 
+Child.prototype = Object.create(Parent.prototype);), 
+the console outputs true.
+
+Q: What is true about Object.create()? 
+It return a new obj whose __proto__ ppty is set to d 
+obj passed into Object.create()
+
+Using Object.create() we can av objs inherit from just
+abt any obj we want(i.e not only d prototype)
+
+Object.create() allows us to implemt prototypal inherittance
+without mutating d prototype
+
+Summary
+Inheritance in JavaScript is all about setting up the prototype 
+chain. This allows us to subclass, that is, create a "child" 
+object that inherits most or all of a "parent" object's properties 
+and methods. We can then implement any of the child object's 
+unique properties and methods separately, while still retaining 
+data and functionality from its parent.
+
+An object (instance) is secretly linked to its constructor function's 
+prototype object through that instance's __proto__ property
+
+To efficiently manage inheritance in JavaScript, an effective 
+approach is to avoid mutating the prototype completely. 
+Object.create() allows us to do just that, taking in a parent 
+object and returning a new object with its __proto__ property 
+set to that parent object.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 */ 
-
