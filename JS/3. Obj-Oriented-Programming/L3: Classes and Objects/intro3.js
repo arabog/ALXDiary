@@ -79,7 +79,68 @@ performance issues.
 f you ever just need to review an object's prototype, you can 
 still use Object.getPrototypeOf().
 
+What About Just Inheriting the Prototype? 
+Let's say we want a Child object to inherit from a Parent object. 
+Why shouldn't we just set Child.prototype = Parent.prototype?
 
+First, recall that objects are passed by reference. This means 
+that since the Child.prototype object and the Parent.prototype 
+object refer to the same object -- any changes you make to 
+Child's prototype will also be made to Parent's prototype! We 
+don't want children being able to modify properties of their 
+parents!
+
+On top of all this, no prototype chain will be set up. What if 
+we want an object to inherit from any object we want, not 
+just its prototype?
+
+Q: Consider the following:
+
+function GuineaPig (name) {
+          this.name = name;
+          this.isCute = true;
+}
+
+const waffle = new GuineaPig('Waffle');
+
+What does waffle.__proto__ refer to?
+GuineaPig.prototype
+
+When the new instance of GuineaPig is created, the special 
+property waffle.__proto__ is set to GuineaPig.prototype. 
+This secret link allows instances(objs) of the GuineaPig constructor 
+to access properties of GuineaPig.prototype. Keep in mind 
+that you should never use the __proto__ in any code you write.
+
+Q: Consider the following:
+function Car (color, year) {
+          this.color = color;
+          this.year = year;
+}
+
+Car.prototype.drive = function () {
+          console.log('Vroom vroom!');
+};
+
+const car = new Car('silver', 1988);
+
+What happens when car.drive(); is executed? List the 
+following events in the order that they occur:
+
+1. d JS engine searches inside d car obj for a ppty named
+drive
+
+2. d JS engine doesn't find drive within d car obje
+
+3. d JS engine dn access d car.__proto__ ppty
+
+4. since d car.__proto__ ppty points to Car.prototype, d
+JS engine searches for drive in d prototype
+
+5. bcos Car.prototype.drive is  def ppty, it's returned
+
+6. Finally since drive is invoked as a method on car, d 
+value of this is car
 
 
 
