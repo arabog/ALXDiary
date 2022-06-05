@@ -142,6 +142,48 @@ JS engine searches for drive in d prototype
 6. Finally since drive is invoked as a method on car, d 
 value of this is car
 
+Object.create()
+There's actually a way for us to set up the prototype of an 
+object ourselves: using Object.create(). And best of all, 
+this approach lets us manage inheritance without altering 
+the prototype!
+
+Object.create() takes in a single object as an argument, 
+and returns a new object with its __proto__ property set 
+to what argument is passed into it. From that point, you 
+simply set the returned object to be the prototype of the 
+child object's constructor function. 
+
+First, let's say we have a mammal object with two properties: 
+vertebrate and earBones:
+
+const mammal = {
+          vertebrate: true,
+          earBones: 3
+};
+
+Recall that Object.create() takes in a single object as an 
+argument, and returns a new object. That new object's 
+__proto__ property is set to whatever was originally 
+passed into Object.create(). Let's save that returned 
+value to a variable, rabbit:
+
+const rabbit = Object.create(mammal);
+
+We expect the new rabbit object to be blank, with no 
+properties of its own:
+
+console.log(rabbit);
+// {}
+
+However, rabbit should now be secretly linked to mammal. 
+That is, its __proto__ property should point to mammal:
+
+console.log(rabbit.__proto__ === mammal);
+// true
+
+
+
 
 
 */ 
