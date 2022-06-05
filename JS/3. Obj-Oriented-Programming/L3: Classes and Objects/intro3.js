@@ -7,7 +7,81 @@ we can subclass, that is, have a "child" object take on most or
 all of a "parent" object's properties while retaining unique 
 properties of its own.
 
+Again, inheritance in JavaScript is all about setting up this chain!
+
+The Secret Link
+As you know, an object's constructor function's prototype is first 
+place searched when the JavaScript engine tries to access a property 
+that doesn't exist in the object itself. Consider the following bear 
+object with two properties, claws and diet:
+
+const bear = {
+          claws: true,
+          diet: 'carnivore'
+};
+
+We'll assign the following PolarBear() constructor function's 
+prototype property to bear:
+
+function PolarBear() { 
+          // ...
+}
+
+PolarBear.prototype = bear;
+
+Let's now call the PolarBear() constructor to create a new 
+object, then give it two properties:
+
+const snowball = new PolarBear();
+
+snowball.color = 'white';
+snowball.favoriteDrink = 'cola';
+
+This is how the snowball object looks at this point:
+
+{
+          color: 'white',
+          favoriteDrink: 'cola'
+}
+
+Note that snowball has just two properties of its own: 
+color and favoriteDrink. However, snowball also has 
+access to properties that don't exist inside it: claws and diet:
+
+console.log(snowball.claws);
+// true
+
+console.log(snowball.diet);
+// 'carnivore'
+
+As it turns out, the secret link is snowball's __proto__ property 
+(note the two underscores on each end). __proto__ is a property 
+of all objects (i.e., instances) made by a constructor function, 
+and points directly to that constructor's prototype object. Let's 
+check out what it looks like!
+
+console.log(snowball.__proto__);
+
+// { claws: true, diet: 'carnivore' }
+Since the __proto__ property refers to the same object as 
+PolarBear's prototype, bear, comparing them returns true:
+
+console.log(snowball.__proto__ === bear);
+// true
+
+It is highly discouraged to reassign the __proto__ property, 
+or even use it in any code you write. First, there are 
+compatibility issues across browsers. What's more: since the 
+JavaScript engine searches and accesses properties along the 
+prototype chain, mutating an object's prototype can lead to 
+performance issues. 
+
+f you ever just need to review an object's prototype, you can 
+still use Object.getPrototypeOf().
+
+
 
 
 
 */ 
+
