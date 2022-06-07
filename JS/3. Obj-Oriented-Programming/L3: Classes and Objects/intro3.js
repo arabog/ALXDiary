@@ -565,5 +565,106 @@ An IIFE (wrapper)
 The module content (variables, methods, objects, etc.)
 A returned object literal
 
+Another Example
+To bring it all home, let's check out a more complex example:
+
+let person = (function () {
+          let privateAge = 0;
+          let privateName = 'Andrew';
+
+          function privateAgeOneYear() {
+                    privateAge += 1;
+                    console.log(`One year has passed! Current age is ${privateAge}`);
+          }
+
+          function displayName() {
+                    console.log(`Name: ${privateName}`);
+          }
+
+          function ageOneYear() {
+                    privateAgeOneYear();
+          }
+
+          return {
+                    name: displayName,
+                    age: ageOneYear
+          };
+})();
+
+In the above snippet, the IIFE has some private data: privateAge, 
+privateName, and privateAgeOneYear(). The returned object is 
+stored in person and provides a public interface through which 
+we can access this data!
+
+Let's first check out what the returned person looks like:
+
+{
+          name: displayName,
+          age: ageOneYear
+};
+
+Note that the name() method reveals the otherwise private 
+displayName() function:
+
+console.log(person.name());
+// 'My name is Andrew'
+
+However, what happens if we try to access and mutate privateName?
+
+person.privateName = 'Richard';
+
+console.log(person.name());
+// 'My name is Andrew'
+
+person.name() still produces the string My name is Andrew! 
+Why don't we see the string 'Richard' in the returned string?
+
+Pay close attention to what the first line of code is actually doing: 
+it simply adds a privateName property to the person object. It has 
+no effect on the privateName variable that exists inside the IIFE 
+itself! If we look at the person.name() function, it is using the 
+privateName variable that exists inside the IIFE. So even if we 
+add a person.privateName property, the person.name() method 
+doesn't ever try to access it.
+
+Note that accessing displayName() directly won't be effective, either! 
+
+console.log(person.displayName());
+// undefined
+
+Likewise, the Revealing Module Pattern also gives us access to 
+the captured privateAge variable, via the returned object literal's 
+age() method:
+
+console.log(person.age());
+// 'One year has passed! Current age is 1'
+
+console.log(person.age());
+// ''One year has passed! Current age is 2'
+
+Q: Which concepts make up the Revealing Module Pattern?
+
+IIFE's, local variables/functions, and a returned object literal
+with revealed data make up the structure and syntax of the 
+Revealing Module Pattern.
+
+Benefits of the Revealing Module Pattern
+When writing your modules, there are a few key advantages 
+of using the Revealing Module Pattern. For one, there is 
+clarity at the end of the module (i.e., the return statement) as 
+to which variables or methods may be accessed publicly. 
+Modules may grow large, and this eases readability for other 
+developers who read your code.
+
+Along with clear intent of public or private data, the Revealing 
+Module Pattern lends itself to consistent syntax as well. In 
+contrast, the normal Module Pattern may contain variables 
+and functions spread throughout the entire function body.
+
+
+
+
+
+
 
 */ 
