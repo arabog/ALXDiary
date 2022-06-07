@@ -297,4 +297,43 @@ set to that parent object.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+
+-: The Module Pattern
+let developer = {
+          name: 'Veronika',
+
+          getName: function () {
+                    return this.name;
+          }
+};
+
+We can access the string value 'Veronika' with the getName 
+method, as well as directly by accessing the developer object's 
+name property:
+
+developer.getName();
+// 'Veronika'
+
+developer.name;
+// 'Veronika'
+
+However, what happens when we reassign the object's name property?
+
+developer.name = 'Not Veronika';
+
+developer.getName();
+// 'Not Veronika'
+
+developer.name;
+// 'Not Veronika'
+
+This sort of open access makes developers uncomfortable. 
+Since we can directly access and mutate an object's properties, 
+we would like a way to implement private properties.
+
+
+
+
+
 */ 

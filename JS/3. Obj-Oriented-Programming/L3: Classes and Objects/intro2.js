@@ -703,24 +703,4 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
 
--: Prototypal Inheritance: Subclasses
-
-
-
-
-
-
-
-
-
-
-
 */
-
-
-
-
-// console.log()
-// console.log()
-
-
