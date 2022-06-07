@@ -661,10 +661,7 @@ Module Pattern lends itself to consistent syntax as well. In
 contrast, the normal Module Pattern may contain variables 
 and functions spread throughout the entire function body.
 
-
-
-
-
-
+While it still maintains encapsulation of data, certain variables 
+and functions are returned in an object literal.
 
 */ 
