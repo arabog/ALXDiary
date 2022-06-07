@@ -376,6 +376,114 @@ Wrapping an object within a function doesn't seem too effective
 either. So, how can we go about making an object's properties 
 private?
 
+Recall from earlier lessons that we can use scope and 
+closures to create a private state. Let's look at a quick 
+refresher:
+
+function myCounter() {
+          let count = 0;
+
+          return function () {
+                    count += 1;
+                    return count;
+          };
+}
+
+let counter = myCounter();
+
+Note that the myCounter() function closes over the count 
+variable. The value of count increments as the function is 
+called:
+
+counter();
+// 1
+
+counter();
+// 2
+
+However, there is no way that any method outside the 
+closure itself can access count:
+
+counter.count; 
+// undefined
+
+count; 
+// undefined
+
+So, closure provides a way to create private data. How can 
+we leverage these same techniques -- with scope and closures 
+-- to create private properties and methods in an object?
+
+Q: const myName = 'Richard';
+
+function introduceMyself() {
+          const you = 'student';
+
+          function introduce(message) {
+          // Which variables can be used here?
+          }
+
+          return introduce('Hello');
+}
+
+Which variables does the nested introduce() function have access to? 
+Select all that apply:
+
+introduce() takes in a single parameter, message, as well the 
+global variable myname and the you variable contained in 
+the parent function, introducemyself().
+
+Q: 
+let sodiumChloride = (function(){
+          let chemicalFormula = 'NaCl';
+          let molarMass = 58.44;
+
+          return {
+                    getProperties: function(){
+                              console.log(`Formula: ${chemicalFormula}`);
+                              console.log(`Molar Mass: ${molarMass} g/mol`);
+                    }
+          };
+})();
+
+When sodiumChloride.getProperties(); is executed, what is 
+logged to the console?
+
+by wrapping chemicalformula and molarmass in an immediately
+-invoked function expression, those variables are inaccessible 
+from the outside world.
+
+The Module Pattern leverages many of the powerful features 
+of JavaScript, such as scope, closures, and immediately-invoked 
+function expressions (IIFE). 
+
+let person = (function () {
+          let name = 'Veronika';
+
+          return  {
+                    getName: function () {
+                              return name;
+                    },
+
+                    setName: function (myName){
+                              name = myName;
+                    }
+          };
+})();
+
+person.name;
+// undefined
+person.getName;
+// 'Veronika'
+
+person.setName('Not Veronika');
+person.getName;
+// 'Not Veronika'
+
+-: The Module Pattern: Recap
+
+
+
 
 
 */ 
