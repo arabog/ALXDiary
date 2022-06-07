@@ -332,7 +332,49 @@ This sort of open access makes developers uncomfortable.
 Since we can directly access and mutate an object's properties, 
 we would like a way to implement private properties.
 
+Private Properties: Function
+Let's look into another option: using a function. What if 
+we create a basic function that just returns an object? 
+Does this give the object an adequate level of protection?
 
+function instantiateDeveloper() {
+          return {
+                    name: 'Veronika',
+
+                    getName: function () {
+                              return this.name;
+                    }
+          };
+}
+
+Nothing too surprising -- just a basic function that returns an 
+object with two properties: name and getName. Let's go ahead 
+and invoke the function and get the returned object. We'll assign 
+the returned object to a variable, developer:
+
+let developer = instantiateDeveloper();
+
+As it turns out, the string 'Veronika' is still accessible, because 
+the two aforementioned properties still exist in the object being 
+returned from instantiateDeveloper():
+
+developer.getName;
+// 'Veronika'
+
+developer.name;
+// 'Veronika'
+
+Along with direct access, we can mutate and reassign the value 
+of the name property as well:
+
+developer.name = 'Not Veronika';
+
+developer.name;
+// 'Not Veronika'
+
+Wrapping an object within a function doesn't seem too effective 
+either. So, how can we go about making an object's properties 
+private?
 
 
 
