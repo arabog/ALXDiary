@@ -481,6 +481,51 @@ person.getName;
 // 'Not Veronika'
 
 -: The Module Pattern: Recap
+let diana = (function () {
+          let secretIdentity = 'Diana Prince';
+
+          return {
+                    introduce: function () {
+                              console.log(`Hi! I am ${secretIdentity}`);
+                    }
+          };
+})();
+
+Recall that one of the key ingredients here is the IIFE! Not only 
+does it prevent pollution of the global scope (which hinders the 
+chance of variable name collisions) -- the IIFE helps prevent 
+access to the secretIdentity variable.
+
+console.log(diana.secretIdentity);
+// undefined
+
+And because the returned object's introduce() method retains 
+access to its parent function's scope, we are given a public 
+interface to interact with secretIdentity:
+
+diana.introduce();
+// 'Hi! I am Diana Prince'
+
+Keep in mind, however, that you generally use the Module 
+Pattern when you just want one "version" of an object. If 
+you're looking to instantiate unique objects that follow a 
+certain blueprint, you can always still write and invoke a 
+constructor function!
+
+Q: What is true about the Module Pattern? Select all that apply:
+The module patter uses closures to create private ppties
+The Module Pattern requires the use of IIEF's
+Unlike calling a constructor fxn, implemting d Module Pattern
+returns just one version of an obj
+
+Summary
+Since JavaScript doesn't have private variables, properties, 
+or methods built-in, we can leverage the Module Pattern to 
+enforce such privacy. At its core, the Module Pattern 
+leverages scope, closures, and (commonly) IIFE's to not 
+only hide data from external access, but to also provide a 
+public interface for such data.
+
 
 
 
