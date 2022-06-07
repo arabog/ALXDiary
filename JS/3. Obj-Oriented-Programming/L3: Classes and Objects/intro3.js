@@ -527,8 +527,43 @@ only hide data from external access, but to also provide a
 public interface for such data.
 
 
+-: The Revealing Module Pattern
 
+let myModule = (function (){
+          function privateMethod (message) {
+                    console.log(message);
+          }
 
+          function publicMethod (message) {
+                    privateMethod(message);
+          }
+
+          return {
+                    publicMethod: publicMethod
+          };
+})();
+
+let myModule2 = (function () {
+          function privateMethod (message) {
+                    console.log(message);
+          }
+
+          return {
+                    publicMethod: function (message) {
+                              privateMethod(message);
+                    }
+          };
+})();
+
+The Revealing Module Pattern
+The underlying philosophy of the Revealing Module Pattern 
+is that, while we still maintain encapsulation (as in the Module 
+Pattern), we also reveal certain properties (and methods). 
+The key ingredients to the Revealing Module Pattern are:
+
+An IIFE (wrapper)
+The module content (variables, methods, objects, etc.)
+A returned object literal
 
 
 */ 
