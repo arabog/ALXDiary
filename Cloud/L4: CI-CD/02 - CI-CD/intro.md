@@ -112,3 +112,61 @@ unit test suite.
 
 Continuous Integration
 
+-: Benefits of CI/CD
+Why Is Translation Important?
+If the decision-makers in your company can't understand why 
+something is important or adds value, they might not approve it. 
+This usually isn't because they're ignorant or trying to be difficult, 
+this is often because they don't understand how the technical 
+changes translate into benefits for the company. Using language 
+they understand will make everyone's lives better and easier!
+
+Technical Language	                         Value             Translation
+Catch Compile Errors After Merge	Reduce Cost	Less developer time on issues from new developer code
+
+Catch Unit Test Failures	Avoid Cost	Less bugs in production and less time in testing
+
+Detect Security Vulnerabilities	Avoid Cost	Prevent embarrassing or costly security holes
+
+Automate Infrastructure Creation	Avoid Cost	Less human error, Faster deployments
+
+Automate Infrastructure Cleanup	Reduce Cost	Less infrastructure costs from unused resources
+
+Faster and More Frequent Production Deployments	Increase Revenue	New value-generating features released more quickly
+
+Deploy to Production Without Manual Checks	Increase Revenue	Less time to market
+
+Automated Smoke Tests	Protect Revenue	Reduced downtime from a deploy-related crash or major bug
+
+Automated Rollback Triggered by Job Failure	Protect Revenue	Quick undo to return production to working state
+
+https://blackswanfarming.com/value-a-framework-for-thinking/
+
+https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
+
+
+-: Exercise: Benefits of CI/CD
+Pick two of the most compelling benefits of CI/CD and write a paragraph for each, explaining to me why it should be implemented in your team. Let's see if you can convince me! Don't forget to use some of the "translations" you learned about earlier!
+
+Here are a few examples to choose from:
+
+Smaller code changes
+Error Isolation
+Reduced deploy errors
+More reliable tests
+Faster release rate
+Increase accountability and transparency
+Smaller backlog
+Faster error resolution time
+Customer satisfaction
+Team satisfaction
+Easy maintenance and updates
+
+Q: Choose one benefit of CI/CD and write a short paragraph to convince a non-technical boss using non-technical language.
+
+Make sure your paragraph translates the technical benefits to terms that matter to any business: revenue and/or costs. If you did that, then you're doing great!
+
+Q: Choose another benefit of CI/CD and write a short paragraph to convince a non-technical boss using non-technical language.
+
+Do you feel like you were able to boil down the technical concepts to the businesses' native language? If you talked in terms of revenue or cost, then you have me convinced!
+
