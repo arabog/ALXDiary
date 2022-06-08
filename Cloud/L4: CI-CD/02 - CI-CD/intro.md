@@ -170,3 +170,32 @@ Q: Choose another benefit of CI/CD and write a short paragraph to convince a non
 
 Do you feel like you were able to boil down the technical concepts to the businesses' native language? If you talked in terms of revenue or cost, then you have me convinced!
 
+-: Solution: Benefits of CI/CD
+It's great, as a technical member of the team, for you to understand the benefits of CI/CD. This way, when you're banging your head against the wall because of some confusing mess you've gotten yourself into, you will remember the benefits and they will motivate you to keep going! But, it's quite possibly more important that you understand how to translate these benefits to other members of the team so they can understand how CI/CD will benefit their area of responsibility as well!
+
+Remember, whenever you are attempting to convince business people of some technical benefit, you should always translate it to either revenue or cost. If the benefits truly outweigh the costs of implementation, you'll find that the business will often give you the green light.
+
+-: Best Practices for CI/CD:
+Fail Fast
+Set up your CI/CD pipeline to find and reveal failures as fast as possible. 
+The faster you can bring your code failures to light, the faster you can 
+fix them.
+
+Measure Quality
+Measure your code quality so that you can see the positive effects 
+of your improvement work (or the negative effects of technical debt).
+
+Only Road to Production
+Once CI/CD is deploying to production on your behalf, it must be the 
+only way to deploy. Any other person or process that meddles with 
+production after CI/CD is running will inevitably cause CI/CD to 
+become inconsistent and fail.
+
+Maximum Automation
+If it can be automated, automate it. This will only improve your 
+process!
+
+Config in Code
+All configuration code must be in code and versioned alongside 
+your production code. This includes the CI/CD configuration files!
+
