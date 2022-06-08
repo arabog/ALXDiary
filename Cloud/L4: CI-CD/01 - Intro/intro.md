@@ -83,4 +83,32 @@ Ensure all post-commit tasks and hand-offs must be automated in CI/CD
 Strive for quick, reliable rollback if smoke tests fail
 
 -: Principles of Continuous Delivery
+8 Principles of Continuous Delivery
+Repeatable Reliable Process
+Automate Everything
+Version Control Everything
+Bring the Pain Forward
+Build-in Quality
+"Done" Means Released
+Everyone is Responsible
+Continuous Improvement
 
+
+-: Course Outline
+What We'll Cover In This Course:
+Continuous Integration and Continuous Deployment
+Building a Continuous Integration Pipeline
+Enabling Continuous Delivery with Deployment Pipelines
+Monitoring Environments
+
+-: Tools, Environment & Dependencies
+We will be using the following cloud-based tools. If you don't have an account already, you should take the time to sign up now:
+
+Github
+Circle CI
+https://circleci.com/
+
+Amazon AWS
+Also, you should download and install the following tools:
+
+Visual Studio Code (or your favorite code editor)
