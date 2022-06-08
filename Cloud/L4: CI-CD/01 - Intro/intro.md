@@ -29,3 +29,27 @@ Continuous Delivery:
 An engineering practice in wc teams produce and release value in 
 short cycles
 
+CI/CD is a set of development practices aimed at automating the building, testing, and deployment of applications.
+
+https://aws.amazon.com/devops/continuous-delivery/
+
+https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment
+
+https://www.digitalocean.com/community/tutorials/an-introduction-to-continuous-integration-delivery-and-deployment
+
+
+-: Continuous Delivery Is Important
+Devops, Agile, Lean, Kanban, Scrum... all great things, all exciting buzz words, each the subject of many conferences, blogs and courses. But, not a single one of those amazing concepts or methodologies will make a real difference until we allow them to change how we think about the value we deliver to our customers.
+
+Continuous Delivery doesn't replace anything, but rather it enhances everything.
+
+-: Stakeholders
+Both sides of the business/tech divide need to involve the other side in decisions so that our companies can be stronger and make a better impact on the world. But, since you're the one taking this course, it's probably going to be up to you to start the conversation. You can start by bringing your business leaders into the discussion about CI/CD and Continuous Delivery.
+
+Use this as an opportunity to translate the technical terms into words that matter to the business-minded people in your company. Convince them to move in the direction of Continuous Delivery based on the very real benefits it can have for your company, not just some cool technical features that make developers happy. By bringing the business side of the house into the discussion, you'll be better positioned to make real change!
+
+Always remember that business leaders need to be at the helm of decisions that affect the bottom-line.
+
+-: Continuous Delivery as a "True North"
+
+
