@@ -209,3 +209,49 @@ Canary	                                        Aka Rolling Update, After deployi
 
 A/B Testing	                              Similar to Canary, but instead of routing traffic to new version to accomplish a full deployment, you are testing your new version with a subset of users for feedback. You might end up routing all traffic to the new version, but that's always the goal.
 
+-: Blue Green Deployment
+The Router
+Router Option	          Description
+Load Balancer	          Instant switch for FE or BE, ideal router in most cases
+CDN	                          Instant switch for front-end web apps.
+DNS	                              A bit slow because of DNS propagation.
+
+Common Jobs
+
+Step	                                        Description
+Integrate Code in a Build	          Compile and create artifact
+
+Run Tests	                                        Run unit and/or integration tests
+
+Ensure Infrastructure is Present	Create green infrastructure
+
+Provision the Environment	          Configure green instance, migrate DB, etc
+
+Deploy Artifact	                              Copy artifact files to instance
+
+Run Smoke Tests	                              Run a few tests that don't impact the prod server	
+
+Perform Rollback if Failure	                    Rollback here is more of a cleanup of green
+
+Switch Router	                              Redirect traffic to new version
+
+Run Sanity Test	                              Run a few tests that don't impact the prod server
+
+Perform Rollback If Failure	          Rollback here is switching the router back to blue and cleaning up green
+
+Destroy Old Release Environment?	Clean up blue env (optional)
+
+Notify The Team (Successful)	          Celebrate!
+
+Q: Select the best sequence for a Blue Green Deployment.
+Compile, Unit Tests, Provision, Deploy, Smoke Tests, Switch 
+d Router, Sanity Test, Destroy Old Environmet, Notify Team of Success
+
+it's very important to test well before and after you switch the router.
+
+Q: Imagine a company you'd like to work for (or currently work for) and a team you'd like to work on. What sort of router might that team use to manage the switch from one prod env to another? It might be a load balancer or some other mechanism.
+
+Things to think about
+There are so many ways to implement the "router" in Blue Green Deployment. The main thing is that we need a way to have both environments live so that we can test before making the switch.
+
+
