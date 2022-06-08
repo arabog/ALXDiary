@@ -199,3 +199,13 @@ Config in Code
 All configuration code must be in code and versioned alongside 
 your production code. This includes the CI/CD configuration files!
 
+-: Deployment Strategies
+Deployment Strategy	                              Description
+Big-Bang	                                        Replace A with B all at once.
+
+Blue Green	                              Two versions of production: Blue or previous version and Green or new version. Traffic can still be routed to blue while testing green. Switching to the new version is done by simply shifting traffic from blue to green.
+
+Canary	                                        Aka Rolling Update, After deploying the new version, start routing traffic to new version little by little until all traffic is hitting the new production. Both versions coexist for a period of time.
+
+A/B Testing	                              Similar to Canary, but instead of routing traffic to new version to accomplish a full deployment, you are testing your new version with a subset of users for feedback. You might end up routing all traffic to the new version, but that's always the goal.
+
