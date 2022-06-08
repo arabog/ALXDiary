@@ -300,5 +300,64 @@ Always keep refining this skill. The ability to distill complicated
 processes into something understandable is very important to 
 development teams.
 
+Tools
+Plenty of tools exist that can handle the entire CI and CD pipeline. 
+Some tools can be installed on your own hardware, while others 
+are cloud-based services.
+
+Common Features
+Whether your tool is on-prem or a SaaS product, it will likely 
+have at least the basic features of any CI/CD system. Getting 
+to know these common features will help you to be a little 
+more "tool agnostic".
+
+Feature	                              Comments
+Steps	A step is an instruction that should be run during a job in order to accomplish a single goal.
+
+Jobs	A job is made up of a group of steps that should run in a specific order.
+
+Job Images	Jobs can take advantage of various pre-existing Docker images that provide an environment in which to run steps.
+
+Pipelines	A pipeline is a set of instructions to run a group of jobs in parallel or sequentially and according to a pre-determined dependency tree.
+
+https://classroom.udacity.com/nanodegrees/nd9991-alg-t2/parts/cd0649/modules/4db759b2-1ceb-43c1-8756-7430964ff92e/lessons/925580e4-7a05-4d60-9aa6-7f7d37103ea4/concepts/3f1b2720-70c8-4526-bf5b-027677d639dd
 
 
+Installable/On-Prem
+Your team may prefer an on-prem CI/CD server running closer to the development team. There are a lot of great options with varying pricing models. One major benefit to an on-prem CI/CD server is a high degree of control. On the other hand, an on-prem CI/CD server requires time from someone in the team to maintain. The list below has a few options, but certainly not all!
+
+Tool	          Creator/Maintainer	          Differentiators
+Jenkins	          Various Contributors	Vibrant open-source communbity, 100% free
+
+Gitlab Community	          Gitlab	          Open-source, installable version of the popular cloud-based service, 100% free
+
+Team City	                    JetBrains	          Very mature, JetBrains support
+
+Team Foundation Server (TFS)	          Microsoft	          Seemless integration with Microsoft products, Microsoft support
+
+Cloud-Based
+Some teams prefer to use cloud-based services since they require mush less time to maintain and configure. The list below is far from exhaustive. There are many many options out there. These are just a few of our favorites.
+
+Tool	                    Creator/Maintainer	          Differentiators
+Bamboo	                    Atlassian	                    Integrates well with other Atlassian products like Stride and Jira.
+
+Circle CI	                    Circle Internet Services	Free for limited use, personal or business. Boasts of faster builds.
+
+Travis CI	                    Travis CI	                    Extremely simple CI/CD orchestration tool. Some specialty features for libraries and packages. Free for open-source projects.
+
+GitLab	                    GitLab	                    Complete set of development tools including git repositories and built-in, integrated CI/CD pipelines. 2000 free minutes of CI/CD jobs per month.
+
+In This Course
+Throughout this course, we will be using Circle CI because of the following reasons:
+
+Circle CI's features are fairly universal
+Since it's a cloud-based tool, Circle CI will not require much configuration
+Circle CI has a free tier that is fairly generous
+
+Q: Why might a team opt for a cloud-based CI/CD product rather 
+than setting up a server themselves?
+
+ Being able to shift the responsibility for CI server maintenance 
+ can be a huge productivity boost for development teams.
+
+ 
