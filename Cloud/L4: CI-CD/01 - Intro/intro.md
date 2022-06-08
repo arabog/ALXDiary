@@ -51,5 +51,36 @@ Use this as an opportunity to translate the technical terms into words that matt
 Always remember that business leaders need to be at the helm of decisions that affect the bottom-line.
 
 -: Continuous Delivery as a "True North"
+A Better "True North"
+True continuous delivery is not always attainable for the long term. That doesn't negate its usefulness as a "True North", though. If we keep continuous delivery as our "eventual destination", then every small improvement in that direction will be a win.
 
+Building Confidence
+In order to achieve (or even move in the direction of) continuous delivery, we need to pay attention to the confidence of our stakeholders. The confidence they have in the delivery team to do its job well, the more freedom the delivery team will have to move closer to continuous delivery.
+
+Stakeholders need confidence that...
+
+Production will be available for users
+Features will be built correctly
+Once they have that, frequent, automated deliveries straight to production should be no problem.
+
+Exercises to Build Confidence and Move Closer to Continuous Delivery
+Expect collaborative, comprehensive grooming of features that include team and stakeholders
+
+Ruthless slicing of features to smallest valuable increments
+
+Build team-wide, deep understanding of each feature's requirements and characteristics before coding starts
+
+Write comprehensive automated unit tests in front-end and back-end layers
+
+Shoot for high coverage from automated back-end integration tests
+
+Shoot for high feature critical-path coverage from end-to-end UI tests
+
+Include automated smoke tests that can be run on production-candidates
+
+Ensure all post-commit tasks and hand-offs must be automated in CI/CD
+
+Strive for quick, reliable rollback if smoke tests fail
+
+-: Principles of Continuous Delivery
 
