@@ -254,4 +254,51 @@ Q: Imagine a company you'd like to work for (or currently work for) and a team y
 Things to think about
 There are so many ways to implement the "router" in Blue Green Deployment. The main thing is that we need a way to have both environments live so that we can test before making the switch.
 
+-: Pipeline Building Blocks
+Build Stages
+Think of stages like categories or types of jobs. Stages are used to group jobs and control timing.
+
+Stage	Description
+Build	Everything that has to do with making code executable in production (e.g. Compile). The goal is to produce an artifact.
+
+Test	All automated tests that verify at the code level.
+
+Analyze	Any static analysis on the code or checking of dependencies.
+
+Deploy	Anything to do with creating server instances or copying pre-built application files to an instance.
+
+Verify	Any tests that can be run against a running instance of the application, often against a pre-production instance.
+
+Promote	Replacing the current production environment with the new version which was just built and deployed.
+
+Revert	Rolling back or undoing changes in case any verification fails after deployment.
+
+Jobs and Steps
+Jobs are what actually do the work of CI/CD. Each job has a name 
+and defines a set of instructions to run and an environment in which 
+to run those instructions. The instructions are called steps. Each step 
+has a name and a bit of instructions to carry out a script to execute 
+or a task to complete.
+
+Q: What might be some steps names in a job that compiles the 
+backend for a website?
+
+Those names are pretty good. Always think of how the names 
+communicate to the next developer who will have to maintain 
+this code.
+
+-: Pipeline
+One Solution, Not The Solution
+Depending on your project and your pipeline, your diagram might 
+look different from mine! Maybe you're not using Slack to display 
+success or failure messages or maybe you're using a different 
+deployment strategy. Use my below solution as a reference, but 
+it's not the only answer!
+
+Q: What would you do differently in your diagram after seeing mine?
+Always keep refining this skill. The ability to distill complicated 
+processes into something understandable is very important to 
+development teams.
+
+
 
