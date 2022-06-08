@@ -360,4 +360,11 @@ than setting up a server themselves?
  Being able to shift the responsibility for CI server maintenance 
  can be a huge productivity boost for development teams.
 
- 
+ We discussed...
+Fundamentals of CI/CD
+Benefits of CI/CD
+Continuous Delivery as a Paradigm
+Some Best Practices
+Deployment Strategies, Especially Blue Green Deployment
+Pipelines and Jobs
+CI/CD Tools
