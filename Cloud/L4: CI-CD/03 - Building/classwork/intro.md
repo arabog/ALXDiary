@@ -40,3 +40,16 @@ Static Code Ananlysis
 Merge code from all sources (branches and or commits)
 Check libraries and dependencies versions
 
+-: Intuition
+Characteristics of Healthy CI Pipelines
+We want to create healthy, consistent pipelines in order to create a better build process!
+
+Highest Priority When the Build is Broken
+Trusted Members of the Team
+Have the Same Abilities as any Member of the Team
+Enforce Team Quality Rules
+Communicate Useful Information
+Shorten Feedback Loops
+Don't Require Stacks of Documentation
+Automated to the End!
+
