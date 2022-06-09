@@ -53,3 +53,12 @@ Shorten Feedback Loops
 Don't Require Stacks of Documentation
 Automated to the End!
 
+Q: Mark all the characteristics of a healthy CI system.
+Build passes and fails equally on CI and locally
+It does nt require human interventn in its majority
+Includes jobs to ensure d quality of the code
+Runs quickly
+Easy to maintain without much documtatn
+
+
+
