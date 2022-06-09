@@ -60,5 +60,56 @@ Includes jobs to ensure d quality of the code
 Runs quickly
 Easy to maintain without much documtatn
 
+-: Creating Pipelines
+Single Responsibility Principle
+The single-responsibility principle (SRP) is a computer-programming principle that states that every module or class should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class, module or function.
 
+When we limit the responsibilities of our jobs, we get some nice side-effects:
+Jobs tend to be smaller and quicker
+We get better and more focused feedback when there's a job failure
+The pipeline is more visually 
+
+Remember:
+A graphics that says "Pipelines have workflows that have jobs that have steps."
+Circle CI uses a yaml file to handle the configuration of pipelines and jobs.
+
+Section	                    Description
+version	                    Specifies the version of CircleCI's runner you want to use. Most of the time, use the latest.
+
+jobs	                    List of jobs.
+
+commands	          List of reusable commands that can be used as steps in jobs.
+
+orbs	                    Makes available some pre-written functionality that you can include in your jobs. Orbs become step types which we 
+will see later when we talk more about jobs.
+
+workflows	                    Puts the jobs in execution order, sets up dependencies.
+
+Workflows
+In Circle CI, a pipeline is made up of one or more workflows. Workflows contain jobs.
+
+Workflow Option	                    Description
+<workflow_name>	                    The name of the workflow that appears in the Circle CI web app. You can have multiple workflows for different scenarios, so it's helpful to give them future-proof names.
+
+jobs	                                                  A list of jobs,  already defined elsewhere in the config file, and some instructions 
+on when to run them.
+
+Workflow Job Option	                    Description
+<job_name>	                    The name of the corresponding job.
+
+requires	                                        Jobs are run in parallel by default, so if your job doesn't require any other jobs, they will all just run at the same time, or in random order.
+
+filters	                                        Excludes jobs based on current branch or tag.
+
+Q: Does the following scenario follow the Single Responsibility Principle?
+
+To take advantage of a compile step, we also run unit and integration tests in the same job. If we break this into smaller jobs, we will be wasting resources when compiling again and again.
+
+Yes, that's right. SRP helps us remember to keep our jobs light and focused on one thing.
+
+Q: Does the following scenario follow the Single Responsibility Principle?
+
+Our pipeline has a job that deploys the production files to our production server. Then, there's a job that runs some simple smoke tests. The separation helps us zero in on the problem if one of these jobs fails.
+
+Yes, this scenario shows a set of jobs that adhere to SRP.
 
