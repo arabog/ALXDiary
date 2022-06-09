@@ -12,3 +12,31 @@ Went Over Some of the Common Building Blocks of Most CI Tools, Like:
           Job Failures
 Designed a Complete CI Pipeline
 
+-: Big Picture
+What is CI?
+Continuous Integration is the practice of automating the integration of code changes from multiple contributors into a single software project (definition from Atlassian).
+
+CI Opens Doors
+Singular, Unified, Consistent Build Process
+Automatically Packaged and Downloadable "Binaries"
+Faster Recovery from botched Integration (If You Break It, You Fix It!)
+Unit Test Suite Gets Some Respect
+Greater Transparency and Communication
+More Time Adding Value (aka Developing Software)
+
+Differentiating between CI and CD
+
+Continuous integration is all about the source code.
+New changes to the code need to be validated, verified, exercised, worked over, massaged and squeezed to see if there are leaks. We do this by compiling, transpiling, linting, running unit tests, performing static analysis, checking dependencies for security vulnerabilities and other things.
+
+Continuous deployment is all about built code and deployment.
+Once the source code has been built in CI, we're ready to ship it to servers and devices either in the same network or elsewhere. Depending on your team's delivery process and deployment strategy, you might deploy to a staging or pre-production server for final testing or you might deploy to production right away. Before doing so, CD can run scripts to prepare the infrastructure, run smoke tests, and handle rollbacks and reverts if something doesn't go as planned.
+
+Q: Mark the concepts that are part of Continuous Integration but not Continuous Deployment.
+
+Run unit/integration tests
+Compile/lint code
+Static Code Ananlysis
+Merge code from all sources (branches and or commits)
+Check libraries and dependencies versions
+
