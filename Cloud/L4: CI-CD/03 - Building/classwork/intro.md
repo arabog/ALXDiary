@@ -284,3 +284,38 @@ DRY	                    Stands for "Don't Repeat Yourself".
 https://circleci.com/docs/2.0/introduction-to-yaml-configurations/
 
 https://circleci.com/blog/circleci-hacks-reuse-yaml-in-your-circleci-config-with-yaml/
+
+
+Job Failures:
+Non-Zero Exit Codes
+If anything in your job throws a non-zero exit code, it will cause the job to fail and stop. But, if you want to respond with more than just a big red "X" on your build, you can use Circle CI's when: on_fail directive! Some things you could do in response might include:
+
+Run a cleanup command/job
+Send a special message
+Alert another service
+Make a red fire engine light go off in your office (not even kidding... seen it happen)
+
+Example from Circle CI docs:
+
+steps:
+  - run:
+      name: Testing application
+      command: make test
+      shell: /bin/bash
+      working_directory: ~/my-app
+      no_output_timeout: 30m
+      environment:
+        FOO: bar
+
+  - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
+
+  - run: |
+      sudo -u root createuser -h localhost --superuser ubuntu &&
+      sudo createdb -h localhost test_db
+
+  - run:
+      name: Upload Failed Tests
+      command: curl --data fail_tests.log http://example.com/error_logs
+      when: on_fail
+
+https://circleci.com/docs/2.0/configuration-reference/#example
