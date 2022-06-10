@@ -319,3 +319,6 @@ steps:
       when: on_fail
 
 https://circleci.com/docs/2.0/configuration-reference/#example
+
+How to specify the when for reusable commands
+https://knowledge.udacity.com/questions/329289
