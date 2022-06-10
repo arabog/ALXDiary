@@ -188,3 +188,73 @@ steps
 docker
 environment
 
+-: Environment Variables
+Pipeline Values
+Circle CI has a handful of values that might come in handy.
+
+Value	                    Description
+pipeline.id	The ID of the currently running pipeline
+
+pipeline.number	An alternative numeric ID for the currently running pipeline
+
+pipeline.project.git_url	The URL of the triggering git event (ex: pull request URL)
+
+pipeline.project.type	Example: “github”
+
+pipeline.git.branch	The branch triggering the pipeline
+
+You can use them almost anywhere in your jobs with a simple syntax:
+
+My pipeline id is << pipeline.id >> and my git branch is << pipeline.git.branch >>.
+
+Note: Pipeline values cannot be used outside the job context. For example, you cannot use these in a shell script.
+
+https://circleci.com/docs/2.0/pipeline-variables/#pipeline-values
+
+Environment Variables
+And, of course, we can use environment variables throughout the system as well. Some env vars are defined by us, others are built-in to the circle ci environment. All env vars are bound to a scope.
+
+Environment Variable Scopes
+Scope	                    Description
+Organization	          Organizations contain projects, so env vars set at this level will be available to all child projects. Great for organization-wide keys, for example.
+
+Project	                    Projects contain pipeline jobs, so env vars set the project level are available to all jobs in the project but are not to jobs that belong to other projects.
+
+Job	                    Environment variables that are set inside the job are only available to that job. You can either set env vars using the environment map or by exporting them using shell commands.
+
+Built-In Environment Variables
+Circle CI comes loaded with many built-in environment variables that can be almost anywhere. Some built-in env vars are equal to or very similar to the pipeline above. But there are many more that go beyond just pipeline values.
+
+Environment Variable	Description
+CIRCLE_BRANCH	The name of the Git branch currently being built
+
+CIRCLE_WORKFLOW_ID	A unique identifier for the workflow instance of the current job
+
+CIRCLE_BUILD_NUM	The number of the CircleCI build
+
+CIRCLE_PR_NUMBER	The number of the associated GitHub or Bitbucket pull request
+
+CIRCLE_SHA1	The SHA1 hash of the last commit of the current build
+
+https://circleci.com/docs/2.0/env-vars/
+
+
+-: Triggering
+Builds in continuous integration can't start on their own. They need something to trigger them to start running pipelines. Here are a few common ways to trigger a CI pipeline:
+
+Trigger	                              Description
+Git Branch Commit	          Commit or merge to a branch-like master and push changes to the branch in central repository to start a new build.
+
+New Pull/Merge Request	Make changes in a branch or fork and create a pull/merge request to trigger a build.
+
+API	                              Make a POST or GET request to an API endpoint to kick off a new build.
+
+Schedule	                              Run a pipeline at a certain time each day or week based on a schedule.
+
+Other Pipelines	                    Another pipeline might finish a job and then trigger another pipeline.
+
+Chat Message	                    Using a chat tool, post a message containing special text in order to trigger a build.
+
+Command-Line Tool	                    Use a command-line tool to configure and start a new build.
+
+Of all the triggers listed, the first two are the most common since the most logical time to run a new build is when new changes have been introduced.
