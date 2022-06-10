@@ -258,3 +258,29 @@ Chat Message	                    Using a chat tool, post a message containing sp
 Command-Line Tool	                    Use a command-line tool to configure and start a new build.
 
 Of all the triggers listed, the first two are the most common since the most logical time to run a new build is when new changes have been introduced.
+
+
+-: Reusable Job Code
+Common Reuse Scenarios:
+Common Defaults
+Rollback
+Compile Code
+Deploy
+
+Ways to Reuse Code in Circle CI
+Anchors and Aliases
+Commands
+
+Key Terms
+Key Term	                    Description
+Anchor	                    Defines a section of yaml to be reused. Uses a & symbol to signal that an anchor is being defined.
+
+Alias	                    Refers to a section of yaml previously defined by an anchor. Uses the * to signal that an alias is being used.
+
+Command	                    A predefined parameterized sequence of steps to be executed in a job.
+
+DRY	                    Stands for "Don't Repeat Yourself".
+
+https://circleci.com/docs/2.0/introduction-to-yaml-configurations/
+
+https://circleci.com/blog/circleci-hacks-reuse-yaml-in-your-circleci-config-with-yaml/
