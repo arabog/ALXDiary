@@ -322,3 +322,22 @@ https://circleci.com/docs/2.0/configuration-reference/#example
 
 How to specify the when for reusable commands
 https://knowledge.udacity.com/questions/329289
+
+
+-: Create a CI Pipeline
+CI stands for Continuous Integration. We use the word "integration" 
+because we are merging code from multiple developers and sources 
+and verifying that it all integrates correctly. We can verify this using 
+various tests and checks.
+
+Let's create a CI pipeline with three of the most common CI stages:
+
+Stage	            Description
+Compile	        Convert programmer code from text format to zero's and one's, or whatever is needed by the final runtime.
+
+Test	              Run unit or integration tests against the code to make sure it is up to specifications.
+
+Analyze	        Perform some deeper tests on the code such as static analysis or a package security audit.
+
+
+
