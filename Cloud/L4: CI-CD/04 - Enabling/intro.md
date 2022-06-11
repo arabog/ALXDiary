@@ -105,3 +105,14 @@ Ansible connects to a remote machine using ssh and executes commands and scripts
 
 Ansible uses yaml files called Playbooks to manage all the configurations to be made. As always, we should check this file into source control so that it is versioned and available to the entire team.
 
+Q: Mark the things that a configuration management tool should do.
+Configure Environmt variables
+Install dependencies
+Start/stop services
+Deploy Application
+
+
+
+Configuration Management Tool are perfect for deploying applications.
+
+Even though it's technically possible to run CloudFormation templates using a Configuration Management Tool, it's not the best idea. Configuration Management Tools should start their job after infrastructure is created.
