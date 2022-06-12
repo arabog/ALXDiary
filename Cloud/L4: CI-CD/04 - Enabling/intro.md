@@ -181,3 +181,118 @@ ec2-50-16-166-50.compute-1.amazonaws.com
 Note that the web group name is being referred to in the Playbook 
 host line. Have a look at the relevant references:
 
+
+How to target different hosts?
+https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html
+
+How to build an inventory file?
+https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+
+4. Roles
+In Ansible, roles are a great way to clean up your Ansible code and make it more maintainable. We can build roles by using Ansible's expected folder/file structure.
+
+├── main1.yml      # Playbook file (Ignore file name)
+└── roles
+       ├── configure-prometheus-node-exporter
+       │   └── tasks
+       │       └── main.yml
+       └── configure-server
+              └── tasks
+                  └── main.yml
+
+The main playbook file and configure-server role files above also available here: https://github.com/udacity/nd9991-c3-hello-world-exercise-solution Here we have two roles:
+
+configure-prometheus-node-exporter
+configure-server`
+
+The sub-folders in each role folder represent a different function in the role:
+
+configure-prometheus-node-exporter
+configure-server`
+The sub-folders in each role folder represent a different function in the role:
+
+Role Component	                    Description
+tasks	              Main list of tasks that the role executes
+files	              Files that the role deploys
+handlers	          Handlers, which may be used within or outside this role
+library	          Modules, which may be used within this role
+defaults	          Default variables for the role
+vars	          Other variables for the role
+templates	          Templates that the role deploys
+meta	          Metadata for the role, including role dependencies
+
+According to Ansible's rules, each sub-folder of each role must 
+have a main.yml file in it, which is how it is able to discover and 
+incorporate the role functionality.
+
+We're going to mostly use tasks and files. If you want to know 
+more about how to use the other components of Ansible roles, 
+you should check out the docs.
+
+Our main.yml playbook file:
+
+---
+- name: "configuration play."
+  hosts: web
+  user: ubuntu
+  gather_facts: false
+  vars:
+    - ansible_python_interpreter: /usr/bin/python3
+    - ansible_host_key_checking: false
+    - ansible_stdout_callback: yaml
+
+  pre_tasks:
+    - name: "wait 600 seconds for target connection to become reachable/usable."
+      wait_for_connection:
+
+    - name: "install python for Ansible."
+      become: true
+      raw: test -e /usr/bin/python3 || (apt -y update && apt install -y python3)
+      changed_when: false
+
+    - setup:
+  roles:
+    - configure-prometheus-node-exporter
+    - configure-server1
+
+<!-- ================================ -->
+Our roles/configure-server/tasks/main.yml file (Roles):
+
+---
+- name: "upgrade packages."
+  become: true
+  apt:
+    upgrade: "yes"
+
+- name: "install dependencies."
+  become: true
+  apt:
+    name: ["nodejs", "npm"]
+    state: latest
+    update_cache: yes
+
+- name: "install pm2"
+  become: true
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+
+Do not copy and use it straight-away. Instead, go through the individual statements. In my code above, you'll notice a few things:
+
+The playbook is the entry point
+The playbook delegates to roles by name
+The role does the actual work. You can probably guess what it's doing without much explanation.
+Each task is using become: yes to escalate to root user (like adding sudo before bash commands).
+
+Read more about Ansible roles in the documentation.
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+
+Showing the contents of three files - playbook, tasks/main.yml, and inventory.txt
+cat main1.yml 
+
+cat roles/configure-server/tasks/main.yml 
+
+cat inventory.txt 
+
