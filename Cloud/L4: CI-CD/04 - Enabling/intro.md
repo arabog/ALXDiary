@@ -289,6 +289,7 @@ Each task is using become: yes to escalate to root user (like adding sudo before
 Read more about Ansible roles in the documentation.
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
 
+
 Showing the contents of three files - playbook, tasks/main.yml, and inventory.txt
 cat main1.yml 
 
@@ -296,3 +297,50 @@ cat roles/configure-server/tasks/main.yml
 
 cat inventory.txt 
 
+5. Modules
+Ansible modules are the utilities that you can use in your Playbooks. Some of the Ansible modules are:
+
+Module	          Description
+shell	          How you execute shell commands and scripts
+apt	          Manage apt packages
+npm	          Manage nodejs packages
+file	          Set attributes of files and directories as well as remove
+git	          Push and pull code and files from git
+script	          Execute a shell script
+copy	          Copy files
+unarchive	          Unpack an archive file
+systemd	          Manage services
+
+You can see a list of all the modules in the Ansible docs.
+
+https://docs.ansible.com/ansible/latest/plugins/module.html
+
+
+
+6. Further Reading
+What is an Ansible playbook?
+https://www.redhat.com/en/topics/automation/what-is-an-ansible-playbook
+
+Learning Ansible terminology
+https://www.redhat.com/en/topics/automation/learning-ansible-tutorial
+
+
+Q: Tell about the difference between a Playbook and an inventory file.
+A Playbook is a set of instructions that Ansible uses to configure a machine. 
+An inventory file is the list of machines on which to perform those instructions.
+
+Run your playbook using the command ansible-playbook main.yml.
+
+-: Build an Inventory File
+Query the instances i have: returns all d ec2 available as at ds time
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text
+
+Script to Create the Initial Inventory File: create inventory
+echo "[all]" > inventory
+
+cat inventory
+
+Script to Query EC2 for Instances and Output to File
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text >> inventory
+
+cat inventory
