@@ -344,3 +344,13 @@ Script to Query EC2 for Instances and Output to File
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --output text >> inventory
 
 cat inventory
+
+Here, we called the output file inventory. But you could call it anything at all as long as you use the same name when running your Ansible Playbook later on.
+
+Also, in the first script, we use > because we are creating a new file. Then, in the second script, we are using >> because we want to append the output to the file, not overwrite it (since it has our [all] header).
+
+Q: Why is it so important to be able to build an inventory file during CI/CD?
+Ansible needs d IP addresses so dt it can configure EC@ instances
+
+Ansible can't know our instance IP addresses until we run our script since they don't exist until just before our Ansible job.
+
