@@ -354,3 +354,38 @@ Ansible needs d IP addresses so dt it can configure EC@ instances
 
 Ansible can't know our instance IP addresses until we run our script since they don't exist until just before our Ansible job.
 
+-: Exercise: Inventory File
+Prerequisites
+AWS CLI should be installed and configured. Verify it using:
+aws --version
+
+# Run any test command
+aws iam list-users
+
+Instructions
+Create an EC2 instance in your AWS account using the Ubuntu AMI and micro/free tier VM type. Add a memorable tag like Project:udacity to the instance. Please remember the tag name you're adding.
+
+Create an inventory file called inventory (or inventory.txt) with and add [all] at the beginning, using these commands:
+
+# Run this in your exercise directory
+touch inventory
+echo [all] > inventory
+
+Run the following CLI command to list the EC2 instance and save the IP 
+address to the inventory file:
+
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --filters "Name=tag:Project,Values=udacity"
+--output text >> inventory
+
+This will append the udacity-tagged instance public IP addresses to 
+our inventory file and should look something like this:
+
+[all]
+169.254.123.12  # The public IP will be different in your case
+
+For Some Extra Challenge
+Try wrapping this script in a Circle CI job and save the inventory 
+file to the cache or workspace. You'll have to do this later in your 
+project, but it might help to try it now to get a head start!
+
+
