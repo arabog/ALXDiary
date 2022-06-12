@@ -116,3 +116,68 @@ Deploy Application
 Configuration Management Tool are perfect for deploying applications.
 
 Even though it's technically possible to run CloudFormation templates using a Configuration Management Tool, it's not the best idea. Configuration Management Tools should start their job after infrastructure is created.
+
+-: Design an Ansible Playbook
+The command used in the demo above is similar to:
+
+ansible-playbook -i inventory.txt main.yml --private-key=~/udacity-ansible.pem
+
+Ansible Playbook - Introduction
+Definition - Playbooks are the YAML files containing a series of commands 
+to run on the target machines.
+
+Each Playbook contains the following primary sections:
+
+name - Name of the file.
+hosts - Identifies the target machines / hosts.
+tasks - Contains the ordered series of commands to run on the identified hosts. Sometimes, it contains Modules, which are like library functions.
+roles - These are self-conatined "child" Playbooks that are used to bring modularity in complex orchestration.
+
+1. Install Ansible
+Refer to the official instructions available here.
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+
+2. Authentication
+Remember that Ansible is just executing bash commands over SSH, so 
+whatever you need to log in to your instance manually, you will also 
+need for Ansible.
+
+There are two things we need to authenticate:
+
+username
+ssh key
+The first component of authentication is the "username" of the user 
+we will log in as. In most cases, you will use the default user for the 
+EC2 instance. For example, if your instance was created using the 
+Ubuntu AMI, then your default username is "ubuntu" according to 
+this page.
+
+  user: ubuntu
+
+The second component of authentication is the SSH key, also 
+known as the key pair or the PEM file. The SSH key would have 
+been associated with our default user already. We need a copy of 
+the SSH key in the form of a PEM file. We will refer to this PEM 
+file when executing the playbook.
+
+3. Targets
+You can target one or more machines with just one Ansible playlist. 
+Each play in a Playbook should have a hosts section where you can 
+select machines that you want to configure. You can specify one 
+hostname, a group name, or use a pattern to select multiple hosts 
+from an inventory list.
+
+  hosts: web
+
+An inventory file can be very powerful and complex, but it can 
+also be extremely simple. On the easy extreme, the inventory file 
+is just a list of DNS hostnames or IP addresses in a group labeled 
+by a ["group_name"] in typical INI style. This is what it looks like.
+
+[web]
+ec2-50-16-166-50.compute-1.amazonaws.com
+
+Note that the web group name is being referred to in the Playbook 
+host line. Have a look at the relevant references:
+
