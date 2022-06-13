@@ -332,7 +332,8 @@ An inventory file is the list of machines on which to perform those instructions
 Run your playbook using the command ansible-playbook main.yml.
 
 -: Build an Inventory File
-Query the instances i have: returns all d ec2 available as at ds time
+Query the instances i have: returns all d ec2 available as at ds time:
+
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text
 
 Script to Create the Initial Inventory File: create inventory
@@ -376,6 +377,9 @@ echo [all] > inventory
 Run the following CLI command to list the EC2 instance and save the IP 
 address to the inventory file:
 
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress' --output text >> inventory
+
+For Tag name and value:
 aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress'  --filters "Name=tag:Project,Values=udacity"--output text >> inventory
 
 This will append the udacity-tagged instance public IP addresses to 
@@ -389,4 +393,11 @@ Try wrapping this script in a Circle CI job and save the inventory
 file to the cache or workspace. You'll have to do this later in your 
 project, but it might help to try it now to get a head start!
 
+
+-: Building an Ansible Playbook from a Tutorial
+Ansible is like a remote control robot that teleports in (via SSH of course) to our remote machine and performs some shell commands on our behalf. Seriously, it's just THAT simple. So, in theory, you could take any tutorial on the web and turn it into an Ansible Playbook. That's what we're doing right here!
+
+If you'd like to try this for yourself, here's the tutorial I followed in the video: Installing Apache
+
+https://riptutorial.com/apache/example/5607/-ubuntu--simple-hello-world-example
 
