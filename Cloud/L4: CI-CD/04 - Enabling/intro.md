@@ -401,3 +401,15 @@ If you'd like to try this for yourself, here's the tutorial I followed in the vi
 
 https://riptutorial.com/apache/example/5607/-ubuntu--simple-hello-world-example
 
+
+
+-: Infrastructure Creation Jobs
+Let's Create Some Infrastructure
+Ideally, when you are running a Blue Green Deployment, you are creating new infrastructure for each CI/CD run. In other words, each time you run a CI/CD build, you will be using an "Infrastructure as Code" tool like CloudFormation to build up the needed AWS instances and resources for a fresh deployment.
+
+What is Needed in This Job?
+AWS credentials saved in your project environment variables so they are available to the AWS CLI (Instructions).
+An image that has AWS CLI pre-installed.
+A filter to only run this job on the master branch.
+To check out the code.
+A step that executes CloudFormation with our template.
