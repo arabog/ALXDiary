@@ -331,6 +331,9 @@ An inventory file is the list of machines on which to perform those instructions
 
 Run your playbook using the command ansible-playbook main.yml.
 
+sudo ansible-playbook main-remote.yml -i inventory --private-key udacity.pem
+
+
 -: Build an Inventory File
 Query the instances i have: returns all d ec2 available as at ds time:
 
@@ -402,6 +405,8 @@ If you'd like to try this for yourself, here's the tutorial I followed in the vi
 https://riptutorial.com/apache/example/5607/-ubuntu--simple-hello-world-example
 
 
+-: Deployment Jobs
+The next few sections of this lesson will cover the pipeline jobs that would normally make up a Blue Green Deployment pipeline. We will create infrastructure, configure infrastructure, deploy our application, verify it is working, revert, and clean up if necessary, and finally promote the new production version if possible! All of this in the context of a fully automated CI/CD pipeline.
 
 -: Infrastructure Creation Jobs
 Let's Create Some Infrastructure
@@ -409,7 +414,10 @@ Ideally, when you are running a Blue Green Deployment, you are creating new infr
 
 What is Needed in This Job?
 AWS credentials saved in your project environment variables so they are available to the AWS CLI (Instructions).
+https://circleci.com/docs/2.0/env-vars#setting-an-environment-variable-in-a-project
+
 An image that has AWS CLI pre-installed.
 A filter to only run this job on the master branch.
 To check out the code.
 A step that executes CloudFormation with our template.
+
