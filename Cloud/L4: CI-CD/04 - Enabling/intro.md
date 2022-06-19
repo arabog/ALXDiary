@@ -421,3 +421,47 @@ A filter to only run this job on the master branch.
 To check out the code.
 A step that executes CloudFormation with our template.
 
+-: Smoke Testing Jobs
+Smoke Tests Build Confidence
+If you hope to get any closer to true Continuous Delivery, you need to focus on building confidence in your stakeholders. In a manual deployment scenario, humans will often "kick the tires" on a new deployment and, if everything is working as expected, give their stamp of approval to go ahead and complete the deployment. Many times, those human smoke tests can be replaced by automated smoke tests and still provide the same level of confidence that comes from a manual test.
+
+What Do We Need to Pull this Job Off?
+An entry in the workflow that requires the previous job.
+A very lightweight image like alpine:latest.
+For my test, I'm going to simply use curl, so I need to install it in the job. You can do this with a normal testing tool if you want, but curl works for simple tests.
+A simple script to verify some condition is true.
+Exit with non-zero if the test fails.
+You can use a simple command like this to see if a website is responding to requests:
+
+curl -s --head "https://google.com"
+You can put that curl command in bash conditional structure to do or return something:
+
+if curl -s --head "https://google.com" 
+then
+  echo "It worked!"
+else
+  echo "It failed"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
