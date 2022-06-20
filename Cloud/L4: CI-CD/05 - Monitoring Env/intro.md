@@ -21,3 +21,10 @@ Find out when something goes down or degrades (network logs).
 Wake up the right people in an event (app logs).
 Find out an hour before an outage (CPU, memory, disk).
 Use data to predict the next outage in 2 weeks (ML, data science).
+
+Q: Monitoring helps with the following things:
+Predicting Problems Before dy happen
+Real-time notifications of issues
+Watching Server performance
+Watching for Application errors
+
