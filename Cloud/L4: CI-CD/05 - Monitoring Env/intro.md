@@ -28,3 +28,44 @@ Real-time notifications of issues
 Watching Server performance
 Watching for Application errors
 
+-: Intuition About Monitoring
+A Needle in a Haystack?
+As a cloud developer, during an outage, you should be able to know 
+where to look to find the source of the problem. You should be able 
+to see through a haystack of monitoring data and zero in on the issue 
+at hand.
+
+Before any outage, you should be thinking about where failures might 
+occur and ensure those areas have proper monitoring. Some common 
+areas where you might need monitoring are:
+
+Database Stats
+Application Logs
+Docker Logs
+Firewall
+Load Balancer
+GPU
+Operating System
+Router
+Cable Modem
+Message Bus
+AWS Services
+Mail Server
+Other 3rd Party Services
+Other Monitoring Systems
+
+Q: What are some of the typical places you look to troubleshoot a production issue?
+Of course, you'd look at the logs for application errors or operating system errors.
+
+-: The Case for Monitoring
+
+
+
+
+
+
+
+
+
+
+
