@@ -58,7 +58,61 @@ Q: What are some of the typical places you look to troubleshoot a production iss
 Of course, you'd look at the logs for application errors or operating system errors.
 
 -: The Case for Monitoring
+"But Monitoring Isn't Exciting!"
+In case you need convincing, I'm going to give you a few reasons why monitoring is not an optional piece of your cloud development strategy.
 
+Availability
+Uptime or downtime often translates to dollars, one way or the other. Downtime will increase drastically without monitoring since you won't be watching the system manually, round the clock. This downtime will negatively affect revenue or could increase legal costs.
+
+Performance
+Company performance and image often hangs the reliability of its technology. If systems degrade when users are trying to consume it, their confidence in the system will also degrade, which might result in employee turn-over or loss of clients.
+
+Capacity
+Company or product growth is (generally) a good thing, especially if technology can rise to the demands of its users. But, when infrastructure is not ready meet the needs of business on time, it can result in lost revenue or increased costs.
+
+Productivity
+Development teams who spend time less troubleshooting tend to spend more time developing. However, without proper monitoring, development team members will have no choice but to dive into time-consuming troubleshooting, affecting feature release plans and incurring opportunity costs.
+
+Reactive vs Proactive
+Reactive monitoring is common practice because of its usefulness during a crisis. But, monitoring can have even more power when used proactively.
+
+Reactive Monitoring
+Real time CPU, memory or disk space meters
+Current health status of any server or resource
+Application logs
+Operating System logs
+
+Proactive Monitoring
+Forecast Infrastructure Costs
+Monitor the Unknowns
+Track Bugs to Their True Source
+Predict Seasonal Spikes and Trends
+
+Q: We can use _________ combined with _________ to predict things 
+like problems and costs.
+
+Machine learning can use our metrics to predict many things
+
+Q: Which scenarios are proactive or reactive?
+
+SCENARIO                                                    PROACTIVE/REACTIVE
+
+Based on past metrics from database             PROACTIVE
+monitoring, adjust connection settings 
+to reduce memory usage.
+
+
+Watch real-time CPU usage and kill off some     REACTIVE
+processes to reduce load.
+
+
+Use prediction of server costs based on usage    PROACTIVE
+metrics to decide to start a new costly project 
+or not.
+
+
+Get an alert of a network resource that just        REACTIVE
+went to an unhealthy state.
 
 
 
