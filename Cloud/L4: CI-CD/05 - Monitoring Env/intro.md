@@ -114,6 +114,29 @@ or not.
 Get an alert of a network resource that just        REACTIVE
 went to an unhealthy state.
 
+-: Monitoring Tools
+Any Complete Monitoring System will be Composed of:
+1. Time-Series Data
+Time-series data is data that is in a series of time intervals. Some 
+examples include:
+
+Blood-sugar level checked at the top of every hour
+Daily closing value of Microsoft stock
+Monthly rainfall by city
+Available disk space by the minute
+
+Another way I like to describe time-series data is "anything with 
+a timestamp and at least 10 data points." Therefore, data collected 
+from your monitoring system is time-series data!
+
+2. Data Aggregator
+A data aggregator is a system that collects and groups data by 
+type or data source. One way to think of data aggregators is 
+like a database with extra tooling to aid in data collection.
+
+3. Data Visualizer
+A data visualizer takes copious amounts of seemingly unintelligible 
+data from the data aggregator and produces useful charts and graphs.
 
 
 
