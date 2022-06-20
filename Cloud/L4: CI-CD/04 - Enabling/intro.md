@@ -444,9 +444,87 @@ else
 fi
 
 
+-: Rollback Jobs
+When the Smoke Tests Fail
+Dare I mention confidence again? If smoke tests are about building confidence, rollbacks are about preserving it! Rollback jobs are an essential part of any mature CI/CD pipeline. Rollbacks give you the ability to hit CTRL-Z on all the changes you made during CI/CD and protect your stakeholders' confidence by failing gracefully.
+
+What Do I Need for This Job?
+A reusable command to handle the work of destroying the green infrastructure.
+In the command, a step to delete the stack using whatever name we defined when creating the stack.
+A job with an image that can handle AWS CLI commands.
+A step that simulates a failed smoke test or any other failure (exit with non-zero).
+A step that uses our reusable command with a condition to run only when something failed.
+A workflow that runs our job.
+
+Prerequisites
+Key pair - You should have an AWS EC2 key pair. We are assuming the key pair name is udacity.pem.
+EC2 Ubuntu instance - You should have an EC2 Ubuntu instance running in your AWS account.
+CircleCI project - A public Github repository set up in the CircleCI. AWS Access keys and EC2 key pair (SSH key) must have saved in the CircleCI project settings.
+You should have finished the previous:
+
+Exercise: Remote Control Using Ansible,
+Exercise: Infrastructure Creation, and
+Exercise: Config and Deployment,
+and have the following files in your repo and local:
+
+└── template.yml
+└── .circleci
+    └─── config.yml    
+
+
+Exited with code exit status 4
+
+
+to generate ssh key for circleci
+ssh-keygen 
+
+Run: 
+ssh -i "ansible2.pem" ubuntu@ec2-3-238-128-130.compute-1.amazonaws.com
+
+to get ur latest fingerprint
+
+
+Instructions
+In this exercise, you will work in the "commands" section of the CircleCI config file. There may be many places where we want to rollback your changes. That means we need a "command" so that we can reuse the code.
+
+Add a command to your Circle CI config file called destroy_environments. This command should use cloudformation delete-stack to delete the stack that the job previously created. It wil look like:
+
+commands:
+   # Exercise - Rollback
+   destroy_environment:
+     steps:
+       - run:
+           name: Destroy environment
+           # ${CIRCLE_WORKFLOW_ID} is a Built-in environment variable 
+           # ${CIRCLE_WORKFLOW_ID:0:5} takes the first 5 chars of the variable CIRCLE_CI_WORKFLOW_ID 
+           when: on_fail
+           command: |
+             aws cloudformation delete-stack --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:7}
 
 
 
+-: Promoting to Production
+Promoting a new version in a Blue Green Deployment is the same as "switching the router" from the old to the new version. In some cases, the switch is fairly straightforward. In other cases, you might need to have some extra information about the old and new deployments so that you can inform the router of properly. In the case of my examples, we need the S3 Bucket's name so that we can configure CloudFront with a new "origin".
+
+What Do I Need for This Job?
+A previous job named resources with the workflow ID so that it's easy to refer to them later. For example, if we want to create an S3 bucket:
+
+aws cloudformation deploy \
+  --template-file bucket.yml \
+  --stack-name "${CIRCLE_WORKFLOW_ID}" \
+  --parameter-overrides NAME="${CIRCLE_WORKFLOW_ID}"
+
+And copy the web files to the bucket:
+run: aws s3 sync . s3://"${CIRCLE_WORKFLOW_ID}" --delete
+An image that can handle AWS CLI.
+An existing CloudFront distribution, created by CloudFormation so that it has a stack. The origin should be the old production version S3 Bucket.
+A CloudFormation template that can update an existing CloudFront stack with a new "origin".
+
+A job to execute the CloudFormation template to switch from blue to green, like this:
+aws cloudformation deploy \
+--template-file cloudfront.yml \
+--stack-name cloudfront \
+--parameter-overrides PipelineID="${CIRCLE_WORKFLOW_ID}"
 
 
 
