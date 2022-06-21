@@ -191,5 +191,25 @@ Swagger Stats	        API performance stats available to Prometheus
 AWS Health Exporter	Provides health metrics on all AWS services and regions.
 ... and many more.
 
+Even with all these existing exporters, you might need something that doesn't exist yet. The documentation is very helpful and mature, but there's a steep learning curve. One way you can flatten that curve a bit is to use an existing exporter and modifying it.
 
+https://github.com/prometheus/node_exporter
+
+Key Terms:
+Exporter
+
+Pull System
+
+Congratulations!
+You now know how to manually configure an instance with node_exporter.
+Consider how you might do this using a configuration tool like Puppet or Ansible (might be useful later, hint hint).
+You now have a Prometheus server that will automatically discover every backend server you add to EC2. Nice!
+
+
+
+Ansible : how to create roles and install prometheus, grafana and node-exporter
+
+https://xavier-pestel.medium.com/ansible-how-to-create-roles-and-install-prometheus-grafana-and-node-exporter-28c142904541
+
+https://www.youtube.com/watch?v=Qimp1wPF_zg
 
