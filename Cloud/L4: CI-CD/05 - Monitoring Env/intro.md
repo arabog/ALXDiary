@@ -138,11 +138,58 @@ like a database with extra tooling to aid in data collection.
 A data visualizer takes copious amounts of seemingly unintelligible 
 data from the data aggregator and produces useful charts and graphs.
 
+Q: Mark those that could be classified as time-series data.
+
+Network Traffic
+Application logs
+CPU Usage
+Inches of Rain per Day
 
 
+Monitoring Tools
+Data Aggregator	                    Details	Visualizers
+Graphite	Mature,                 Open-Source, Installable	Grafana
+Loggly	Managed,                    Cloud-Based, Powerful tooling	Built-In
+Datadog	Managed,                Cloud-Based, Built-in AI/ML	Built-In
+Prometheus	                    Open Source, Lightweight, Self-Contained, Installable	Grafana
+Logstash	                        Open Source, Cloud-Based or Installable	Kibana
+CloudWatch	                    Built-In to AWS	Built-In
+
+For demonstration purposes, we will be using Prometheus for this course.
 
 
+-: Setting Up Prometheus
+Launch a new instance in EC2 with port 9090 open to the public.
+Log into the instance via SSH.
+Download and extract the Prometheus server files.
+Start Prometheus.
+Open the instance's hostname or IP address in your browser with port 9090.
+Profit!
 
+Editing Your prometheus.yml File
+
+
+-: Exporters
+Exporters Abound
+Data is pulled from various data sources using lightweight agents called an 
+Exporters that are installed on or attached to the data sources themselves. 
+Once it knows about an exporter, Prometheus "scrapes" data from those 
+exporters every few seconds. No matter how many exporters you have 
+providing data, Prometheus can scrape them all and happily collect your 
+monitoring data in near real-time.
+
+Available Exporters
+Exporters	                Purpose
+Node exporter	        Provides basic operating system metrics like CPU, Disk and Memory Usage.
+Nginx VTS Exporter	Provides metrics on connections, server zones, and upstream requests.
+Blackbox exporter	    The Blackbox exporter allows black-box probing of endpoints over HTTP,  HTTPS, DNS, TCP, and ICMP
+
+Github Exporter	        Provides metrics on repository commits, pull requests, and issues.
+MongoDB Exporter	The MongoDB exporter periodically scrapes MongoDB server stats.
+Jira Exporter	            Provides metrics on Jira issues and projects.
+Swagger Stats	        API performance stats available to Prometheus
+AWS Health Exporter	Provides health metrics on all AWS services and regions.
+... and many more.
 
 
 
