@@ -213,3 +213,27 @@ https://xavier-pestel.medium.com/ansible-how-to-create-roles-and-install-prometh
 
 https://www.youtube.com/watch?v=Qimp1wPF_zg
 
+
+-: Analyzing Metrics
+Data Visualization Tools
+It's not really practical to read monitoring data in its raw form. If we're doing it right, there will be WAY too much of it to make sense of, even for a super-human like you. Monitoring data is best enjoyed through a data visualization tool. In all seriousness, once you pipe your data through a data visualizer, you'll start to make sense of the data in ways that raw data is simply incapable of doing.
+
+Tool Name	        Description
+Grafana	            Recommended for Prometheus
+Kibana	            Recommended for Elastic Stack
+DataDog	            Built in to DataDog cloud-based service
+Expression          Browser	Built in to Prometheus, okay for experiments
+
+Read more about Prometheus's query language called PromQL.
+https://prometheus.io/docs/prometheus/latest/querying/basics/
+
+
+-: Lesson Conclusion
+In This Lesson, We Were Able To...
+Talk About the New Capabilities Monitoring Gives Us as Cloud Developers
+Discuss Some Monitoring Tools that are Available
+Talk about Prometheus
+Install and Configure Prometheus
+Talk About the Various Data Source Options and How to Get that Data into Prometheus
+Discuss How to Start Analyzing the Monitoring Data You Have
+Learn About Alerts and How to Set Them Up
