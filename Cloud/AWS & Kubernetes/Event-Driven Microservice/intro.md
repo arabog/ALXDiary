@@ -124,3 +124,9 @@ In computer systems, a fault-tolerant design enables a system to continue its in
 Q: What is a characteristic of cloud-native systems?
 They are automable
 
+-: AWS Console & Cloud9 Environment
+The majority of work that you do in this lesson will be completed using AWS Cloud9, which lets you code, run, and debug code in your browser! For certain exercises, you will be expected to work through a Cloud9 environment, which has access to all the libraries we need as well as data management and deployment tools!
+
+Set up a Cloud9 Environment
+Then, you'll need to set up a Cloud9 environment that is connected to the main Github repository for this course. This environment will be the primary way in which we interact with the Cloud9 ecosystem.
+
