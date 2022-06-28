@@ -21,3 +21,16 @@ https://aws.amazon.com/blogs/compute/seamlessly-scale-predictions-with-aws-lambd
 
 
 -: A Model for Serverless
+Though we'll be using AWS cloud tools, there are a number of other providers that you can use to build serverless applications with auto-scaling capabilities. The skills you learn in this lesson will be widely applicable to these other platforms. Some of the larger, cloud providers include:
+
+Amazon Web Services [ Chalice & Cloud Formation]
+https://github.com/aws/chalice
+https://aws.amazon.com/cloudformation/
+
+Terraform   https://www.terraform.io/
+
+Google Cloud Platform
+https://console.cloud.google.com/welcome?project=dev1-312820&pli=1
+
+Microsoft Azure
+https://azure.microsoft.com/en-us/
