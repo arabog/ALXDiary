@@ -145,3 +145,119 @@ https://aws.amazon.com/lambda/
 https://aws.amazon.com/lambda/faqs/
 
 
+https://us-east-1.console.aws.amazon.com/cloud9/ide/a4a117ec513144cb91499651a9fca671
+
+
+1. Allow Cloud9 to access the Github repo:
+# Generate a pair of SSH keys, if you want your Cloud9 env to be able to push changes to the Github repo
+ssh-keygen -t rsa
+
+# View the contents of the public key
+cat /home/ec2-user/.ssh/id_rsa.pubssh-keygen -t rsa
+
+2. Clone the forked repo into the Cloud9 environment using:
+git clone https://github.com/[Your-username]/DevOps_Microservices.git
+# The instructor uses his personal repo instead. 
+# It's https://github.com/noahgift/awslambda.git
+
+cd awslambda
+
+3. [Optional] Increase the Cloud9 memory limits: Run the resize.sh script present in this folder to increase the Cloud9 available-memory limits.
+cd DevOps_Microservices/Supporting-material
+# The instructor shows `cd awslambda` per hierarchy of his personal repo
+df -h
+chmod +x resize.sh
+./resize.sh 
+df -h
+cd ..
+
+df -h
+
+4. Initialize a new Lambda function:
+sam init
+
+Choose the following options in the prompts that appear next:
+
+Prompt	Recommended Response
+Template source	AWS quick start template
+Package type	Image artifact
+Base image	amazon/python3.8-base
+Project name	Your choice of the [Application-name]
+AWS quick start application template	Hello world Lambda image example
+
+<!-- 4 video tutorial -->
+To initialize a new lambda fxn:
+sam init
+
+Select: 1, 2, 5
+
+Name:
+HelloWorldLambda2022
+
+Select: 1- HelloWorld.....
+
+Follow the instructn: (readme file)
+
+cd HelloWorldLambda2022
+
+sam build
+
+to invoke: sam local invoke
+
+sam deploy --guided
+
+5. Build the Hello World application
+# Check the [Application-name]/README file instructions
+cd [Application-name]
+sam build
+
+6. Run the application locally (in Cloud9)
+sam local invoke
+
+7. Deploy the application to an ECR image repository
+# Create a cloudformation stack to deploy the application image in the ECR image repository
+sam deploy --guided
+
+8. Test: After successful execution, it will generate an API gateway endpoint URL that you can curl or paste in a browser tab to see the function output.
+curl [API gateway endpoint URL]
+
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started-hello-world.html
+
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html
+
+
+go to:elastic container registry
+and cr8 a registry
+
+copy d URI: 
+808190147553.dkr.ecr.us-east-1.amazonaws.com/helloworldrepo
+
+paste the uri in the Image Repository for HelloWorldFunction prompt: 
+808190147553.dkr.ecr.us-east-1.amazonaws.com/helloworldrepo
+
+get the deploy url from the Value section:
+curl url
+curl https://6vvpx6x60b.execute-api.us-east-1.amazonaws.com/Prod/hello/
+
+
+or paste d url in browser
+https://6vvpx6x60b.execute-api.us-east-1.amazonaws.com/Prod/hello/
+
+
+Q:What parameter(s) does a basic lambda_handler accept as input?
+event and context
+
+-: Deploying and testing:
+to run the API locally on port 3000:
+sam local start-api
+
+dn run: curl http://127.0.0.1:3000/hello
+in terminal
+
+One of the most common ways to trigger the Lambda function would be through API Gateway. A web service is created by adding API Gateway to the lambda, and then, if the URL is requested by a browser or an API call, it would, in turn, trigger the Lambda function.
+
+Another common way to trigger the AWS Lambda function would be to attach it to Amazon S3. Instead of the Lambda function being triggered from the web service, it could be triggered every time a new file is placed in an S3 bucket. Yet another trigger could be a CloudWatch Event Timer. A timer could be set up to run every hour. At the top of each hour, the Lambda function would be called.
+
+Let’s get into a real-world example now. A company that needs to collect a competitor’s pricing, say for a similar washing machine they are selling, could create a Lambda function that scrapes the competitor’s website. Next, a CloudWatch Event timer could run nightly to scrape the website and put the results into an S3 bucket. When the S3 bucket receives the HTML results, a second AWS Lambda function could be triggered that extracts the pricing information from the HTML file and writes it to DynamoDB, if it is lower than the current value in the database. Finally, the website itself could host a third AWS Lambda function that uses API Gateway to serve out the companies current prices, which will always be at least the same price or lower than their competitors.
+
+-: Creating a Virtual Environment
