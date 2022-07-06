@@ -261,3 +261,79 @@ Another common way to trigger the AWS Lambda function would be to attach it to A
 Let’s get into a real-world example now. A company that needs to collect a competitor’s pricing, say for a similar washing machine they are selling, could create a Lambda function that scrapes the competitor’s website. Next, a CloudWatch Event timer could run nightly to scrape the website and put the results into an S3 bucket. When the S3 bucket receives the HTML results, a second AWS Lambda function could be triggered that extracts the pricing information from the HTML file and writes it to DynamoDB, if it is lower than the current value in the database. Finally, the website itself could host a third AWS Lambda function that uses API Gateway to serve out the companies current prices, which will always be at least the same price or lower than their competitors.
 
 -: Creating a Virtual Environment
+Creating a Virtual Environment
+A virtual environment is a Python environment isolates the Python interpreter to a specific directory. In simple words, it has its own set of python packages installed.
+
+Creating Virtual Environments
+There are a several ways to create a virtual environment. Here, we will make use of the venv package that comes as a default with Python 3.x. The Python standard library includes a module called venv that helps to create a virtual environment.
+
+The command below will create hello virtual environment in a user's home directory.
+
+python3 -m venv ~/.hello
+To use this virtual environment it needs to be activated.
+
+source  ~/.hello/bin/activate
+
+[Optional] Convention to Create Virtual Environments:
+
+ A convention based workflow with virtual environments can also dramatically simplify using them. Here is a simple convention to use:
+
+Create a virtual environment with a ~/.[reponame] format. This removes the decision about where to put the virtual environment and what to name it. If your git repository is called hello, then you would run the following command:
+python3 -m venv ~/.hello
+
+Note, that the . makes the virtual environment hidden. This will prevent your home directory overflowing with virtual environments when you open it in a GUI or list the contents with ls -l.
+Create an alias in your Bash or ZSH environment. With ZSH, the config file to edit would be ~/.zshrc. In Bash it would be ~/.bashrc. Inside of this config file add the following:
+
+# Hello repo                                                                   
+alias hello="cd ~/hello && source ~/.hello/bin/activate"   
+
+https://ohmyz.sh/
+
+https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+
+
+Q: What is the terminal command for creating a virtual, python environment named mycloud9?
+python3 -m venv ~/mycloud9
+
+Q: What is the terminal command for activating a virtual, python environment named mycloud9?
+You should use source and activate with your environment name.
+source ~/mycloud9/bin/activate
+
+Q: After you've created a virtual environment, which two steps do you then typically follow (in order)?
+1. Activate d environmt 
+2. Install any required dependencies
+
+
+-: Events & Response
+here are codes (signals) that are returned that indicate what a web request is doing:
+
+1xx (request received and processing)
+2xx (request successful)
+3xx (redirection)
+4xx (client error
+5xx (server error)
+
+In practice this comes into play when testing an application or setting up alerts. For monitoring that an error code that had, say 500 would signal a problem and a 200 would be a success.
+
+
+Q: Assuming an event has a body, how do you retrieve and save that JSON body in code?
+You have to load the JSON body with json.loads() and save the event["body"] to a variable name.
+body = json.loads(event["body"])
+
+
+Q: When formatting a JSON response you have to include several "string":value pairs. What strings are included in a simple JSON response? (Check ALL options that apply.)
+statusCode
+headers
+body
+
+Q: To send a JSON payload as input or as a test, what kind of HTTP method should you use?
+POST
+
+to access help:
+sam local invoke -h
+
+anoda way of invoking json
+sam local invoke -e payload.json
+
+
+-: Test & Response
